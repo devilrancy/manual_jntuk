@@ -1,0 +1,54 @@
+<ion-view title="Program-29">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating Class Template.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li>template <span class="sh_symbol">&lt;</span><span class="sh_usertype">class</span><span class="sh_normal"> </span>T<span class="sh_symbol">&gt;</span></li><li><span class="sh_usertype">T</span><span class="sh_normal"> </span><span class="sh_function">Large</span><span class="sh_symbol">(</span><span class="sh_usertype">T</span><span class="sh_normal"> </span>n1<span class="sh_symbol">,</span> <span class="sh_usertype">T</span><span class="sh_normal"> </span>n2<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_symbol">(</span>n1<span class="sh_symbol">&gt;</span>n2<span class="sh_symbol">)</span> <span class="sh_symbol">?</span> n1<span class="sh_symbol">:</span>n2<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> i1<span class="sh_symbol">,</span> i2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">float</span> f1<span class="sh_symbol">,</span> f2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> c1<span class="sh_symbol">,</span> c2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Enter two integers: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>i1<span class="sh_symbol">&gt;&gt;</span>i2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_function">Large</span><span class="sh_symbol">(</span>i1<span class="sh_symbol">,</span> i2<span class="sh_symbol">)&lt;&lt;</span><span class="sh_string">" is larger."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">Enter two floating-point numbers: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>f1<span class="sh_symbol">&gt;&gt;</span>f2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_function">Large</span><span class="sh_symbol">(</span>f1<span class="sh_symbol">,</span> f2<span class="sh_symbol">)&lt;&lt;</span><span class="sh_string">" is larger."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">Enter two characters: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>c1<span class="sh_symbol">&gt;&gt;</span>c2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_function">Large</span><span class="sh_symbol">(</span>c1<span class="sh_symbol">,</span> c2<span class="sh_symbol">)&lt;&lt;</span><span class="sh_string">" has larger ASCII value."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;iostream.h&gt;
+
+template &lt;class T&gt;
+T Large(T n1, T n2)
+{
+  return (n1&gt;n2) ? n1:n2;
+}
+int main()
+{
+  int i1, i2;
+  float f1, f2;
+  char c1, c2;
+  cout&lt;&lt;"Enter two integers: ";
+  cin&gt;&gt;i1&gt;&gt;i2;
+  cout&lt;&lt;Large(i1, i2)&lt;&lt;" is larger.";
+  cout&lt;&lt;"\n\nEnter two floating-point numbers: ";
+  cin&gt;&gt;f1&gt;&gt;f2;
+  cout&lt;&lt;Large(f1, f2)&lt;&lt;" is larger.";
+  cout&lt;&lt;"\n\nEnter two characters: ";
+  cin&gt;&gt;c1&gt;&gt;c2;
+  cout&lt;&lt;Large(c1, c2)&lt;&lt;" has larger ASCII value.";
+  return 0;
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter <span class="sh_usertype">two</span><span class="sh_normal"> </span>integers<span class="sh_symbol">:</span> <span class="sh_number">12</span> <span class="sh_number">54</span></li><li><span class="sh_number">54</span> is largest</li><li></li><li>Enter <span class="sh_usertype">two</span><span class="sh_normal"> </span>floating<span class="sh_symbol">-</span><span class="sh_usertype">point</span><span class="sh_normal"> </span>numbers<span class="sh_symbol">:</span> <span class="sh_number">23.5</span> <span class="sh_number">89.7</span></li><li><span class="sh_number">90.7</span> is largest</li><li></li><li>Enter <span class="sh_usertype">two</span><span class="sh_normal"> </span>characters<span class="sh_symbol">:</span> a A</li><li>a has larger <span class="sh_usertype">ASCII</span><span class="sh_normal"> </span>value<span class="sh_symbol">.</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter two integers: 12 54
+54 is largest
+
+Enter two floating-point numbers: 23.5 89.7
+90.7 is largest
+
+Enter two characters: a A
+a has larger ASCII value.</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

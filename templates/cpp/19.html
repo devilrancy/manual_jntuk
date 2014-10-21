@@ -1,0 +1,102 @@
+<ion-view title="Program-19">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating user defined string processing functions using pointers (String Length, String Copy, String Concatenation).
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">copystr</span><span class="sh_symbol">(</span><span class="sh_type">char</span><span class="sh_symbol">*,</span><span class="sh_type">char</span><span class="sh_symbol">*);</span></li><li><span class="sh_type">void</span> <span class="sh_function">strlength</span><span class="sh_symbol">(</span><span class="sh_type">char</span><span class="sh_symbol">*);</span></li><li><span class="sh_type">void</span> <span class="sh_function">strcon</span><span class="sh_symbol">(</span><span class="sh_type">char</span><span class="sh_symbol">*,</span><span class="sh_type">char</span><span class="sh_symbol">*);</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> <span class="sh_symbol">*</span>pstr<span class="sh_symbol">,*</span>ppstr<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> str1<span class="sh_symbol">[</span><span class="sh_number">30</span><span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> str2<span class="sh_symbol">[</span><span class="sh_number">30</span><span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> ch<span class="sh_symbol">;</span></li><li></li><li></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 1st string:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">gets</span><span class="sh_symbol">(</span>str1<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;pstr<span class="sh_symbol">=</span>str1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 2nd string:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">gets</span><span class="sh_symbol">(</span>str2<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ppstr<span class="sh_symbol">=</span>str2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Menu</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"1-Copy String</span><span class="sh_specialchar">\n</span><span class="sh_string">2-String Length</span><span class="sh_specialchar">\n</span><span class="sh_string">3-String Concatenation</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter your choice:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>ch<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">switch</span><span class="sh_symbol">(</span>ch<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span>cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">String 2 Before copying is:"</span><span class="sh_symbol">&lt;&lt;</span>str2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">copystr</span><span class="sh_symbol">(</span>ppstr<span class="sh_symbol">,</span>pstr<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">String 2 After Copying is:"</span><span class="sh_symbol">&lt;&lt;</span>str2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_function">strlength</span><span class="sh_symbol">(</span>pstr<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">3</span><span class="sh_symbol">:</span><span class="sh_function">strcon</span><span class="sh_symbol">(</span>pstr<span class="sh_symbol">,</span>ppstr<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">default</span><span class="sh_symbol">:</span>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Invalid Choice"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li> <span class="sh_cbracket">}</span></li><li></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">copystr</span><span class="sh_symbol">(</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>dest<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>src<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">(*</span>src<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*</span>dest<span class="sh_symbol">++=*</span>src<span class="sh_symbol">++;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*</span>dest<span class="sh_symbol">=</span><span class="sh_string">'</span><span class="sh_specialchar">\0</span><span class="sh_string">'</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">strlength</span><span class="sh_symbol">(</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>str<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">(*</span>str<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i<span class="sh_symbol">++;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*</span>str<span class="sh_symbol">++;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"1st String Length is:"</span><span class="sh_symbol">&lt;&lt;</span>i<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">strcon</span><span class="sh_symbol">(</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>str1<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>str2<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li><span class="sh_type">char</span> str<span class="sh_symbol">[</span><span class="sh_number">30</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">(*</span>str1<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str<span class="sh_symbol">[</span>i<span class="sh_symbol">++]=*</span>str1<span class="sh_symbol">++;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">(*</span>str2<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str<span class="sh_symbol">[</span>i<span class="sh_symbol">++]=*</span>str2<span class="sh_symbol">++;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;str<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_string">'</span><span class="sh_specialchar">\0</span><span class="sh_string">'</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"String Formed:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">puts</span><span class="sh_symbol">(</span>str<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+void copystr(char*,char*);
+void strlength(char*);
+void strcon(char*,char*);
+
+void main()
+{
+  char *pstr,*ppstr;
+  char str1[30];
+  char str2[30];
+  int ch;
+
+
+
+  cout&lt;&lt;"\nEnter 1st string:";
+  gets(str1);
+  pstr=str1;
+  cout&lt;&lt;"\nEnter 2nd string:";
+  gets(str2);
+  ppstr=str2;
+
+  cout&lt;&lt;"\nMenu\n";
+  cout&lt;&lt;"1-Copy String\n2-String Length\n3-String Concatenation\nEnter your choice:";
+  cin&gt;&gt;ch;
+
+  switch(ch)
+  {
+    case 1:cout&lt;&lt;"\nString 2 Before copying is:"&lt;&lt;str2;
+         copystr(ppstr,pstr);
+         cout&lt;&lt;"\nString 2 After Copying is:"&lt;&lt;str2;
+         break;
+    case 2:strlength(pstr);
+         break;
+    case 3:strcon(pstr,ppstr);
+         break;
+    default:  cout&lt;&lt;"\nInvalid Choice";
+  }
+
+ }
+
+
+void copystr(char *dest,char *src){
+  while(*src)
+    *dest++=*src++;
+  *dest='\0';
+}
+void strlength(char *str){
+int i=0;
+  while(*str){
+    i++;
+    *str++;
+  }
+  cout&lt;&lt;"1st String Length is:"&lt;&lt;i;
+}
+void strcon(char *str1,char *str2){
+char str[30];
+int i=0;
+  while(*str1)
+    str[i++]=*str1++;
+
+  while(*str2)
+    str[i++]=*str2++;
+  str[i]='\0';
+  cout&lt;&lt;"String Formed:";
+  puts(str);
+}</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter 1<span class="sh_usertype">st</span><span class="sh_normal"> </span>String<span class="sh_symbol">:</span>Nokia</li><li>Enter 2<span class="sh_usertype">nd</span><span class="sh_normal"> </span>String<span class="sh_symbol">:</span>Samsung</li><li></li><li>Menu</li><li><span class="sh_number">1</span><span class="sh_symbol">-</span>Copy String</li><li><span class="sh_number">2</span><span class="sh_symbol">-</span>String Length</li><li><span class="sh_number">3</span><span class="sh_symbol">-</span>String Concatination</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>Choice<span class="sh_symbol">:</span><span class="sh_number">1</span></li><li></li><li>String <span class="sh_number">2</span> Before <span class="sh_usertype">copying</span><span class="sh_normal"> </span>is<span class="sh_symbol">:</span>Samsung</li><li>String <span class="sh_number">2</span> after <span class="sh_usertype">Copying</span><span class="sh_normal"> </span>is<span class="sh_symbol">:</span>Nokia</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter 1st String:Nokia
+Enter 2nd String:Samsung
+
+Menu
+1-Copy String
+2-String Length
+3-String Concatination
+Enter your Choice:1
+
+String 2 Before copying is:Samsung
+String 2 after Copying is:Nokia</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

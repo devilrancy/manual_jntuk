@@ -1,0 +1,73 @@
+<ion-view title="Program-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write a C++ program Swapping integer values by reference.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">swap</span><span class="sh_symbol">(</span><span class="sh_type">int</span> <span class="sh_symbol">*,</span><span class="sh_type">int</span><span class="sh_symbol">*);</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> num1<span class="sh_symbol">,</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the 1st number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>num1<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the 2nd Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>num2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Before Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">1st Number:"</span><span class="sh_symbol">&lt;&lt;</span>num1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">2nd Number:"</span><span class="sh_symbol">&lt;&lt;</span>num2<span class="sh_symbol">;</span></li><li></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">swap</span><span class="sh_symbol">(&amp;</span>num1<span class="sh_symbol">,&amp;</span>num2<span class="sh_symbol">);</span></li><li></li><li></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">After Swapping"</span><span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">1st Number:"</span><span class="sh_symbol">&lt;&lt;</span>num1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">2nd Number:"</span><span class="sh_symbol">&lt;&lt;</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">swap</span><span class="sh_symbol">(</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>num1<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>num2<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> temp<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;temp<span class="sh_symbol">=*</span>num1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*</span>num1<span class="sh_symbol">=*</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*</span>num2<span class="sh_symbol">=</span>temp<span class="sh_symbol">;</span></li><li></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+#include&lt;conio.h&gt;
+
+void swap(int *,int*);
+
+void main()
+{
+  int num1,num2;
+  clrscr();
+  cout&lt;&lt;"\nEnter the 1st number:";
+  cin&gt;&gt;num1;
+
+  cout&lt;&lt;"\nEnter the 2nd Number:";
+  cin&gt;&gt;num2;
+
+  cout&lt;&lt;"\nBefore Swapping\n";
+
+  cout&lt;&lt;"\n\n1st Number:"&lt;&lt;num1;
+  cout&lt;&lt;"\n2nd Number:"&lt;&lt;num2;
+
+
+  swap(&amp;num1,&amp;num2);
+
+
+
+  cout&lt;&lt;"\n\nAfter Swapping";
+
+  cout&lt;&lt;"\n\n1st Number:"&lt;&lt;num1;
+  cout&lt;&lt;"\n2nd Number:"&lt;&lt;num2;
+  getch();
+}
+void swap(int *num1,int *num2)
+{
+  int temp;
+  temp=*num1;
+  *num1=*num2;
+  *num2=temp;
+
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter the 1<span class="sh_usertype">st</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li><span class="sh_usertype">Enter</span><span class="sh_normal"> </span>the @<span class="sh_usertype">nd</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">43</span></li><li>Before Swapping</li><li></li><li>1<span class="sh_usertype">st</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li>2<span class="sh_usertype">nd</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span><span class="sh_number">43</span></li><li></li><li>After Swapping</li><li></li><li>1<span class="sh_usertype">st</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span><span class="sh_number">43</span></li><li>2<span class="sh_usertype">nd</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span><span class="sh_number">5</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter the 1st number:5
+Enter the @nd number:43
+Before Swapping
+
+1st Number:5
+2nd Number:43
+
+After Swapping
+
+1st Number:43
+2nd Number:5</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

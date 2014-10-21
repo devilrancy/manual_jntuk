@@ -1,0 +1,97 @@
+<ion-view title="Week-8">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>User Authentication :</li><li>Assume four users user1,user2,user3 and user4 having the passwords pwd1,pwd2,pwd3</li><li>and pwd4 respectively. Write a servelet for doing the following.</li><li>1. Create a Cookie and add these four user id’s and passwords to this Cookie.</li><li>2. Read the user id and passwords entered in the Login form (week1) and authenticate</li><li>with the values (user id and passwords ) available in the cookies.</li><li>If he is a valid user(i.e., user-name and password match) you should welcome him by</li><li>name(user-name) else you should display “ You are not an authenticated user “.</li><li></li><li>Use init-parameters to do this. Store the user-names and passwords in the webinf.xml and</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">User Authentication :
+Assume four users user1,user2,user3 and user4 having the passwords pwd1,pwd2,pwd3
+and pwd4 respectively. Write a servelet for doing the following.
+1. Create a Cookie and add these four user id’s and passwords to this Cookie.
+2. Read the user id and passwords entered in the Login form (week1) and authenticate
+with the values (user id and passwords ) available in the cookies.
+If he is a valid user(i.e., user-name and password match) you should welcome him by
+name(user-name) else you should display “ You are not an authenticated user “.
+
+Use init-parameters to do this. Store the user-names and passwords in the webinf.xml and
+</pre></div></div>
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<h5><b>login.html</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_keyword">&lt;html&gt;</span></li><li>  <span class="sh_keyword">&lt;body</span> <span class="sh_type">bgcolor</span><span class="sh_symbol">=</span><span class="sh_string">"cyan"</span><span class="sh_keyword">&gt;</span></li><li>    <span class="sh_keyword">&lt;center&gt;</span>   </li><li>         <span class="sh_keyword">&lt;form</span> <span class="sh_type">action</span><span class="sh_symbol">=</span><span class="sh_string">"http://localhost:8090/initp1/initp1servlet"</span> <span class="sh_type">method</span><span class="sh_symbol">=</span><span class="sh_string">"get"</span><span class="sh_keyword">&gt;</span></li><li>           USER NAME : <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"text"</span>  <span class="sh_keyword">&gt;&lt;br&gt;&lt;br&gt;</span></li><li>           PASSWORD : <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"password"</span><span class="sh_keyword">&gt;&lt;br&gt;&lt;br&gt;</span></li><li>         <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"submit"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"login"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">"Log In"</span><span class="sh_keyword">&gt;</span></li><li><span class="sh_preproc">&amp;nbsp;&amp;nbsp;</span></li><li>          <span class="sh_keyword">&lt;/form&gt;</span></li><li>     <span class="sh_keyword">&lt;/center&gt;</span></li><li>   <span class="sh_keyword">&lt;/body&gt;</span></li><li><span class="sh_keyword">&lt;/html&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;html&gt;
+  &lt;body bgcolor="cyan"&gt;
+    &lt;center&gt;   
+         &lt;form action="http://localhost:8090/initp1/initp1servlet" method="get"&gt;
+           USER NAME : &lt;input type="text"  &gt;&lt;br&gt;&lt;br&gt;
+           PASSWORD : &lt;input type="password"&gt;&lt;br&gt;&lt;br&gt;
+         &lt;input type="submit" name="login" value="Log In"&gt;
+&amp;nbsp;&amp;nbsp;
+          &lt;/form&gt;
+     &lt;/center&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre></div></div>
+      <h5><b>init servlet</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>io<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>http<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>lang<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>util<span class="sh_symbol">.*;</span></li><li><span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal"> </span><span class="sh_classname">initp1servlet</span> <span class="sh_keyword">extends</span> HttpServlet </li><li> <span class="sh_cbracket">{</span></li><li><span class="sh_usertype">String</span><span class="sh_normal"> </span>uname1<span class="sh_symbol">,</span>pwd1<span class="sh_symbol">;</span>    </li><li>   <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">init</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_usertype">ServletConfig</span><span class="sh_normal"> </span>sc<span class="sh_symbol">=</span><span class="sh_function">getServletConfig</span><span class="sh_symbol">();</span></li><li>uname1<span class="sh_symbol">=</span>sc<span class="sh_symbol">.</span><span class="sh_function">getInitParameter</span><span class="sh_symbol">(</span><span class="sh_string">"uname"</span><span class="sh_symbol">);</span></li><li>pwd1<span class="sh_symbol">=</span>sc<span class="sh_symbol">.</span><span class="sh_function">getInitParameter</span><span class="sh_symbol">(</span><span class="sh_string">"pwd"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span></li><li><span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">doGet</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>    <span class="sh_keyword">throws</span> IOException<span class="sh_symbol">,</span> ServletException</li><li>    <span class="sh_cbracket">{</span></li><li>response<span class="sh_symbol">.</span><span class="sh_function">setContentType</span><span class="sh_symbol">(</span><span class="sh_string">"text/html"</span><span class="sh_symbol">);</span></li><li><span class="sh_usertype">PrintWriter</span><span class="sh_normal"> </span>out <span class="sh_symbol">=</span> response<span class="sh_symbol">.</span><span class="sh_function">getWriter</span><span class="sh_symbol">();</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">((</span>uname1<span class="sh_symbol">.</span><span class="sh_function">equals</span><span class="sh_symbol">(</span><span class="sh_string">"a"</span><span class="sh_symbol">))&amp;&amp;(</span>pwd1<span class="sh_symbol">.</span><span class="sh_function">equals</span><span class="sh_symbol">(</span><span class="sh_string">"a"</span><span class="sh_symbol">)))</span></li><li><span class="sh_cbracket">{</span></li><li>out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"welcome"</span><span class="sh_symbol">+</span>uname1<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span>      </li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.lang.*;
+import java.util.*;
+public class initp1servlet extends HttpServlet 
+ {
+String uname1,pwd1;    
+   public void init()
+{
+ServletConfig sc=getServletConfig();
+uname1=sc.getInitParameter("uname");
+pwd1=sc.getInitParameter("pwd");
+  }
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException
+    {
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+if((uname1.equals("a"))&amp;&amp;(pwd1.equals("a")))
+{
+out.println("welcome"+uname1);
+}      
+}
+}
+</pre></div></div>
+      <h5><b>web.xml</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_xml snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_keyword">&lt;web-app&gt;</span></li><li>    <span class="sh_keyword">&lt;servlet&gt;</span></li><li>        </li><li>        <span class="sh_keyword">&lt;init-param&gt;</span></li><li>            <span class="sh_keyword">&lt;param-name&gt;</span>uname<span class="sh_keyword">&lt;/param-name&gt;</span></li><li>            <span class="sh_keyword">&lt;param-value&gt;</span>a<span class="sh_keyword">&lt;/param-value&gt;</span></li><li>        <span class="sh_keyword">&lt;/init-param&gt;</span></li><li>        <span class="sh_keyword">&lt;init-param&gt;</span></li><li>            <span class="sh_keyword">&lt;param-name&gt;</span>pwd<span class="sh_keyword">&lt;/param-name&gt;</span></li><li>            <span class="sh_keyword">&lt;param-value&gt;</span>a<span class="sh_keyword">&lt;/param-value&gt;</span></li><li>        <span class="sh_keyword">&lt;/init-param&gt;</span></li><li><span class="sh_keyword">&lt;servlet-name&gt;</span>initp1servlet<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-class&gt;</span>initp1servlet<span class="sh_keyword">&lt;/servlet-class&gt;</span></li><li>      <span class="sh_keyword">&lt;/servlet&gt;</span></li><li>    <span class="sh_keyword">&lt;servlet-mapping&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-name&gt;</span>initp1servlet<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>        <span class="sh_keyword">&lt;url-pattern&gt;</span>/initp1servlet<span class="sh_keyword">&lt;/url-pattern&gt;</span></li><li>    <span class="sh_keyword">&lt;/servlet-mapping&gt;</span>    </li><li><span class="sh_keyword">&lt;/web-app&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;web-app&gt;
+    &lt;servlet&gt;
+        
+        &lt;init-param&gt;
+            &lt;param-name&gt;uname&lt;/param-name&gt;
+            &lt;param-value&gt;a&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;pwd&lt;/param-name&gt;
+            &lt;param-value&gt;a&lt;/param-value&gt;
+        &lt;/init-param&gt;
+&lt;servlet-name&gt;initp1servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;initp1servlet&lt;/servlet-class&gt;
+      &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;initp1servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/initp1servlet&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;    
+&lt;/web-app&gt;
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="item item-image">
+        <img src="img/w9.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

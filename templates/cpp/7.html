@@ -1,0 +1,49 @@
+<ion-view title="Program-7">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating to sort integer numbers.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> n<span class="sh_symbol">,</span>a<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">],</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>temp<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the Limit:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>n<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>a<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span>i<span class="sh_number">+1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>a<span class="sh_symbol">[</span>i<span class="sh_symbol">]&gt;</span>a<span class="sh_symbol">[</span>j<span class="sh_symbol">])</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp<span class="sh_symbol">=</span>a<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>a<span class="sh_symbol">[</span>j<span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>temp<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">&lt;&lt;</span>a<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+#include&lt;conio.h&gt;
+void main(){
+  int n,a[20],i,j,temp;
+  cout&lt;&lt;"\nEnter the Limit:";
+  cin&gt;&gt;n;
+  for(i=1;i&lt;=n;i++)  {
+    cin&gt;&gt;a[i];
+  }
+  for(i=1;i&lt;=n;i++)
+    for(j=i+1;j&lt;=n;j++)
+      if(a[i]&gt;a[j])
+      {
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+      }
+  for(i=1;i&lt;=n;i++)
+    cout&lt;&lt;"\t"&lt;&lt;a[i];
+
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>Limit<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li><span class="sh_number">1</span> <span class="sh_number">2</span> <span class="sh_number">3</span> <span class="sh_number">4</span> <span class="sh_number">5</span></li><li></li><li>Sorted array is</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">1</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">2</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">3</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">5</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter the Limit:5
+1 2 3 4 5
+
+Sorted array is
+  1   2 3 4 5</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

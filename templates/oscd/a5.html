@@ -1,0 +1,312 @@
+<ion-view title="PART A-5">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A program to Convert the BNF rules into YACC form and write code to generate abstract syntax tree.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_flex snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>&lt;<span class="sh_preproc">int</span><span class="sh_symbol">.</span>l<span class="sh_symbol">&gt;</span></li><li><span class="sh_preproc">%{</span></li><li><span class="sh_preproc">    #include</span><span class="sh_string">"y.tab.h"</span></li><li><span class="sh_preproc">    #include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">    #include</span><span class="sh_string">&lt;string.h&gt;</span></li><li>    <span class="sh_type">int</span> LineNo<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li><span class="sh_preproc">%}</span></li><li></li><li><span class="sh_preproc">identifier</span> <span class="sh_symbol">[</span>a<span class="sh_symbol">-</span>zA<span class="sh_symbol">-</span>Z<span class="sh_symbol">][</span>_a<span class="sh_symbol">-</span>zA<span class="sh_symbol">-</span>Z0<span class="sh_symbol">-</span>9<span class="sh_symbol">]*</span></li><li><span class="sh_preproc">number</span>  <span class="sh_symbol">[</span>0<span class="sh_symbol">-</span>9<span class="sh_symbol">]+|([</span>0<span class="sh_symbol">-</span>9<span class="sh_symbol">]*\.[</span>0<span class="sh_symbol">-</span>9<span class="sh_symbol">]+)</span></li><li><span class="sh_preproc">%%</span></li><li></li><li>main<span class="sh_preproc">\(\)</span> return MAIN<span class="sh_symbol">;</span></li><li></li><li>if                        return IF<span class="sh_symbol">;</span></li><li>else                     return ELSE<span class="sh_symbol">;</span></li><li>while                    return WHILE<span class="sh_symbol">;</span></li><li></li><li>int <span class="sh_symbol">|</span></li><li>char <span class="sh_symbol">|</span></li><li>float                      return TYPE<span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">{identifier}</span>  <span class="sh_cbracket">{</span><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>yylval<span class="sh_symbol">.</span>var<span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span></li><li>                            <span class="sh_keyword">return</span> VAR<span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li><span class="sh_type">{number}</span>      <span class="sh_cbracket">{</span><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>yylval<span class="sh_symbol">.</span>var<span class="sh_symbol">,</span>yytext<span class="sh_symbol">)</span> <span class="sh_symbol">;</span></li><li>                        <span class="sh_keyword">return</span> NUM<span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_preproc">\&lt;</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&gt;</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&gt;</span><span class="sh_symbol">=</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&lt;</span><span class="sh_symbol">=</span> <span class="sh_symbol">|</span>  </li><li><span class="sh_symbol">==</span>          <span class="sh_cbracket">{</span><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>yylval<span class="sh_symbol">.</span>var<span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span></li><li>                        <span class="sh_keyword">return</span> RELOP<span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">[</span> <span class="sh_preproc">\t</span><span class="sh_symbol">]</span> <span class="sh_symbol">;</span></li><li><span class="sh_preproc">\n</span>  LineNo<span class="sh_symbol">++;</span></li><li></li><li><span class="sh_symbol">.</span>   return yytext<span class="sh_symbol">[</span>0<span class="sh_symbol">];</span></li><li><span class="sh_preproc">%%</span></li><li>                      <span class="sh_symbol">&lt;</span> <span class="sh_type">int</span><span class="sh_symbol">.</span>y<span class="sh_symbol">&gt;</span></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">{</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;string.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">quad</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">char</span> op<span class="sh_symbol">[</span><span class="sh_number">5</span><span class="sh_symbol">];</span></li><li>  <span class="sh_type">char</span> arg1<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li>  <span class="sh_type">char</span> arg2<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li>  <span class="sh_type">char</span> result<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span>QUAD<span class="sh_symbol">[</span><span class="sh_number">30</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">stack</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> items<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li>  <span class="sh_type">int</span> top<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span>stk<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> Index<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>tIndex<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>StNo<span class="sh_symbol">,</span>Ind<span class="sh_symbol">,</span>tInd<span class="sh_symbol">;</span></li><li><span class="sh_keyword">extern</span> <span class="sh_type">int</span> LineNo<span class="sh_symbol">;</span></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">%</span><span class="sh_keyword">union</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">char</span> var<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">%</span>token <span class="sh_symbol">&lt;</span>var<span class="sh_symbol">&gt;</span> NUM VAR RELOP</li><li><span class="sh_symbol">%</span>token MAIN IF ELSE WHILE TYPE</li><li></li><li><span class="sh_symbol">%</span>type <span class="sh_symbol">&lt;</span>var<span class="sh_symbol">&gt;</span> EXPR ASSIGNMENT CONDITION IFST ELSEST WHILELOOP</li><li><span class="sh_symbol">%</span>left <span class="sh_string">'-'</span> <span class="sh_string">'+'</span></li><li><span class="sh_symbol">%</span>left <span class="sh_string">'*'</span> <span class="sh_string">'/'</span></li><li><span class="sh_symbol">%%</span></li><li></li><li></li><li>PROGRAM <span class="sh_symbol">:</span>  MAIN BLOCK</li><li><span class="sh_symbol">;</span></li><li>BLOCK<span class="sh_symbol">:</span> <span class="sh_string">'{'</span> CODE <span class="sh_string">'}'</span></li><li><span class="sh_symbol">;</span></li><li></li><li>CODE<span class="sh_symbol">:</span> BLOCK</li><li>      <span class="sh_symbol">|</span> STATEMENT CODE</li><li>      <span class="sh_symbol">|</span> STATEMENT</li><li><span class="sh_symbol">;</span></li><li>STATEMENT<span class="sh_symbol">:</span> DESCT <span class="sh_string">';'</span></li><li>           <span class="sh_symbol">|</span> ASSIGNMENT <span class="sh_string">';'</span></li><li>           <span class="sh_symbol">|</span> CONDST</li><li>           <span class="sh_symbol">|</span> WHILEST</li><li><span class="sh_symbol">;</span></li><li>DESCT<span class="sh_symbol">:</span> TYPE VARLIST</li><li><span class="sh_symbol">;</span></li><li></li><li>VARLIST<span class="sh_symbol">:</span> VAR <span class="sh_string">','</span> VARLIST</li><li>         <span class="sh_symbol">|</span> VAR </li><li><span class="sh_symbol">;</span></li><li></li><li>ASSIGNMENT<span class="sh_symbol">:</span> VAR <span class="sh_string">'='</span> EXPR<span class="sh_cbracket">{</span></li><li>                         <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span><span class="sh_string">"="</span><span class="sh_symbol">);</span></li><li>                         <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">);</span></li><li>                         <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li>                         <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">);</span></li><li>                         <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>$$<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">++].</span>result<span class="sh_symbol">);</span></li><li>                        <span class="sh_cbracket">}</span></li><li><span class="sh_symbol">;</span></li><li>EXPR<span class="sh_symbol">:</span>  EXPR <span class="sh_string">'+'</span> EXPR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_string">"+"</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> EXPR <span class="sh_string">'-'</span> EXPR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_string">"-"</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> EXPR <span class="sh_string">'*'</span> EXPR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_string">"*"</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> EXPR <span class="sh_string">'/'</span> EXPR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_string">"/"</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> <span class="sh_string">'-'</span> EXPR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_string">"UMIN"</span><span class="sh_symbol">,</span>$<span class="sh_number">2</span><span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> <span class="sh_string">'('</span> EXPR <span class="sh_string">')'</span> <span class="sh_cbracket">{</span><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>$$<span class="sh_symbol">,</span>$<span class="sh_number">2</span><span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>       <span class="sh_symbol">|</span> VAR</li><li>       <span class="sh_symbol">|</span> NUM</li><li><span class="sh_symbol">;</span></li><li>CONDST<span class="sh_symbol">:</span> IFST<span class="sh_cbracket">{</span></li><li>Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li><span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>Index<span class="sh_symbol">);</span></li><li>Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li><span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>Index<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">|</span>  IFST ELSEST</li><li><span class="sh_symbol">;</span></li><li>IFST<span class="sh_symbol">:</span> IF <span class="sh_string">'('</span> CONDITION <span class="sh_string">')'</span> <span class="sh_cbracket">{</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span><span class="sh_string">"=="</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span><span class="sh_string">"FALSE"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"-1"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">push</span><span class="sh_symbol">(</span>Index<span class="sh_symbol">);</span></li><li>Index<span class="sh_symbol">++;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li>BLOCK <span class="sh_cbracket">{</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span><span class="sh_string">"GOTO"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"-1"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">push</span><span class="sh_symbol">(</span>Index<span class="sh_symbol">);</span></li><li>Index<span class="sh_symbol">++;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">;</span></li><li></li><li>ELSEST<span class="sh_symbol">:</span> ELSE<span class="sh_cbracket">{</span></li><li>tInd<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li>Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li><span class="sh_function">push</span><span class="sh_symbol">(</span>tInd<span class="sh_symbol">);</span></li><li><span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>Index<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li>BLOCK<span class="sh_cbracket">{</span></li><li>Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li><span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>Index<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">;</span></li><li>CONDITION<span class="sh_symbol">:</span> VAR R <span class="sh_usertype">ELOP</span><span class="sh_normal"> </span>VAR <span class="sh_cbracket">{</span><span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span>$<span class="sh_number">2</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">,</span>$$<span class="sh_symbol">);</span></li><li>                          StNo<span class="sh_symbol">=</span>Index<span class="sh_number">-1</span><span class="sh_symbol">;</span>  </li><li>                       <span class="sh_cbracket">}</span></li><li>                       <span class="sh_symbol">|</span> VAR</li><li>                       <span class="sh_symbol">|</span> NUM</li><li>                       <span class="sh_symbol">;</span></li><li>WHILEST<span class="sh_symbol">:</span> WHILELOOP<span class="sh_cbracket">{</span></li><li>                    Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li>                    <span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>StNo<span class="sh_symbol">);</span></li><li>                    Ind<span class="sh_symbol">=</span><span class="sh_function">pop</span><span class="sh_symbol">();</span></li><li>                    <span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Ind<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"%d"</span><span class="sh_symbol">,</span>Index<span class="sh_symbol">);</span></li><li>                  <span class="sh_cbracket">}</span></li><li><span class="sh_symbol">;</span></li><li>WHILELOOP<span class="sh_symbol">:</span> WHILE <span class="sh_string">'('</span> CONDITION <span class="sh_string">')'</span> <span class="sh_cbracket">{</span></li><li>                            <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span><span class="sh_string">"=="</span><span class="sh_symbol">);</span></li><li>                            <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span>$<span class="sh_number">3</span><span class="sh_symbol">);</span></li><li>                            <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span><span class="sh_string">"FALSE"</span><span class="sh_symbol">);</span></li><li>                            <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"-1"</span><span class="sh_symbol">);</span></li><li>                            <span class="sh_function">push</span><span class="sh_symbol">(</span>Index<span class="sh_symbol">);</span></li><li>                            Index<span class="sh_symbol">++;</span></li><li>                           <span class="sh_cbracket">}</span></li><li>BLOCK <span class="sh_cbracket">{</span></li><li>      <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span><span class="sh_string">"GOTO"</span><span class="sh_symbol">);</span></li><li>      <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li>      <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li>      <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"-1"</span><span class="sh_symbol">);</span></li><li>      <span class="sh_function">push</span><span class="sh_symbol">(</span>Index<span class="sh_symbol">);</span></li><li>      Index<span class="sh_symbol">++;</span></li><li>      <span class="sh_cbracket">}</span></li><li>  <span class="sh_symbol">;</span></li><li><span class="sh_symbol">%%</span></li><li><span class="sh_keyword">extern</span> <span class="sh_usertype">FILE</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>yyin<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">(</span><span class="sh_type">int</span> argc<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>argv<span class="sh_symbol">[])</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">FILE</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>fp<span class="sh_symbol">;</span></li><li>  <span class="sh_type">int</span> i<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>argc<span class="sh_symbol">&gt;</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    fp<span class="sh_symbol">=</span><span class="sh_function">fopen</span><span class="sh_symbol">(</span>argv<span class="sh_symbol">[</span><span class="sh_number">1</span><span class="sh_symbol">],</span><span class="sh_string">"r"</span><span class="sh_symbol">);</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(!</span>fp<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>      <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> File not found"</span><span class="sh_symbol">);</span></li><li>      <span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li>    yyin<span class="sh_symbol">=</span>fp<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_function">yyparse</span><span class="sh_symbol">();</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n\t\t</span><span class="sh_string"> ----------------------------""</span><span class="sh_specialchar">\n\t\t</span><span class="sh_string"> Pos Operator Arg1 Arg2 Result"</span> <span class="sh_string">"</span><span class="sh_specialchar">\n\t\t</span><span class="sh_string"> </span></li><li><span class="sh_string">--------------------"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>Index<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t\t</span><span class="sh_string"> %d</span><span class="sh_specialchar">\t</span><span class="sh_string"> %s</span><span class="sh_specialchar">\t</span><span class="sh_string"> %s</span><span class="sh_specialchar">\t</span><span class="sh_string"> %s</span><span class="sh_specialchar">\t</span><span class="sh_string"> </span></li><li><span class="sh_string">%s"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>i<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>i<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>i<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>i<span class="sh_symbol">].</span>result<span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t\t</span><span class="sh_string"> -----------------------"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">push</span><span class="sh_symbol">(</span><span class="sh_type">int</span> data<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  stk<span class="sh_symbol">.</span>top<span class="sh_symbol">++;</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>stk<span class="sh_symbol">.</span>top<span class="sh_symbol">==</span><span class="sh_number">100</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Stack overflow</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>    <span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span></li><li>  stk<span class="sh_symbol">.</span>items<span class="sh_symbol">[</span>stk<span class="sh_symbol">.</span>top<span class="sh_symbol">]=</span>data<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">int</span> <span class="sh_function">pop</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> data<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>stk<span class="sh_symbol">.</span>top<span class="sh_symbol">==-</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Stack underflow</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>    <span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span></li><li>  data<span class="sh_symbol">=</span>stk<span class="sh_symbol">.</span>items<span class="sh_symbol">[</span>stk<span class="sh_symbol">.</span>top<span class="sh_symbol">--];</span></li><li>  <span class="sh_keyword">return</span> data<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">AddQuadruple</span><span class="sh_symbol">(</span><span class="sh_type">char</span> op<span class="sh_symbol">[</span><span class="sh_number">5</span><span class="sh_symbol">],</span><span class="sh_type">char</span> arg1<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span><span class="sh_type">char</span> arg2<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span><span class="sh_type">char</span> result<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">])</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>op<span class="sh_symbol">,</span>op<span class="sh_symbol">);</span></li><li>  <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg1<span class="sh_symbol">,</span>arg1<span class="sh_symbol">);</span></li><li>  <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>arg2<span class="sh_symbol">,</span>arg2<span class="sh_symbol">);</span></li><li>  <span class="sh_function">sprintf</span><span class="sh_symbol">(</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">].</span>result<span class="sh_symbol">,</span><span class="sh_string">"t%d"</span><span class="sh_symbol">,</span>tIndex<span class="sh_symbol">++);</span></li><li>  <span class="sh_function">strcpy</span><span class="sh_symbol">(</span>result<span class="sh_symbol">,</span>QUAD<span class="sh_symbol">[</span>Index<span class="sh_symbol">++].</span>result<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">yyerror</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Error on line no:%d"</span><span class="sh_symbol">,</span>LineNo<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;int.l&gt;
+%{
+    #include"y.tab.h"
+    #include&lt;stdio.h&gt;
+    #include&lt;string.h&gt;
+    int LineNo=1;
+%}
+
+identifier [a-zA-Z][_a-zA-Z0-9]*
+number  [0-9]+|([0-9]*\.[0-9]+)
+%%
+
+main\(\) return MAIN;
+
+if                        return IF;
+else                     return ELSE;
+while                    return WHILE;
+
+int |
+char |
+float                      return TYPE;
+
+{identifier}  {strcpy(yylval.var,yytext);
+                            return VAR;}
+{number}      {strcpy(yylval.var,yytext) ;
+                        return NUM;}
+
+\&lt; |
+\&gt; |
+\&gt;= |
+\&lt;= |  
+==          {strcpy(yylval.var,yytext);
+                        return RELOP;}
+[ \t] ;
+\n  LineNo++;
+
+.   return yytext[0];
+%%
+                      &lt; int.y&gt;
+%{
+#include&lt;string.h&gt;
+#include&lt;stdio.h&gt;
+struct quad
+{
+  char op[5];
+  char arg1[10];
+  char arg2[10];
+  char result[10];
+}QUAD[30];
+struct stack
+{
+  int items[100];
+  int top;
+}stk;
+int Index=0,tIndex=0,StNo,Ind,tInd;
+extern int LineNo;
+%}
+%union
+{
+  char var[10];
+}
+%token &lt;var&gt; NUM VAR RELOP
+%token MAIN IF ELSE WHILE TYPE
+
+%type &lt;var&gt; EXPR ASSIGNMENT CONDITION IFST ELSEST WHILELOOP
+%left '-' '+'
+%left '*' '/'
+%%
+
+
+PROGRAM :  MAIN BLOCK
+;
+BLOCK: '{' CODE '}'
+;
+
+CODE: BLOCK
+      | STATEMENT CODE
+      | STATEMENT
+;
+STATEMENT: DESCT ';'
+           | ASSIGNMENT ';'
+           | CONDST
+           | WHILEST
+;
+DESCT: TYPE VARLIST
+;
+
+VARLIST: VAR ',' VARLIST
+         | VAR 
+;
+
+ASSIGNMENT: VAR '=' EXPR{
+                         strcpy(QUAD[Index].op,"=");
+                         strcpy(QUAD[Index].arg1,$3);
+                         strcpy(QUAD[Index].arg2,"");
+                         strcpy(QUAD[Index].result,$1);
+                         strcpy($$,QUAD[Index++].result);
+                        }
+;
+EXPR:  EXPR '+' EXPR {AddQuadruple("+",$1,$3,$$);}
+       | EXPR '-' EXPR {AddQuadruple("-",$1,$3,$$);}
+       | EXPR '*' EXPR {AddQuadruple("*",$1,$3,$$);}
+       | EXPR '/' EXPR {AddQuadruple("/",$1,$3,$$);}
+       | '-' EXPR {AddQuadruple("UMIN",$2,"",$$);}
+       | '(' EXPR ')' {strcpy($$,$2);}
+       | VAR
+       | NUM
+;
+CONDST: IFST{
+Ind=pop();
+sprintf(QUAD[Ind].result,"%d",Index);
+Ind=pop();
+sprintf(QUAD[Ind].result,"%d",Index);
+}
+|  IFST ELSEST
+;
+IFST: IF '(' CONDITION ')' {
+strcpy(QUAD[Index].op,"==");
+strcpy(QUAD[Index].arg1,$3);
+strcpy(QUAD[Index].arg2,"FALSE");
+strcpy(QUAD[Index].result,"-1");
+push(Index);
+Index++;
+}
+
+BLOCK {
+strcpy(QUAD[Index].op,"GOTO");
+strcpy(QUAD[Index].arg1,"");
+strcpy(QUAD[Index].arg2,"");
+strcpy(QUAD[Index].result,"-1");
+push(Index);
+Index++;
+}
+;
+
+ELSEST: ELSE{
+tInd=pop();
+Ind=pop();
+push(tInd);
+sprintf(QUAD[Ind].result,"%d",Index);
+}
+BLOCK{
+Ind=pop();
+sprintf(QUAD[Ind].result,"%d",Index);
+}
+;
+CONDITION: VAR R ELOP VAR {AddQuadruple($2,$1,$3,$$);
+                          StNo=Index-1;  
+                       }
+                       | VAR
+                       | NUM
+                       ;
+WHILEST: WHILELOOP{
+                    Ind=pop();
+                    sprintf(QUAD[Ind].result,"%d",StNo);
+                    Ind=pop();
+                    sprintf(QUAD[Ind].result,"%d",Index);
+                  }
+;
+WHILELOOP: WHILE '(' CONDITION ')' {
+                            strcpy(QUAD[Index].op,"==");
+                            strcpy(QUAD[Index].arg1,$3);
+                            strcpy(QUAD[Index].arg2,"FALSE");
+                            strcpy(QUAD[Index].result,"-1");
+                            push(Index);
+                            Index++;
+                           }
+BLOCK {
+      strcpy(QUAD[Index].op,"GOTO");
+      strcpy(QUAD[Index].arg1,"");
+      strcpy(QUAD[Index].arg2,"");
+      strcpy(QUAD[Index].result,"-1");
+      push(Index);
+      Index++;
+      }
+  ;
+%%
+extern FILE *yyin;
+int main(int argc,char *argv[])
+{
+  FILE *fp;
+  int i;
+  if(argc&gt;1)
+  {
+    fp=fopen(argv[1],"r");
+    if(!fp)
+    {
+      printf("\n File not found");
+      exit(0);
+    }
+    yyin=fp;
+  }
+  yyparse();
+  printf("\n\n\t\t ----------------------------""\n\t\t Pos Operator Arg1 Arg2 Result" "\n\t\t 
+--------------------");
+  for(i=0;i&lt;Index;i++)
+  {
+    printf("\n\t\t %d\t %s\t %s\t %s\t 
+%s",i,QUAD[i].op,QUAD[i].arg1,QUAD[i].arg2,QUAD[i].result);
+  }
+  printf("\n\t\t -----------------------");
+  printf("\n\n");
+  return 0;
+}
+void push(int data)
+{
+  stk.top++;
+  if(stk.top==100)
+  {
+    printf("\n Stack overflow\n");
+    exit(0);
+  }
+  stk.items[stk.top]=data;
+}
+int pop()
+{
+  int data;
+  if(stk.top==-1)
+  {
+    printf("\n Stack underflow\n");
+    exit(0);
+  }
+  data=stk.items[stk.top--];
+  return data;
+}
+void AddQuadruple(char op[5],char arg1[10],char arg2[10],char result[10])
+{
+  strcpy(QUAD[Index].op,op);
+  strcpy(QUAD[Index].arg1,arg1);
+  strcpy(QUAD[Index].arg2,arg2);
+  sprintf(QUAD[Index].result,"t%d",tIndex++);
+  strcpy(result,QUAD[Index++].result);
+}
+yyerror()
+{
+  printf("\n Error on line no:%d",LineNo);
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Input<span class="sh_symbol">:</span> </li><li></li><li>$<span class="sh_usertype">vi</span><span class="sh_normal"> </span>test<span class="sh_symbol">.</span>c</li><li><span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> a<span class="sh_symbol">,</span>b<span class="sh_symbol">,</span>c<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>a<span class="sh_symbol">&lt;</span>b<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    a<span class="sh_symbol">=</span>a<span class="sh_symbol">+</span>b<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_keyword">while</span><span class="sh_symbol">(</span>a<span class="sh_symbol">&lt;</span>b<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    a<span class="sh_symbol">=</span>a<span class="sh_symbol">+</span>b<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>a<span class="sh_symbol">&lt;=</span>b<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    c<span class="sh_symbol">=</span>a<span class="sh_symbol">-</span>b<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_keyword">else</span></li><li>  <span class="sh_cbracket">{</span></li><li>    c<span class="sh_symbol">=</span>a<span class="sh_symbol">+</span>b<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li></li><li>Output<span class="sh_symbol">:</span></li><li>$<span class="sh_usertype">lex</span><span class="sh_normal"> </span><span class="sh_type">int</span><span class="sh_symbol">.</span>l</li><li>$yacc –<span class="sh_usertype">d</span><span class="sh_normal"> </span><span class="sh_type">int</span><span class="sh_symbol">.</span>y</li><li>$<span class="sh_usertype">gcc</span><span class="sh_normal"> </span>lex<span class="sh_symbol">.</span>yy<span class="sh_symbol">.</span><span class="sh_usertype">c</span><span class="sh_normal"> </span>y<span class="sh_symbol">.</span>tab<span class="sh_symbol">.</span>c –ll –lm</li><li>$<span class="sh_symbol">./</span>a<span class="sh_symbol">.</span><span class="sh_usertype">out</span><span class="sh_normal"> </span>test<span class="sh_symbol">.</span>c</li><li></li><li>Pos Operator Arg1 Arg2 Result</li><li></li><li><span class="sh_number">0</span>    <span class="sh_symbol">&lt;</span>  a  b   to</li><li><span class="sh_number">1</span>    <span class="sh_symbol">==</span>  to FALSE   <span class="sh_number">5</span></li><li><span class="sh_number">2</span>    <span class="sh_symbol">+</span>  a  b   t1</li><li><span class="sh_number">3</span>    <span class="sh_symbol">=</span>  t1   a</li><li></li><li><span class="sh_number">4</span>   GOTO                                                <span class="sh_number">5</span></li><li><span class="sh_number">5</span>    <span class="sh_symbol">&lt;</span>  a  b   t2</li><li><span class="sh_number">6</span>     <span class="sh_symbol">==</span>  t2 FALSE   <span class="sh_number">10</span></li><li><span class="sh_number">7</span>     <span class="sh_symbol">+</span>  a  b   t3</li><li><span class="sh_number">8</span>    <span class="sh_symbol">=</span>  t3   a</li><li><span class="sh_number">9</span>   GOTO                                                <span class="sh_number">5</span></li><li><span class="sh_number">10</span>    <span class="sh_symbol">&lt;=</span>  a  b   t4</li><li><span class="sh_number">11</span>    <span class="sh_symbol">==</span>  t4 FALSE   <span class="sh_number">15</span></li><li><span class="sh_number">12</span>    <span class="sh_symbol">-</span>  a  b   t5</li><li><span class="sh_number">13</span>    <span class="sh_symbol">=</span>  t5   c</li><li><span class="sh_number">14</span>    GOTO   <span class="sh_number">17</span></li><li><span class="sh_number">15</span>    <span class="sh_symbol">+</span>  a  b   t3</li><li><span class="sh_number">16</span>    <span class="sh_symbol">=</span>  t6   c</li><li><span class="sh_symbol">*/</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Input: 
+
+$vi test.c
+main()
+{
+  int a,b,c;
+  if(a&lt;b)
+  {
+    a=a+b;
+  }
+  while(a&lt;b)
+  {
+    a=a+b;
+  }
+  if(a&lt;=b)
+  {
+    c=a-b;
+  }
+  else
+  {
+    c=a+b;
+  }
+}
+
+Output:
+$lex int.l
+$yacc –d int.y
+$gcc lex.yy.c y.tab.c –ll –lm
+$./a.out test.c
+
+Pos Operator Arg1 Arg2 Result
+
+0    &lt;  a  b   to
+1    ==  to FALSE   5
+2    +  a  b   t1
+3    =  t1   a
+
+4   GOTO                                                5
+5    &lt;  a  b   t2
+6     ==  t2 FALSE   10
+7     +  a  b   t3
+8    =  t3   a
+9   GOTO                                                5
+10    &lt;=  a  b   t4
+11    ==  t4 FALSE   15
+12    -  a  b   t5
+13    =  t5   c
+14    GOTO   17
+15    +  a  b   t3
+16    =  t6   c
+*/
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

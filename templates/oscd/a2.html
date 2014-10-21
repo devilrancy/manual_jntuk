@@ -1,0 +1,127 @@
+<ion-view title="PART A-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write a program to implement the lexical analyzer using lex tool.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_flex snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>/* <span class="sh_preproc">program</span> name is lexp<span class="sh_symbol">.</span>l <span class="sh_symbol">*/</span></li><li><span class="sh_preproc">%{</span></li><li>  <span class="sh_comment">/* program to recognize a c program */</span></li><li>     <span class="sh_type">int</span> COMMENT<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_preproc">%}</span></li><li><span class="sh_preproc">identifier</span> <span class="sh_symbol">[</span>a<span class="sh_symbol">-</span>zA<span class="sh_symbol">-</span>Z<span class="sh_symbol">][</span>a<span class="sh_symbol">-</span>zA<span class="sh_symbol">-</span>Z0<span class="sh_symbol">-</span>9<span class="sh_symbol">]*</span></li><li><span class="sh_preproc">%%</span></li><li></li><li>#<span class="sh_symbol">.*</span> <span class="sh_cbracket">{</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">%s is a PREPROCESSOR DIRECTIVE"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li>int <span class="sh_symbol">|</span></li><li>float <span class="sh_symbol">|</span></li><li>char <span class="sh_symbol">|</span></li><li>double <span class="sh_symbol">|</span></li><li>while <span class="sh_symbol">|</span></li><li>for <span class="sh_symbol">|</span></li><li>do <span class="sh_symbol">|</span></li><li>if  <span class="sh_symbol">|</span></li><li>break <span class="sh_symbol">|</span></li><li>continue <span class="sh_symbol">|</span></li><li>void <span class="sh_symbol">|</span></li><li>switch <span class="sh_symbol">|</span></li><li>case <span class="sh_symbol">|</span></li><li>long <span class="sh_symbol">|</span></li><li>struct <span class="sh_symbol">|</span></li><li>const <span class="sh_symbol">|</span></li><li>typedef <span class="sh_symbol">|</span></li><li>return <span class="sh_symbol">|</span></li><li>else <span class="sh_symbol">|</span></li><li>goto       <span class="sh_cbracket">{</span><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s is a KEYWORD"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li><span class="sh_string">"/*"</span> <span class="sh_cbracket">{</span>COMMENT <span class="sh_symbol">=</span> <span class="sh_number">1</span><span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li>     <span class="sh_comment">/*{printf("\n\n\t%s is a COMMENT\n",yytext) ;}*/</span></li><li><span class="sh_string">"*/"</span> <span class="sh_cbracket">{</span>COMMENT <span class="sh_symbol">=</span> <span class="sh_number">0</span><span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li>     <span class="sh_comment">/* printf("\n\n\t%s is a COMMENT\n",yytext);}*/</span></li><li><span class="sh_type">{identifier}</span><span class="sh_preproc">\(</span>   <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">FUNCTION</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li><span class="sh_preproc">\{</span>  <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> BLOCK BEGINS"</span><span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_preproc">\}</span>  <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> BLOCK ENDS"</span><span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">{identifier}</span><span class="sh_symbol">(</span><span class="sh_preproc">\[</span><span class="sh_symbol">[</span>0<span class="sh_symbol">-</span>9<span class="sh_symbol">]*</span><span class="sh_preproc">\]</span><span class="sh_symbol">)?</span> <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> %s IDENTIFIER"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li><span class="sh_preproc">\"</span><span class="sh_symbol">.*</span><span class="sh_preproc">\"</span>  <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s is a STRING"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_symbol">[</span>0<span class="sh_symbol">-</span>9<span class="sh_symbol">]+</span>  <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s is a NUMBER"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li><span class="sh_preproc">\)</span><span class="sh_symbol">(</span><span class="sh_preproc">\;</span><span class="sh_symbol">)?</span> <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span>ECHO<span class="sh_symbol">;</span><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_preproc">\(</span>          ECHO<span class="sh_symbol">;</span></li><li><span class="sh_symbol">=</span>       <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s is an ASSIGNMENT OPERATOR"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_preproc">\&lt;</span><span class="sh_symbol">=</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&gt;</span><span class="sh_symbol">=</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&lt;</span> <span class="sh_symbol">|</span></li><li><span class="sh_symbol">==</span> <span class="sh_symbol">|</span></li><li><span class="sh_preproc">\&gt;</span>     <span class="sh_cbracket">{</span><span class="sh_keyword">if</span><span class="sh_symbol">(!</span>COMMENT<span class="sh_symbol">)</span> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%s is a RELATIONAL OPERATOR"</span><span class="sh_symbol">,</span>yytext<span class="sh_symbol">);</span><span class="sh_cbracket">}</span>   </li><li></li><li><span class="sh_preproc">%%</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">(</span><span class="sh_type">int</span> argc<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">**</span>argv<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_keyword">if</span>  <span class="sh_symbol">(</span>argc <span class="sh_symbol">&gt;</span> <span class="sh_number">1</span><span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">FILE</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>file<span class="sh_symbol">;</span></li><li>  file <span class="sh_symbol">=</span> <span class="sh_function">fopen</span><span class="sh_symbol">(</span>argv<span class="sh_symbol">[</span><span class="sh_number">1</span><span class="sh_symbol">],</span><span class="sh_string">"r"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(!</span>file<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"could not open %s </span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>argv<span class="sh_symbol">[</span><span class="sh_number">1</span><span class="sh_symbol">]);</span></li><li>   <span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span></li><li>  yyin <span class="sh_symbol">=</span> file<span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_function">yylex</span><span class="sh_symbol">();</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">int</span> <span class="sh_function">yywrap</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">/* program name is lexp.l */
+%{
+  /* program to recognize a c program */
+     int COMMENT=0;
+%}
+identifier [a-zA-Z][a-zA-Z0-9]*
+%%
+
+#.* { printf("\n%s is a PREPROCESSOR DIRECTIVE",yytext);}
+int |
+float |
+char |
+double |
+while |
+for |
+do |
+if  |
+break |
+continue |
+void |
+switch |
+case |
+long |
+struct |
+const |
+typedef |
+return |
+else |
+goto       {printf("\n\t%s is a KEYWORD",yytext);}
+"/*" {COMMENT = 1;}
+     /*{printf("\n\n\t%s is a COMMENT\n",yytext) ;}*/
+"*/" {COMMENT = 0;}
+     /* printf("\n\n\t%s is a COMMENT\n",yytext);}*/
+{identifier}\(   {if(!COMMENT)printf("\n\nFUNCTION\n\t%s",yytext);}
+\{  {if(!COMMENT) printf("\n BLOCK BEGINS");}
+
+\}  {if(!COMMENT) printf("\n BLOCK ENDS");}
+
+{identifier}(\[[0-9]*\])? {if(!COMMENT) printf("\n %s IDENTIFIER",yytext);}
+\".*\"  {if(!COMMENT) printf("\n\t%s is a STRING",yytext);}
+
+[0-9]+  {if(!COMMENT) printf("\n\t%s is a NUMBER",yytext);}
+\)(\;)? {if(!COMMENT) printf("\n\t");ECHO;printf("\n");}
+
+\(          ECHO;
+=       {if(!COMMENT)printf("\n\t%s is an ASSIGNMENT OPERATOR",yytext);}
+
+\&lt;= |
+\&gt;= |
+\&lt; |
+== |
+\&gt;     {if(!COMMENT) printf("\n\t%s is a RELATIONAL OPERATOR",yytext);}   
+
+%%
+int main(int argc,char **argv)
+{
+ if  (argc &gt; 1)
+ {
+  FILE *file;
+  file = fopen(argv[1],"r");
+  if(!file)
+  {
+   printf("could not open %s \n",argv[1]);
+   exit(0);
+  }
+  yyin = file;
+ }
+ yylex();
+ printf("\n\n");
+ return 0;
+}
+int yywrap()
+{
+  return 0;
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_flex snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>/*<span class="sh_preproc">Input</span><span class="sh_symbol">:</span></li><li></li><li>$<span class="sh_preproc">vi</span> var<span class="sh_symbol">.</span>c</li><li></li><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>stdio<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span></li><li><span class="sh_preproc">main</span><span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">int</span> a<span class="sh_symbol">,</span>b<span class="sh_symbol">;</span></li><li>}</li><li><span class="sh_preproc">Output</span><span class="sh_symbol">:</span></li><li></li><li>$<span class="sh_preproc">lex</span> lex<span class="sh_symbol">.</span>l</li><li>$<span class="sh_preproc">cc</span> lex<span class="sh_symbol">.</span>yy<span class="sh_symbol">.</span>c</li><li>$./<span class="sh_preproc">a</span><span class="sh_symbol">.</span>out var<span class="sh_symbol">.</span>c</li><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>stdio<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span> is a PREPROCESSOR DIRECTIVE</li><li></li><li><span class="sh_preproc">FUNCTION</span></li><li></li><li>    <span class="sh_preproc">main</span> <span class="sh_symbol">(</span></li><li>         )</li><li></li><li><span class="sh_preproc">BLOCK</span> BEGINS</li><li>    <span class="sh_preproc">int</span> is a KEYWORD</li><li>      </li><li><span class="sh_preproc">a</span> IDENTIFIER</li><li>      </li><li><span class="sh_preproc">b</span> IDENTIFIER</li><li><span class="sh_preproc">BLOCK</span> ENDS<span class="sh_symbol">*/</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">/*Input:
+
+$vi var.c
+
+#include&lt;stdio.h&gt;
+main()
+{
+  int a,b;
+}
+Output:
+
+$lex lex.l
+$cc lex.yy.c
+$./a.out var.c
+#include&lt;stdio.h&gt; is a PREPROCESSOR DIRECTIVE
+
+FUNCTION
+
+    main (
+         )
+
+BLOCK BEGINS
+    int is a KEYWORD
+      
+a IDENTIFIER
+      
+b IDENTIFIER
+BLOCK ENDS*/
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

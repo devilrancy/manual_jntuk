@@ -1,0 +1,75 @@
+<ion-view title="Program-21">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating copy constructor.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li>class sam</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;private<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> num1<span class="sh_symbol">,</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">sam</span><span class="sh_symbol">(</span><span class="sh_type">int</span> i<span class="sh_symbol">,</span><span class="sh_type">int</span> j<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num1<span class="sh_symbol">=</span>i<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num2<span class="sh_symbol">=</span>j<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Default constructor working"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">sam</span><span class="sh_symbol">(</span><span class="sh_usertype">sam</span><span class="sh_normal"> </span><span class="sh_symbol">&amp;</span>obj<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num1<span class="sh_symbol">=</span>obj<span class="sh_symbol">.</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num2<span class="sh_symbol">=</span>obj<span class="sh_symbol">.</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Copy Constructor working"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num1:"</span><span class="sh_symbol">&lt;&lt;</span>num1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num2:"</span><span class="sh_symbol">&lt;&lt;</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Calling Default Constructor....."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">sam</span><span class="sh_normal"> </span><span class="sh_function">ob1</span><span class="sh_symbol">(</span><span class="sh_number">4</span><span class="sh_symbol">,</span><span class="sh_number">5</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ob1<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">Calling Copy Constructor....."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">sam</span><span class="sh_normal"> </span><span class="sh_function">ob2</span><span class="sh_symbol">(</span>ob1<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ob2<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">Another way to call Copy Constructor....."</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">sam</span><span class="sh_normal"> </span>ob3<span class="sh_symbol">=</span>ob1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ob3<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+
+class sam
+{
+  private:
+    int num1,num2;
+  public:
+    sam(int i,int j)
+    {
+      num1=i;
+      num2=j;
+      cout&lt;&lt;"Default constructor working";
+    }
+    sam(sam &amp;obj)
+    {
+      
+      num1=obj.num2;
+      num2=obj.num2;
+      cout&lt;&lt;"Copy Constructor working";
+    }
+
+    void show()
+    {
+      cout&lt;&lt;"\nNum1:"&lt;&lt;num1&lt;&lt;"\nNum2:"&lt;&lt;num2;
+    }
+};
+
+void main()
+{
+  cout&lt;&lt;"\nCalling Default Constructor.....";
+  sam ob1(4,5);
+  ob1.show();
+
+  cout&lt;&lt;"\n\nCalling Copy Constructor.....";
+  sam ob2(ob1);
+  ob2.show();
+
+  cout&lt;&lt;"\n\nAnother way to call Copy Constructor.....";
+  sam ob3=ob1;
+  ob3.show();
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Calling <span class="sh_keyword">default</span> constructor<span class="sh_symbol">....</span><span class="sh_keyword">default</span> constructor working</li><li>Num1<span class="sh_symbol">:</span><span class="sh_number">4</span></li><li>Num2<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li></li><li>Calling <span class="sh_usertype">copy</span><span class="sh_normal"> </span>constructor<span class="sh_symbol">....</span>copy constructor working</li><li>Num1<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li>Num2<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li></li><li>Another way to call <span class="sh_usertype">copy</span><span class="sh_normal"> </span>constructor<span class="sh_symbol">....</span>copy constructor working</li><li>Num1<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li>Num2<span class="sh_symbol">:</span><span class="sh_number">5</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Calling default constructor....default constructor working
+Num1:4
+Num2:5
+
+Calling copy constructor....copy constructor working
+Num1:5
+Num2:5
+
+Another way to call copy constructor....copy constructor working
+Num1:5
+Num2:5</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

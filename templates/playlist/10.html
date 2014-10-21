@@ -1,0 +1,86 @@
+<ion-view title="Program-10">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        To implement Dijkstra’s algorithm to find shortest path in the graph.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_preproc">#define</span> infinity <span class="sh_number">999</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">dij</span><span class="sh_symbol">(</span><span class="sh_type">int</span> n<span class="sh_symbol">,</span><span class="sh_type">int</span> v<span class="sh_symbol">,</span><span class="sh_type">int</span> cost<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">][</span><span class="sh_number">10</span><span class="sh_symbol">],</span><span class="sh_type">int</span> dist<span class="sh_symbol">[])</span>   <span class="sh_comment">/*function to find the minimum cost*/</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_type">int</span> i<span class="sh_symbol">,</span>u<span class="sh_symbol">,</span>count<span class="sh_symbol">,</span>w<span class="sh_symbol">,</span>flag<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span>min<span class="sh_symbol">;</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  flag<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>dist<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>cost<span class="sh_symbol">[</span>v<span class="sh_symbol">][</span>i<span class="sh_symbol">];</span>     <span class="sh_comment">/*setting all flag element to zero*/</span></li><li> count<span class="sh_symbol">=</span><span class="sh_number">2</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">while</span><span class="sh_symbol">(</span>count<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  min<span class="sh_symbol">=</span><span class="sh_number">99</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>w<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>w<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>w<span class="sh_symbol">++)</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>dist<span class="sh_symbol">[</span>w<span class="sh_symbol">]&lt;</span>min <span class="sh_symbol">&amp;&amp;</span> <span class="sh_symbol">!</span>flag<span class="sh_symbol">[</span>w<span class="sh_symbol">])</span>      <span class="sh_comment">/*finding the minimum cost*/</span></li><li>    min<span class="sh_symbol">=</span>dist<span class="sh_symbol">[</span>w<span class="sh_symbol">],</span>u<span class="sh_symbol">=</span>w<span class="sh_symbol">;</span></li><li>  flag<span class="sh_symbol">[</span>u<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>  count<span class="sh_symbol">++;</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>w<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>w<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>w<span class="sh_symbol">++)</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">((</span>dist<span class="sh_symbol">[</span>u<span class="sh_symbol">]+</span>cost<span class="sh_symbol">[</span>u<span class="sh_symbol">][</span>w<span class="sh_symbol">]&lt;</span>dist<span class="sh_symbol">[</span>w<span class="sh_symbol">])</span> <span class="sh_symbol">&amp;&amp;</span> <span class="sh_symbol">!</span>flag<span class="sh_symbol">[</span>w<span class="sh_symbol">])</span>    <span class="sh_comment">/*updating and finding the minimum cost*/</span></li><li>    dist<span class="sh_symbol">[</span>w<span class="sh_symbol">]=</span>dist<span class="sh_symbol">[</span>u<span class="sh_symbol">]+</span>cost<span class="sh_symbol">[</span>u<span class="sh_symbol">][</span>w<span class="sh_symbol">];</span></li><li> <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_type">int</span> n<span class="sh_symbol">,</span>v<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>cost<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">][</span><span class="sh_number">10</span><span class="sh_symbol">],</span>dist<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter the number of nodes:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>n<span class="sh_symbol">);</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter the cost matrix:</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span>infinity<span class="sh_symbol">;</span>         <span class="sh_comment">/*setting all cost matrix element apart from user enterd element to 999*/</span></li><li>  <span class="sh_cbracket">}</span></li><li></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter the source matrix:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>v<span class="sh_symbol">);</span>                      <span class="sh_comment">/*enter the strating node*/</span></li><li> <span class="sh_function">dij</span><span class="sh_symbol">(</span>n<span class="sh_symbol">,</span>v<span class="sh_symbol">,</span>cost<span class="sh_symbol">,</span>dist<span class="sh_symbol">);</span>                  <span class="sh_comment">/*calling the dij function*/</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Shortest path:</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>i<span class="sh_symbol">!=</span>v<span class="sh_symbol">)</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%d-&gt;%d,cost=%d</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>v<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>dist<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li> <span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#define infinity 999
+
+void dij(int n,int v,int cost[10][10],int dist[])   /*function to find the minimum cost*/
+{
+ int i,u,count,w,flag[10],min;
+ for(i=1;i&lt;=n;i++)
+  flag[i]=0,dist[i]=cost[v][i];     /*setting all flag element to zero*/
+ count=2;
+
+while(count&lt;=n)
+ {
+  min=99;
+  for(w=1;w&lt;=n;w++)
+   if(dist[w]&lt;min &amp;&amp; !flag[w])      /*finding the minimum cost*/
+    min=dist[w],u=w;
+  flag[u]=1;
+  count++;
+  for(w=1;w&lt;=n;w++)
+   if((dist[u]+cost[u][w]&lt;dist[w]) &amp;&amp; !flag[w])    /*updating and finding the minimum cost*/
+    dist[w]=dist[u]+cost[u][w];
+ }
+}
+
+void main()
+{
+ int n,v,i,j,cost[10][10],dist[10];
+
+ printf("\n Enter the number of nodes:");
+ scanf("%d",&amp;n);
+ printf("\n Enter the cost matrix:\n");
+ for(i=1;i&lt;=n;i++)
+  for(j=1;j&lt;=n;j++)
+  {
+   scanf("%d",&amp;cost[i][j]);
+   if(cost[i][j]==0)
+  cost[i][j]=infinity;         /*setting all cost matrix element apart from user enterd element to 999*/
+  }
+
+printf("\n Enter the source matrix:");
+ scanf("%d",&amp;v);                      /*enter the strating node*/
+ dij(n,v,cost,dist);                  /*calling the dij function*/
+ printf("\n Shortest path:\n");
+ for(i=1;i&lt;=n;i++)
+  if(i!=v)
+   printf("%d-&gt;%d,cost=%d\n",v,i,dist[i]);
+ getch();
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter the number <span class="sh_usertype">of</span><span class="sh_normal"> </span>nodes<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li>Enter the <span class="sh_usertype">cost</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span></li><li><span class="sh_number">0</span> <span class="sh_number">1</span> <span class="sh_number">0</span> <span class="sh_number">2</span> <span class="sh_number">3</span></li><li><span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span></li><li><span class="sh_number">4</span> <span class="sh_number">1</span> <span class="sh_number">0</span> <span class="sh_number">5</span> <span class="sh_number">9</span> </li><li><span class="sh_number">2</span> <span class="sh_number">1</span> <span class="sh_number">6</span> <span class="sh_number">7</span> <span class="sh_number">1</span></li><li><span class="sh_number">6</span> <span class="sh_number">5</span> <span class="sh_number">4</span> <span class="sh_number">2</span> <span class="sh_number">3</span></li><li>Enter the <span class="sh_usertype">source</span><span class="sh_normal"> </span>matrix <span class="sh_symbol">:</span><span class="sh_number">1</span></li><li><span class="sh_usertype">Shortest</span><span class="sh_normal"> </span>path <span class="sh_symbol">:</span></li><li><span class="sh_number">1</span><span class="sh_symbol">-&gt;</span><span class="sh_number">2</span> <span class="sh_symbol">,</span> cost<span class="sh_symbol">=</span> <span class="sh_number">1</span></li><li><span class="sh_number">1</span><span class="sh_symbol">-&gt;</span><span class="sh_number">3</span> <span class="sh_symbol">,</span> cost<span class="sh_symbol">=</span> <span class="sh_number">7</span></li><li><span class="sh_number">1</span><span class="sh_symbol">-&gt;</span><span class="sh_number">4</span> <span class="sh_symbol">,</span> cost<span class="sh_symbol">=</span> <span class="sh_number">2</span></li><li><span class="sh_number">1</span><span class="sh_symbol">-&gt;</span><span class="sh_number">5</span> <span class="sh_symbol">,</span> cost<span class="sh_symbol">=</span> <span class="sh_number">3</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter the number of nodes:5
+Enter the cost matrix:
+0 1 0 2 3
+0 0 0 0 0
+4 1 0 5 9 
+2 1 6 7 1
+6 5 4 2 3
+Enter the source matrix :1
+Shortest path :
+1-&gt;2 , cost= 1
+1-&gt;3 , cost= 7
+1-&gt;4 , cost= 2
+1-&gt;5 , cost= 3
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

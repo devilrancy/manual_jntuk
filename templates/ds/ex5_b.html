@@ -1,0 +1,113 @@
+<ion-view title="Exercise-5">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write C programs that implement Radix sort, to sort a given  list of integers in ascending order.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #339933;">#include&lt;conio.h&gt;</span><br />
+<br />
+radix_sort<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> array<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span> n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp;<span style="color: #993333;">int</span> array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>n<span style="color: #339933;">,</span>i<span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Enter the number of elements to be sorted: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter the elements to be sorted: <span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i <span style="color: #339933;">=</span> <span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> n <span style="color: #339933;">;</span> i<span style="color: #339933;">++</span> <span style="color: #009900;">&#41;</span><br />
+&nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\t</span>Array[%d] = &quot;</span><span style="color: #339933;">,</span>i<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>array<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Array Before Radix Sort:&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> &nbsp;<span style="color: #666666; font-style: italic;">//Array Before Radix Sort</span><br />
+&nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i <span style="color: #339933;">=</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> n<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%8d&quot;</span><span style="color: #339933;">,</span> array<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+&nbsp;radix_sort<span style="color: #009900;">&#40;</span>array<span style="color: #339933;">,</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Array After Radix Sort: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> &nbsp;<span style="color: #666666; font-style: italic;">//Array After Radix Sort</span><br />
+&nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i <span style="color: #339933;">=</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> n<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%8d&quot;</span><span style="color: #339933;">,</span> array<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp;getch<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+radix_sort<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> arr<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span> n<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp;<span style="color: #993333;">int</span> bucket<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>buck<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>b<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp;<span style="color: #993333;">int</span> i<span style="color: #339933;">,</span>j<span style="color: #339933;">,</span>k<span style="color: #339933;">,</span>l<span style="color: #339933;">,</span>num<span style="color: #339933;">,</span>div<span style="color: #339933;">,</span>large<span style="color: #339933;">,</span>passes<span style="color: #339933;">;</span><br />
+<br />
+&nbsp;div<span style="color: #339933;">=</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp;num<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp;large<span style="color: #339933;">=</span>arr<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+<br />
+&nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> i<span style="color: #339933;">&lt;</span>n <span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>arr<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span> <span style="color: #339933;">&gt;</span> large<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; large <span style="color: #339933;">=</span> arr<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp; <span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>large <span style="color: #339933;">&gt;</span> <span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;num<span style="color: #339933;">++;</span><br />
+&nbsp; &nbsp;large <span style="color: #339933;">=</span> large<span style="color: #339933;">/</span><span style="color: #0000dd;">10</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp; <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>passes<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> passes<span style="color: #339933;">&lt;</span>num <span style="color: #339933;">;</span> passes<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>k<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> k<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">10</span> <span style="color: #339933;">;</span> k<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; buck<span style="color: #009900;">&#91;</span>k<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> i<span style="color: #339933;">&lt;</span>n &nbsp;<span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; l <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>arr<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #339933;">/</span>div<span style="color: #009900;">&#41;</span><span style="color: #339933;">%</span><span style="color:#800080;">10</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; bucket<span style="color: #009900;">&#91;</span>l<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span>buck<span style="color: #009900;">&#91;</span>l<span style="color: #009900;">&#93;</span><span style="color: #339933;">++</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> arr<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp; &nbsp;i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>k<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> k<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">10</span> <span style="color: #339933;">;</span> k<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>j<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span> <span style="color: #339933;">;</span> j<span style="color: #339933;">&lt;</span>buck<span style="color: #009900;">&#91;</span>k<span style="color: #009900;">&#93;</span> <span style="color: #339933;">;</span> j<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp;arr<span style="color: #009900;">&#91;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> bucket<span style="color: #009900;">&#91;</span>k<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span>j<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;div<span style="color: #339933;">*=</span><span style="color: #0000dd;">10</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp;<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">Enter the number of elements to be sorted<span style="color: #339933;">:</span> <span style="color: #0000dd;">6</span><br />
+Enter the elements<span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">567</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">345</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">235</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">765</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">4</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">978</span><br />
+&nbsp; &nbsp; Array<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #0000dd;">123</span><br />
+Before Heapsort<span style="color: #339933;">:</span> &nbsp; <span style="color: #0000dd;">567</span> &nbsp;<span style="color: #0000dd;">345</span> &nbsp;<span style="color: #0000dd;">235</span> &nbsp;<span style="color: #0000dd;">765</span> &nbsp;<span style="color: #0000dd;">978</span> &nbsp;<span style="color: #0000dd;">123</span><br />
+After Heapsort<span style="color: #339933;">:</span> &nbsp; &nbsp;<span style="color: #0000dd;">123</span> &nbsp;<span style="color: #0000dd;">235</span> &nbsp;<span style="color: #0000dd;">345</span> &nbsp;<span style="color: #0000dd;">567</span> &nbsp;<span style="color: #0000dd;">765</span> &nbsp;<span style="color: #0000dd;">978</span></div>
+    </div>
+  </ion-content>
+</ion-view>

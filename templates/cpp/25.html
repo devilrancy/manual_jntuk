@@ -1,0 +1,80 @@
+<ion-view title="Program-25">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating Abstract Classes.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_comment">// Base class</span></li><li>class Shape</li><li><span class="sh_cbracket">{</span></li><li>public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// pure virtual function providing interface framework.</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;virtual <span class="sh_type">int</span> <span class="sh_function">getArea</span><span class="sh_symbol">()</span> <span class="sh_symbol">=</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">setWidth</span><span class="sh_symbol">(</span><span class="sh_type">int</span> w<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width <span class="sh_symbol">=</span> w<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">setHeight</span><span class="sh_symbol">(</span><span class="sh_type">int</span> h<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height <span class="sh_symbol">=</span> h<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>protected<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> width<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> height<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_comment">// Derived classes</span></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>Rectangle<span class="sh_symbol">:</span> public Shape</li><li><span class="sh_cbracket">{</span></li><li>public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> <span class="sh_function">getArea</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_symbol">(</span>width <span class="sh_symbol">*</span> height<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>Triangle<span class="sh_symbol">:</span> public Shape</li><li><span class="sh_cbracket">{</span></li><li>public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> <span class="sh_function">getArea</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_symbol">(</span>width <span class="sh_symbol">*</span> height<span class="sh_symbol">)/</span><span class="sh_number">2</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">(</span><span class="sh_type">void</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Rectangle</span><span class="sh_normal"> </span>Rect<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Triangle</span><span class="sh_normal">  </span>Tri<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;Rect<span class="sh_symbol">.</span><span class="sh_function">setWidth</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;Rect<span class="sh_symbol">.</span><span class="sh_function">setHeight</span><span class="sh_symbol">(</span><span class="sh_number">7</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// Print the area of the object.</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"Total Rectangle area: "</span> <span class="sh_symbol">&lt;&lt;</span> Rect<span class="sh_symbol">.</span><span class="sh_function">getArea</span><span class="sh_symbol">()</span> <span class="sh_symbol">&lt;&lt;</span> endl<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;Tri<span class="sh_symbol">.</span><span class="sh_function">setWidth</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;Tri<span class="sh_symbol">.</span><span class="sh_function">setHeight</span><span class="sh_symbol">(</span><span class="sh_number">7</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// Print the area of the object.</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"Total Triangle area: "</span> <span class="sh_symbol">&lt;&lt;</span> Tri<span class="sh_symbol">.</span><span class="sh_function">getArea</span><span class="sh_symbol">()</span> <span class="sh_symbol">&lt;&lt;</span> endl<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;iostream.h&gt;
+// Base class
+class Shape
+{
+public:
+  // pure virtual function providing interface framework.
+  virtual int getArea() = 0;
+  void setWidth(int w)
+  {
+    width = w;
+  }
+  void setHeight(int h)
+  {
+    height = h;
+  }
+protected:
+  int width;
+  int height;
+};
+
+// Derived classes
+class Rectangle: public Shape
+{
+public:
+  int getArea()
+  {
+    return (width * height);
+  }
+};
+class Triangle: public Shape
+{
+public:
+  int getArea()
+  {
+    return (width * height)/2;
+  }
+};
+
+int main(void)
+{
+  Rectangle Rect;
+  Triangle  Tri;
+
+  Rect.setWidth(5);
+  Rect.setHeight(7);
+  // Print the area of the object.
+  cout &lt;&lt; "Total Rectangle area: " &lt;&lt; Rect.getArea() &lt;&lt; endl;
+
+  Tri.setWidth(5);
+  Tri.setHeight(7);
+  // Print the area of the object.
+  cout &lt;&lt; "Total Triangle area: " &lt;&lt; Tri.getArea() &lt;&lt; endl;
+
+  return 0;
+}
+</pre></div></div>	 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Total <span class="sh_usertype">Rectangle</span><span class="sh_normal"> </span>area<span class="sh_symbol">:</span> <span class="sh_number">35</span></li><li>Total <span class="sh_usertype">Triangle</span><span class="sh_normal"> </span>area<span class="sh_symbol">:</span> <span class="sh_number">17</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Total Rectangle area: 35
+Total Triangle area: 17</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,78 @@
+<ion-side-menus>
+
+  <ion-pane ion-side-menu-content>
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-stable">
+      <h1 class="title">Categories</h1>
+    </header>
+    <ion-content class="has-header ">
+      <ion-list >
+        <ion-item nav-clear menu-close class="item item-balanced" href="#/app/home">
+          Home
+        </ion-item>
+        <div class="item item-divider item-dark">
+      1-1 And 1-2 Sem (R13)
+    </div>
+    <ion-item nav-clear menu-close href="#/app/c">
+      C Lab
+    </ion-item>
+    <div class="item item-divider item-dark">
+      2-1 Sem (R13)
+    </div>
+    <ion-item nav-clear menu-close ui-sref="app.c++">
+      OOP's through C++ Lab
+    </ion-item>
+    <ion-item nav-clear menu-close ui-sref="app.ds">
+      DS Lab
+    </ion-item>
+    <div class="item item-divider item-dark">
+      2-2 Sem (R13)
+    </div>
+    <ion-item nav-clear menu-close ui-sref="app.java">
+      JAVA Lab
+    </ion-item>
+    <ion-item nav-clear menu-close ui-sref="app.java">
+      FOSS Lab
+    </ion-item>
+    
+    <div class="item item-divider item-dark">
+      3-1 Sem (R10)
+    </div>
+    <ion-item nav-clear menu-close ui-sref="app.single">
+      ADS Lab
+    </ion-item>
+    <ion-item nav-clear menu-close ui-sref="app.oscd">
+      OS &amp; CD Lab
+    </ion-item>
+    
+    <div class="item item-divider item-dark">
+      3-2 Sem (R10)
+    </div>
+    <ion-item nav-clear menu-close ui-sref="app.ajwt">
+      AJWT Lab
+    </ion-item>
+    <ion-item nav-clear menu-close ui-sref="app.unix">
+      CN &amp; UNIX Lab
+    </ion-item>
+    <div class="item item-divider item-dark">
+      4-1 Sem (R10)
+    </div>
+    <ion-item nav-clear menu-close ui-sref="app.mc">
+      MAD Lab
+    </ion-item>
+        <ion-item nav-clear menu-close class="item item-assertive"ng-click="login()">
+          Credits
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+  
+  
+</ion-side-menus>

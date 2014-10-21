@@ -1,0 +1,69 @@
+<ion-view title="Program-26(c)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating Inheritence (Hybrid).
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_comment">//hybrid inheritance</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li>class vehical</li><li><span class="sh_cbracket">{</span></li><li>public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Its vehical class"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>car<span class="sh_symbol">:</span>public vehical</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">dis</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">its a car class"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>bike<span class="sh_symbol">:</span>public vehical</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">displays</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Its Bike Class"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>cycle<span class="sh_symbol">:</span><span class="sh_usertype">public</span><span class="sh_normal"> </span>car<span class="sh_symbol">,</span><span class="sh_usertype">public</span><span class="sh_normal"> </span>bike<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Its Cycle Class"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">cycle</span><span class="sh_normal"> </span>obj<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">vehical</span><span class="sh_normal"> </span>vh<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;vh<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">displays</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">dis</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">//hybrid inheritance
+#include&lt;iostream.h&gt;
+class vehical
+{
+public:
+  void display()
+  {
+  cout&lt;&lt;"Its vehical class";
+  }
+};
+class car:public vehical
+{
+  public:
+    void dis()
+    {
+      cout&lt;&lt;"\nits a car class";
+    }
+};
+class bike:public vehical
+{
+  public:
+    void displays()
+    {
+      cout&lt;&lt;"\nIts Bike Class";
+    }
+};
+
+class cycle:public car,public bike{
+  public:
+    void show()
+    {
+      cout&lt;&lt;"\nIts Cycle Class";
+    }
+};
+
+void main(){
+  cycle obj;
+  vehical vh;
+  vh.display();
+  obj.displays();
+  obj.dis();
+  obj.show();
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Its vehicle class</li><li>Its Bike class</li><li>Its a car class</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Its vehicle class
+Its Bike class
+Its a car class</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

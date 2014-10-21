@@ -1,0 +1,103 @@
+<ion-view title="Program-11(a)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating an interactive program for swapping integer, real and character type variables without using function overloading.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_type">void</span> <span class="sh_function">swap</span><span class="sh_symbol">(</span><span class="sh_type">int</span> <span class="sh_symbol">&amp;</span>num1<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">&amp;</span>num2<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">&amp;</span>ch1<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">&amp;</span>ch2<span class="sh_symbol">,</span><span class="sh_type">float</span> <span class="sh_symbol">&amp;</span>f1<span class="sh_symbol">,</span><span class="sh_type">float</span> <span class="sh_symbol">&amp;</span>f2<span class="sh_symbol">);</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> num1<span class="sh_symbol">,</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> ch1<span class="sh_symbol">,</span>ch2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">float</span> f1<span class="sh_symbol">,</span>f2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 1st number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>num1<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 2nd number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>num2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 1st character:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>ch1<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 2nd character:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>ch2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 1st floating number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>f1<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter 2nd floating number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>f2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Before Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num1:"</span><span class="sh_symbol">&lt;&lt;</span>num1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num2:"</span><span class="sh_symbol">&lt;&lt;</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Char1:"</span><span class="sh_symbol">&lt;&lt;</span>ch1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Char2:"</span><span class="sh_symbol">&lt;&lt;</span>ch2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float1:"</span><span class="sh_symbol">&lt;&lt;</span>f1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float2:"</span><span class="sh_symbol">&lt;&lt;</span>f2<span class="sh_symbol">;</span></li><li></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">swap</span><span class="sh_symbol">(</span>num1<span class="sh_symbol">,</span>num2<span class="sh_symbol">,</span>ch1<span class="sh_symbol">,</span>ch2<span class="sh_symbol">,</span>f1<span class="sh_symbol">,</span>f2<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n</span><span class="sh_string">After swapping"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num1:"</span><span class="sh_symbol">&lt;&lt;</span>num1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Num2:"</span><span class="sh_symbol">&lt;&lt;</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Char1:"</span><span class="sh_symbol">&lt;&lt;</span>ch1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Char2:"</span><span class="sh_symbol">&lt;&lt;</span>ch2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float1:"</span><span class="sh_symbol">&lt;&lt;</span>f1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float2:"</span><span class="sh_symbol">&lt;&lt;</span>f2<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">swap</span><span class="sh_symbol">(</span><span class="sh_type">int</span> <span class="sh_symbol">&amp;</span>num1<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">&amp;</span>num2<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">&amp;</span>ch1<span class="sh_symbol">,</span><span class="sh_type">char</span> <span class="sh_symbol">&amp;</span>ch2<span class="sh_symbol">,</span><span class="sh_type">float</span> <span class="sh_symbol">&amp;</span>f1<span class="sh_symbol">,</span><span class="sh_type">float</span> <span class="sh_symbol">&amp;</span>f2<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> temp1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> temp2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">float</span> temp3<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;temp1<span class="sh_symbol">=</span>num1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;num1<span class="sh_symbol">=</span>num2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;num2<span class="sh_symbol">=</span>temp1<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;temp2<span class="sh_symbol">=</span>ch1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ch1<span class="sh_symbol">=</span>ch2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ch2<span class="sh_symbol">=</span>temp2<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;temp3<span class="sh_symbol">=</span>f1<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;f1<span class="sh_symbol">=</span>f2<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;f2<span class="sh_symbol">=</span>temp3<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+void swap(int &amp;num1,int &amp;num2,char &amp;ch1,char &amp;ch2,float &amp;f1,float &amp;f2);
+
+void main()
+{
+  int num1,num2;
+  char ch1,ch2;
+  float f1,f2;
+
+  cout&lt;&lt;"\nEnter 1st number:";
+  cin&gt;&gt;num1;
+
+  cout&lt;&lt;"\nEnter 2nd number:";
+  cin&gt;&gt;num2;
+
+  cout&lt;&lt;"\nEnter 1st character:";
+  cin&gt;&gt;ch1;
+
+  cout&lt;&lt;"\nEnter 2nd character:";
+  cin&gt;&gt;ch2;
+
+  cout&lt;&lt;"\nEnter 1st floating number:";
+  cin&gt;&gt;f1;
+
+  cout&lt;&lt;"\nEnter 2nd floating number:";
+  cin&gt;&gt;f2;
+
+  cout&lt;&lt;"\nBefore Swapping\n";
+  cout&lt;&lt;"\nNum1:"&lt;&lt;num1&lt;&lt;"\nNum2:"&lt;&lt;num2;
+  cout&lt;&lt;"\nChar1:"&lt;&lt;ch1&lt;&lt;"\nChar2:"&lt;&lt;ch2;
+  cout&lt;&lt;"\nFloat1:"&lt;&lt;f1&lt;&lt;"\nFloat2:"&lt;&lt;f2;
+
+
+  swap(num1,num2,ch1,ch2,f1,f2);
+  cout&lt;&lt;"\n\nAfter swapping";
+  cout&lt;&lt;"\nNum1:"&lt;&lt;num1&lt;&lt;"\nNum2:"&lt;&lt;num2;
+  cout&lt;&lt;"\nChar1:"&lt;&lt;ch1&lt;&lt;"\nChar2:"&lt;&lt;ch2;
+  cout&lt;&lt;"\nFloat1:"&lt;&lt;f1&lt;&lt;"\nFloat2:"&lt;&lt;f2;
+}
+
+void swap(int &amp;num1,int &amp;num2,char &amp;ch1,char &amp;ch2,float &amp;f1,float &amp;f2)
+{
+  int temp1;
+  char temp2;
+  float temp3;
+
+  temp1=num1;
+  num1=num2;
+  num2=temp1;
+
+  temp2=ch1;
+  ch1=ch2;
+  ch2=temp2;
+
+  temp3=f1;
+  f1=f2;
+  f2=temp3;
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter 1<span class="sh_usertype">st</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li>Enter 2<span class="sh_usertype">nd</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">65</span></li><li>Enter 1<span class="sh_usertype">st</span><span class="sh_normal"> </span>character<span class="sh_symbol">:</span>A</li><li>Enter 2<span class="sh_usertype">nd</span><span class="sh_normal"> </span>character<span class="sh_symbol">:</span>B</li><li>Enter 1st <span class="sh_usertype">floating</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">54.4</span></li><li>Enter 2nd <span class="sh_usertype">floating</span><span class="sh_normal"> </span>number<span class="sh_symbol">:</span><span class="sh_number">65.1</span></li><li>Before Swapping</li><li></li><li>Num1<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li>Num2<span class="sh_symbol">:</span><span class="sh_number">65</span></li><li>Char1<span class="sh_symbol">:</span>A</li><li>Char2<span class="sh_symbol">:</span>B</li><li>Flaot1<span class="sh_symbol">:</span><span class="sh_number">54.4</span></li><li>Flaot2<span class="sh_symbol">:</span><span class="sh_number">65.1</span></li><li></li><li>After swapping</li><li>Num1<span class="sh_symbol">:</span><span class="sh_number">65</span></li><li>Num2<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li>Char1<span class="sh_symbol">:</span>B</li><li>Char2<span class="sh_symbol">:</span>A</li><li>Float1<span class="sh_symbol">:</span><span class="sh_number">65.1</span></li><li>Float2<span class="sh_symbol">:</span><span class="sh_number">54.4</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter 1st number:12
+Enter 2nd number:65
+Enter 1st character:A
+Enter 2nd character:B
+Enter 1st floating number:54.4
+Enter 2nd floating number:65.1
+Before Swapping
+
+Num1:12
+Num2:65
+Char1:A
+Char2:B
+Flaot1:54.4
+Flaot2:65.1
+
+After swapping
+Num1:65
+Num2:12
+Char1:B
+Char2:A
+Float1:65.1
+Float2:54.4</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,85 @@
+<ion-view title="PART A-4">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Design LALR Bottom up Parser 
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_symbol">&lt;</span>parser<span class="sh_symbol">.</span>l<span class="sh_symbol">&gt;</span></li><li></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">{</span></li><li><span class="sh_preproc"> #include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span> <span class="sh_string">"y.tab.h"</span></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">%%</span></li><li><span class="sh_symbol">[</span><span class="sh_number">0-9</span><span class="sh_symbol">]+</span> <span class="sh_cbracket">{</span>yylval<span class="sh_symbol">.</span>dval<span class="sh_symbol">=</span><span class="sh_function">atof</span><span class="sh_symbol">(</span>yytext<span class="sh_symbol">);</span></li><li><span class="sh_keyword">return</span> DIGIT<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">\</span>n<span class="sh_symbol">|.</span> <span class="sh_keyword">return</span> yytext<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">];</span></li><li><span class="sh_symbol">%%</span></li><li><span class="sh_symbol">&lt;</span>parser<span class="sh_symbol">.</span>y<span class="sh_symbol">&gt;</span></li><li></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">{</span></li><li> <span class="sh_comment">/*This YACC specification file generates the LALR parser for the program </span></li><li><span class="sh_comment">considered in experiment 4.*/</span></li><li><span class="sh_preproc">        #include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_symbol">%</span><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">%</span><span class="sh_keyword">union</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_type">double</span> dval<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_symbol">%</span>token <span class="sh_symbol">&lt;</span>dval<span class="sh_symbol">&gt;</span> DIGIT</li><li><span class="sh_symbol">%</span>type <span class="sh_symbol">&lt;</span>dval<span class="sh_symbol">&gt;</span> expr</li><li><span class="sh_symbol">%</span>type <span class="sh_symbol">&lt;</span>dval<span class="sh_symbol">&gt;</span> term</li><li><span class="sh_symbol">%</span>type <span class="sh_symbol">&lt;</span>dval<span class="sh_symbol">&gt;</span> factor</li><li></li><li><span class="sh_symbol">%%</span></li><li></li><li>line<span class="sh_symbol">:</span> expr <span class="sh_string">'</span><span class="sh_specialchar">\n</span><span class="sh_string">'</span>         <span class="sh_cbracket">{</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%g</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>$<span class="sh_number">1</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">;</span></li><li>expr<span class="sh_symbol">:</span> expr <span class="sh_string">'+'</span> term <span class="sh_cbracket">{</span>$$<span class="sh_symbol">=</span>$<span class="sh_number">1</span> <span class="sh_symbol">+</span> $<span class="sh_number">3</span> <span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li>     <span class="sh_symbol">|</span> term</li><li>     <span class="sh_symbol">;</span></li><li>term<span class="sh_symbol">:</span> term <span class="sh_string">'*'</span> factor  <span class="sh_cbracket">{</span>$$<span class="sh_symbol">=</span>$<span class="sh_number">1</span> <span class="sh_symbol">*</span> $<span class="sh_number">3</span> <span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li>     <span class="sh_symbol">|</span> factor</li><li>     <span class="sh_symbol">;</span></li><li>factor<span class="sh_symbol">:</span> <span class="sh_string">'('</span> expr <span class="sh_string">')'</span> <span class="sh_cbracket">{</span>$$<span class="sh_symbol">=</span>$<span class="sh_number">2</span> <span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><li></li><li>     <span class="sh_symbol">|</span> DIGIT</li><li>     <span class="sh_symbol">;</span></li><li></li><li><span class="sh_symbol">%%</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_function">yyparse</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">yyerror</span><span class="sh_symbol">(</span><span class="sh_type">char</span> <span class="sh_symbol">*</span>s<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%s"</span><span class="sh_symbol">,</span>s<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;parser.l&gt;
+
+%{
+ #include&lt;stdio.h&gt;
+#include "y.tab.h"
+%}
+%%
+[0-9]+ {yylval.dval=atof(yytext);
+return DIGIT;
+}
+\n|. return yytext[0];
+%%
+&lt;parser.y&gt;
+
+%{
+ /*This YACC specification file generates the LALR parser for the program 
+considered in experiment 4.*/
+        #include&lt;stdio.h&gt;
+%}
+%union
+{
+ double dval;
+}
+
+%token &lt;dval&gt; DIGIT
+%type &lt;dval&gt; expr
+%type &lt;dval&gt; term
+%type &lt;dval&gt; factor
+
+%%
+
+line: expr '\n'         {
+ printf("%g\n",$1);
+}
+;
+expr: expr '+' term {$$=$1 + $3 ;}
+     | term
+     ;
+term: term '*' factor  {$$=$1 * $3 ;}
+     | factor
+     ;
+factor: '(' expr ')' {$$=$2 ;}
+
+     | DIGIT
+     ;
+
+%%
+int main()
+{
+ yyparse();
+}
+yyerror(char *s)
+{
+ printf("%s",s);
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>$<span class="sh_usertype">lex</span><span class="sh_normal"> </span>parser<span class="sh_symbol">.</span>l</li><li>$yacc –<span class="sh_usertype">d</span><span class="sh_normal"> </span>parser<span class="sh_symbol">.</span>y</li><li>$<span class="sh_usertype">cc</span><span class="sh_normal"> </span>lex<span class="sh_symbol">.</span>yy<span class="sh_symbol">.</span><span class="sh_usertype">c</span><span class="sh_normal"> </span>y<span class="sh_symbol">.</span>tab<span class="sh_symbol">.</span>c –ll –lm</li><li>$<span class="sh_symbol">./</span>a<span class="sh_symbol">.</span>out</li><li><span class="sh_number">2+3</span></li><li><span class="sh_number">5.0000</span><span class="sh_symbol">*/</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">$lex parser.l
+$yacc –d parser.y
+$cc lex.yy.c y.tab.c –ll –lm
+$./a.out
+2+3
+5.0000*/
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

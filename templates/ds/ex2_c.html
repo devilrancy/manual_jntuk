@@ -1,0 +1,62 @@
+<ion-view title="Exercise-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write  recursive  C  program  for Towers  of  Hanoi :  N disks  are  to be transferred from peg S to peg D with Peg I as the intermediate peg.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+       <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> towers<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #993333;">char</span><span style="color: #339933;">,</span> <span style="color: #993333;">char</span><span style="color: #339933;">,</span> <span style="color: #993333;">char</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> num<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Enter the number of disks : &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>num<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;The sequence of moves involved in the Tower of Hanoi are :<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; towers<span style="color: #009900;">&#40;</span>num<span style="color: #339933;">,</span> <span style="color: #ff0000;">'A'</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">'C'</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">'B'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> towers<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> num<span style="color: #339933;">,</span> <span style="color: #993333;">char</span> frompeg<span style="color: #339933;">,</span> <span style="color: #993333;">char</span> topeg<span style="color: #339933;">,</span> <span style="color: #993333;">char</span> auxpeg<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>num <span style="color: #339933;">==</span> <span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span> Move disk 1 from peg %c to peg %c&quot;</span><span style="color: #339933;">,</span> frompeg<span style="color: #339933;">,</span> topeg<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; towers<span style="color: #009900;">&#40;</span>num <span style="color: #339933;">-</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">,</span> frompeg<span style="color: #339933;">,</span> auxpeg<span style="color: #339933;">,</span> topeg<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span> Move disk %d from peg %c to peg %c&quot;</span><span style="color: #339933;">,</span> num<span style="color: #339933;">,</span> frompeg<span style="color: #339933;">,</span> topeg<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; towers<span style="color: #009900;">&#40;</span>num <span style="color: #339933;">-</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">,</span> auxpeg<span style="color: #339933;">,</span> topeg<span style="color: #339933;">,</span> frompeg<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">Enter the number of disks <span style="color: #339933;">:</span> <span style="color: #0000dd;">4</span><br />
+The sequence of moves involved in the Tower of Hanoi are <span style="color: #339933;">:</span><br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg B<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg B to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg B<br />
+Move disk <span style="color: #0000dd;">1</span> from peg C to peg A<br />
+Move disk <span style="color: #0000dd;">1</span> from peg C to peg B<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg B<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg B to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg B to peg A<br />
+Move disk <span style="color: #0000dd;">1</span> from peg C to peg A<br />
+Move disk <span style="color: #0000dd;">1</span> from peg B to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg B<br />
+Move disk <span style="color: #0000dd;">1</span> from peg A to peg C<br />
+Move disk <span style="color: #0000dd;">1</span> from peg B to peg C </div> 
+    </div>
+  </ion-content>
+</ion-view>

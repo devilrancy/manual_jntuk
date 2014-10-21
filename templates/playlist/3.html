@@ -1,0 +1,407 @@
+<ion-view title="Program-3">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        To perform various operations i.e., insertions and deletions on 2-3 trees.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre style="display: block;" class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_preproc">#define</span> M <span class="sh_number">5</span></li><li></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> n<span class="sh_symbol">;</span> <span class="sh_comment">/* n &lt; M No. of keys in node will always less than order of B</span></li><li><span class="sh_comment">tree */</span></li><li><span class="sh_type">int</span> keys<span class="sh_symbol">[</span>M<span class="sh_number">-1</span><span class="sh_symbol">];</span> <span class="sh_comment">/*array of keys*/</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>p<span class="sh_symbol">[</span>M<span class="sh_symbol">];</span> <span class="sh_comment">/* (n+1 pointers will be in use) */</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">*</span>root<span class="sh_symbol">=</span>NULL<span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">enum</span> KeyStatus <span class="sh_cbracket">{</span> Duplicate<span class="sh_symbol">,</span>SearchFailure<span class="sh_symbol">,</span>Success<span class="sh_symbol">,</span>InsertIt<span class="sh_symbol">,</span>LessKeys <span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">insert</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">);</span></li><li><span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>root<span class="sh_symbol">,</span><span class="sh_type">int</span><span class="sh_symbol">);</span></li><li><span class="sh_type">void</span> <span class="sh_function">DelNode</span><span class="sh_symbol">(</span><span class="sh_type">int</span> x<span class="sh_symbol">);</span></li><li><span class="sh_type">void</span> <span class="sh_function">search</span><span class="sh_symbol">(</span><span class="sh_type">int</span> x<span class="sh_symbol">);</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span><span class="sh_function">ins</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>r<span class="sh_symbol">,</span> <span class="sh_type">int</span> x<span class="sh_symbol">,</span> <span class="sh_type">int</span><span class="sh_symbol">*</span> y<span class="sh_symbol">,</span> <span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">**</span> u<span class="sh_symbol">);</span></li><li><span class="sh_type">int</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span><span class="sh_type">int</span> x<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>key_arr<span class="sh_symbol">,</span> <span class="sh_type">int</span> n<span class="sh_symbol">);</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span><span class="sh_function">del</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>r<span class="sh_symbol">,</span> <span class="sh_type">int</span> x<span class="sh_symbol">);</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> key<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> choice<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Creation of B tree for node %d</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>M<span class="sh_symbol">);</span></li><li><span class="sh_keyword">while</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"1.Insert</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"2.Delete</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"3.Search</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"4.Display</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"5.Quit</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter your choice : "</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>choice<span class="sh_symbol">);</span></li><li></li><li><span class="sh_keyword">switch</span><span class="sh_symbol">(</span>choice<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the key : "</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li><span class="sh_function">insert</span><span class="sh_symbol">(</span>key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">case</span> <span class="sh_number">2</span><span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the key : "</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li><span class="sh_function">DelNode</span><span class="sh_symbol">(</span>key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">case</span> <span class="sh_number">3</span><span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the key : "</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li><span class="sh_function">search</span><span class="sh_symbol">(</span>key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">case</span> <span class="sh_number">4</span><span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Btree is :</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">display</span><span class="sh_symbol">(</span>root<span class="sh_symbol">,</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">case</span> <span class="sh_number">5</span><span class="sh_symbol">:</span></li><li><span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">default</span><span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Wrong choice</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of switch*/</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of while*/</span></li><li><span class="sh_comment">//return 0;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of main()*/</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">insert</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">)</span></li><li></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>newnode<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> upKey<span class="sh_symbol">;</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span>value<span class="sh_symbol">;</span></li><li>value <span class="sh_symbol">=</span> <span class="sh_function">ins</span><span class="sh_symbol">(</span>root<span class="sh_symbol">,</span> key<span class="sh_symbol">,</span> <span class="sh_symbol">&amp;</span>upKey<span class="sh_symbol">,</span> <span class="sh_symbol">&amp;</span>newnode<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>value <span class="sh_symbol">==</span> Duplicate<span class="sh_symbol">)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Key already available</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>value <span class="sh_symbol">==</span> InsertIt<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span> uproot <span class="sh_symbol">=</span> root<span class="sh_symbol">;</span></li><li>root<span class="sh_symbol">=(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*)</span><span class="sh_function">malloc</span><span class="sh_symbol">(</span><span class="sh_keyword">sizeof</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span><span class="sh_symbol">));</span></li><li>root<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">=</span> <span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>root<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> upKey<span class="sh_symbol">;</span></li><li>root<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> uproot<span class="sh_symbol">;</span></li><li>root<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> newnode<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of insert()*/</span></li><li></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span><span class="sh_function">ins</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>ptr<span class="sh_symbol">,</span> <span class="sh_type">int</span> key<span class="sh_symbol">,</span> <span class="sh_type">int</span> <span class="sh_symbol">*</span>upKey<span class="sh_symbol">,</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">**</span>newnode<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>newPtr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>lastPtr<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> pos<span class="sh_symbol">,</span> i<span class="sh_symbol">,</span> n<span class="sh_symbol">,</span>splitPos<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> newKey<span class="sh_symbol">,</span> lastKey<span class="sh_symbol">;</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span>value<span class="sh_symbol">;</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>ptr <span class="sh_symbol">==</span> NULL<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_symbol">*</span>newnode <span class="sh_symbol">=</span> NULL<span class="sh_symbol">;</span></li><li><span class="sh_symbol">*</span>upKey <span class="sh_symbol">=</span> key<span class="sh_symbol">;</span></li><li><span class="sh_keyword">return</span> InsertIt<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li>n <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span></li><li>pos <span class="sh_symbol">=</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">,</span> n<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&lt;</span> n <span class="sh_symbol">&amp;&amp;</span> key <span class="sh_symbol">==</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>pos<span class="sh_symbol">])</span></li><li><span class="sh_keyword">return</span> Duplicate<span class="sh_symbol">;</span></li><li>value <span class="sh_symbol">=</span> <span class="sh_function">ins</span><span class="sh_symbol">(</span>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>pos<span class="sh_symbol">],</span> key<span class="sh_symbol">,</span> <span class="sh_symbol">&amp;</span>newKey<span class="sh_symbol">,</span> <span class="sh_symbol">&amp;</span>newPtr<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>value <span class="sh_symbol">!=</span> InsertIt<span class="sh_symbol">)</span></li><li><span class="sh_keyword">return</span> value<span class="sh_symbol">;</span></li><li><span class="sh_comment">/*If keys in node is less than M-1 where M is order of B tree*/</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>n <span class="sh_symbol">&lt;</span> M <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>pos <span class="sh_symbol">=</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span>newKey<span class="sh_symbol">,</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">,</span> n<span class="sh_symbol">);</span></li><li><span class="sh_comment">/*Shifting the key and pointer right for inserting the new key*/</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">&gt;</span>pos<span class="sh_symbol">;</span> i<span class="sh_symbol">--)</span></li><li><span class="sh_cbracket">{</span></li><li>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_comment">/*Key is inserted at exact location*/</span></li><li>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>pos<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> newKey<span class="sh_symbol">;</span></li><li></li><li>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>pos<span class="sh_number">+1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> newPtr<span class="sh_symbol">;</span></li><li><span class="sh_symbol">++</span>ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> <span class="sh_comment">/*incrementing the number of keys in node*/</span></li><li><span class="sh_keyword">return</span> Success<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li><span class="sh_comment">/*If keys in nodes are maximum and position of node to be inserted is</span></li><li><span class="sh_comment">last*/</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">==</span> M <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>lastKey <span class="sh_symbol">=</span> newKey<span class="sh_symbol">;</span></li><li>lastPtr <span class="sh_symbol">=</span> newPtr<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span> <span class="sh_comment">/*If keys in node are maximum and position of node to be inserted</span></li><li><span class="sh_comment">is not last*/</span></li><li><span class="sh_cbracket">{</span></li><li>lastKey <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>M<span class="sh_number">-2</span><span class="sh_symbol">];</span></li><li>lastPtr <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>M<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span>M<span class="sh_number">-2</span><span class="sh_symbol">;</span> i<span class="sh_symbol">&gt;</span>pos<span class="sh_symbol">;</span> i<span class="sh_symbol">--)</span></li><li><span class="sh_cbracket">{</span></li><li>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>pos<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> newKey<span class="sh_symbol">;</span></li><li>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>pos<span class="sh_number">+1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> newPtr<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li>splitPos <span class="sh_symbol">=</span> <span class="sh_symbol">(</span>M <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">)/</span><span class="sh_number">2</span><span class="sh_symbol">;</span></li><li><span class="sh_symbol">(*</span>upKey<span class="sh_symbol">)</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>splitPos<span class="sh_symbol">];</span></li><li></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)=(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*)</span><span class="sh_function">malloc</span><span class="sh_symbol">(</span><span class="sh_keyword">sizeof</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span><span class="sh_symbol">));</span><span class="sh_comment">/*Right node after split*/</span></li><li>ptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">=</span> splitPos<span class="sh_symbol">;</span> <span class="sh_comment">/*No. of keys for left splitted node*/</span></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>n <span class="sh_symbol">=</span> M<span class="sh_number">-1</span><span class="sh_symbol">-</span>splitPos<span class="sh_symbol">;</span><span class="sh_comment">/*No. of keys for right splitted node*/</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> <span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i <span class="sh_symbol">+</span> splitPos <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>i <span class="sh_symbol">&lt;</span> <span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>n <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i <span class="sh_symbol">+</span> splitPos <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> lastKey<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_symbol">(*</span>newnode<span class="sh_symbol">)-&gt;</span>p<span class="sh_symbol">[(*</span>newnode<span class="sh_symbol">)-&gt;</span>n<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> lastPtr<span class="sh_symbol">;</span></li><li><span class="sh_keyword">return</span> InsertIt<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of ins()*/</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>ptr<span class="sh_symbol">,</span> <span class="sh_type">int</span> blanks<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>ptr<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">;</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>blanks<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">" "</span><span class="sh_symbol">);</span></li><li></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%d "</span><span class="sh_symbol">,</span>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;=</span> ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_function">display</span><span class="sh_symbol">(</span>ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span> blanks<span class="sh_number">+10</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if*/</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of display()*/</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">search</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> pos<span class="sh_symbol">,</span> i<span class="sh_symbol">,</span> n<span class="sh_symbol">;</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>ptr <span class="sh_symbol">=</span> root<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Search path:</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">while</span> <span class="sh_symbol">(</span>ptr<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>n <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">" %d"</span><span class="sh_symbol">,</span>ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>pos <span class="sh_symbol">=</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">,</span> n<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&lt;</span> n <span class="sh_symbol">&amp;&amp;</span> key <span class="sh_symbol">==</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>pos<span class="sh_symbol">])</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Key %d found in position %d of last dispalyednode</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>key<span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li><span class="sh_keyword">return</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li>ptr <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>pos<span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Key %d is not available</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>key<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of search()*/</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">,</span> <span class="sh_type">int</span> <span class="sh_symbol">*</span>key_arr<span class="sh_symbol">,</span> <span class="sh_type">int</span> n<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> pos<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">while</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&lt;</span> n <span class="sh_symbol">&amp;&amp;</span> key <span class="sh_symbol">&gt;</span> key_arr<span class="sh_symbol">[</span>pos<span class="sh_symbol">])</span></li><li>pos<span class="sh_symbol">++;</span></li><li><span class="sh_keyword">return</span> pos<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of searchPos()*/</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">DelNode</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>uproot<span class="sh_symbol">;</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span>value<span class="sh_symbol">;</span></li><li>value <span class="sh_symbol">=</span> <span class="sh_function">del</span><span class="sh_symbol">(</span>root<span class="sh_symbol">,</span>key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">switch</span> <span class="sh_symbol">(</span>value<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">case</span> SearchFailure<span class="sh_symbol">:</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Key %d is not available</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">case</span> LessKeys<span class="sh_symbol">:</span></li><li></li><li>uproot <span class="sh_symbol">=</span> root<span class="sh_symbol">;</span></li><li>root <span class="sh_symbol">=</span> root<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">];</span></li><li><span class="sh_function">free</span><span class="sh_symbol">(</span>uproot<span class="sh_symbol">);</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of switch*/</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of delnode()*/</span></li><li></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span><span class="sh_function">del</span><span class="sh_symbol">(</span><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>ptr<span class="sh_symbol">,</span> <span class="sh_type">int</span> key<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> pos<span class="sh_symbol">,</span> i<span class="sh_symbol">,</span> pivot<span class="sh_symbol">,</span> n <span class="sh_symbol">,</span>min<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> <span class="sh_symbol">*</span>key_arr<span class="sh_symbol">;</span></li><li><span class="sh_keyword">enum</span> <span class="sh_usertype">KeyStatus</span><span class="sh_normal"> </span>value<span class="sh_symbol">;</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">**</span>p<span class="sh_symbol">,*</span>lptr<span class="sh_symbol">,*</span>rptr<span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>ptr <span class="sh_symbol">==</span> NULL<span class="sh_symbol">)</span></li><li><span class="sh_keyword">return</span> SearchFailure<span class="sh_symbol">;</span></li><li><span class="sh_comment">/*Assigns values of node*/</span></li><li>n<span class="sh_symbol">=</span>ptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span></li><li>key_arr <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">;</span></li><li>p <span class="sh_symbol">=</span> ptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">;</span></li><li>min <span class="sh_symbol">=</span> <span class="sh_symbol">(</span>M <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">)/</span><span class="sh_number">2</span><span class="sh_symbol">;</span><span class="sh_comment">/*Minimum number of keys*/</span></li><li></li><li>pos <span class="sh_symbol">=</span> <span class="sh_function">searchPos</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span> key_arr<span class="sh_symbol">,</span> n<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">]</span> <span class="sh_symbol">==</span> NULL<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">==</span> n <span class="sh_symbol">||</span> key <span class="sh_symbol">&lt;</span> key_arr<span class="sh_symbol">[</span>pos<span class="sh_symbol">])</span></li><li><span class="sh_keyword">return</span> SearchFailure<span class="sh_symbol">;</span></li><li><span class="sh_comment">/*Shift keys and pointers left*/</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span>pos<span class="sh_number">+1</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>key_arr<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key_arr<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">return</span> <span class="sh_symbol">--</span>ptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">&gt;=</span> <span class="sh_symbol">(</span>ptr<span class="sh_symbol">==</span>root <span class="sh_symbol">?</span> <span class="sh_number">1</span> <span class="sh_symbol">:</span> min<span class="sh_symbol">)</span> <span class="sh_symbol">?</span> Success <span class="sh_symbol">:</span> LessKeys<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&lt;</span> n <span class="sh_symbol">&amp;&amp;</span> key <span class="sh_symbol">==</span> key_arr<span class="sh_symbol">[</span>pos<span class="sh_symbol">])</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">node</span> <span class="sh_symbol">*</span>qp <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pos<span class="sh_symbol">],</span> <span class="sh_symbol">*</span>qp1<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> nkey<span class="sh_symbol">;</span></li><li><span class="sh_keyword">while</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>nkey <span class="sh_symbol">=</span> qp<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span></li><li>qp1 <span class="sh_symbol">=</span> qp<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>nkey<span class="sh_symbol">];</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>qp1 <span class="sh_symbol">==</span> NULL<span class="sh_symbol">)</span></li><li><span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>qp <span class="sh_symbol">=</span> qp1<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of while*/</span></li><li>key_arr<span class="sh_symbol">[</span>pos<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> qp<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>nkey<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li></li><li>qp<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>nkey <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li>value <span class="sh_symbol">=</span> <span class="sh_function">del</span><span class="sh_symbol">(</span>p<span class="sh_symbol">[</span>pos<span class="sh_symbol">],</span> key<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>value <span class="sh_symbol">!=</span> LessKeys<span class="sh_symbol">)</span></li><li><span class="sh_keyword">return</span> value<span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&gt;</span> <span class="sh_number">0</span> <span class="sh_symbol">&amp;&amp;</span> p<span class="sh_symbol">[</span>pos<span class="sh_number">-1</span><span class="sh_symbol">]-&gt;</span>n <span class="sh_symbol">&gt;</span> min<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>pivot <span class="sh_symbol">=</span> pos <span class="sh_symbol">-</span> <span class="sh_number">1</span><span class="sh_symbol">;</span> <span class="sh_comment">/*pivot for left and right node*/</span></li><li>lptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>rptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pos<span class="sh_symbol">];</span></li><li><span class="sh_comment">/*Assigns values for right node*/</span></li><li>rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>rptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">];</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span>rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">&gt;</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i<span class="sh_symbol">--)</span></li><li><span class="sh_cbracket">{</span></li><li>rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li>rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li>rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">++;</span></li><li>rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key_arr<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> lptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">];</span></li><li>key_arr<span class="sh_symbol">[</span>pivot<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> lptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[--</span>lptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">];</span></li><li><span class="sh_keyword">return</span> Success<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li><span class="sh_keyword">if</span> <span class="sh_symbol">(</span>pos <span class="sh_symbol">&gt;</span> min<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>pivot <span class="sh_symbol">=</span> pos<span class="sh_symbol">;</span> <span class="sh_comment">/*pivot for left and right node*/</span></li><li>lptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>rptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pivot<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_comment">/*Assigns values for left node*/</span></li><li>lptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key_arr<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>lptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">];</span></li><li>key_arr<span class="sh_symbol">[</span>pivot<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">];</span></li><li>lptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">++;</span></li><li>rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">--;</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li>rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of for*/</span></li><li>rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>rptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">return</span> Success<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of if */</span></li><li></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>pos <span class="sh_symbol">==</span> n<span class="sh_symbol">)</span></li><li>pivot <span class="sh_symbol">=</span> pos<span class="sh_number">-1</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">else</span></li><li>pivot <span class="sh_symbol">=</span> pos<span class="sh_symbol">;</span></li><li></li><li></li><li>lptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>rptr <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>pivot<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_comment">/*merge right node with left node*/</span></li><li>lptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key_arr<span class="sh_symbol">[</span>pivot<span class="sh_symbol">];</span></li><li>lptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">];</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> rptr<span class="sh_symbol">-&gt;</span>n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>lptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">1</span> <span class="sh_symbol">+</span> i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>keys<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>lptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> <span class="sh_number">2</span> <span class="sh_symbol">+</span> i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> rptr<span class="sh_symbol">-&gt;</span>p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li>lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">=</span> lptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span> rptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">+</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li><span class="sh_function">free</span><span class="sh_symbol">(</span>rptr<span class="sh_symbol">);</span> <span class="sh_comment">/*Remove right node*/</span></li><li><span class="sh_keyword">for</span> <span class="sh_symbol">(</span>i<span class="sh_symbol">=</span>pos<span class="sh_number">+1</span><span class="sh_symbol">;</span> i <span class="sh_symbol">&lt;</span> n<span class="sh_symbol">;</span> i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>key_arr<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">]</span> <span class="sh_symbol">=</span> key_arr<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]</span> <span class="sh_symbol">=</span> p<span class="sh_symbol">[</span>i<span class="sh_number">+1</span><span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">return</span> <span class="sh_symbol">--</span>ptr<span class="sh_symbol">-&gt;</span>n <span class="sh_symbol">&gt;=</span> <span class="sh_symbol">(</span>ptr <span class="sh_symbol">==</span> root <span class="sh_symbol">?</span> <span class="sh_number">1</span> <span class="sh_symbol">:</span> min<span class="sh_symbol">)</span> <span class="sh_symbol">?</span> Success <span class="sh_symbol">:</span> LessKeys<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_comment">/*End of del()*/</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display: none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#define M 5
+
+struct node{
+int n; /* n &lt; M No. of keys in node will always less than order of B
+tree */
+int keys[M-1]; /*array of keys*/
+struct node *p[M]; /* (n+1 pointers will be in use) */
+}*root=NULL;
+
+enum KeyStatus { Duplicate,SearchFailure,Success,InsertIt,LessKeys };
+
+void insert(int key);
+void display(struct node *root,int);
+void DelNode(int x);
+void search(int x);
+enum KeyStatus ins(struct node *r, int x, int* y, struct node ** u);
+int searchPos(int x,int *key_arr, int n);
+enum KeyStatus del(struct node *r, int x);
+
+int main()
+{
+int key;
+int choice;
+printf("Creation of B tree for node %d\n",M);
+while(1)
+{
+printf("1.Insert\n");
+printf("2.Delete\n");
+printf("3.Search\n");
+printf("4.Display\n");
+printf("5.Quit\n");
+printf("Enter your choice : ");
+scanf("%d",&amp;choice);
+
+switch(choice)
+{
+case 1:
+printf("Enter the key : ");
+scanf("%d",&amp;key);
+insert(key);
+break;
+case 2:
+printf("Enter the key : ");
+scanf("%d",&amp;key);
+DelNode(key);
+break;
+case 3:
+printf("Enter the key : ");
+scanf("%d",&amp;key);
+search(key);
+break;
+case 4:
+printf("Btree is :\n");
+display(root,0);
+break;
+case 5:
+exit(1);
+default:
+printf("Wrong choice\n");
+break;
+}/*End of switch*/
+}/*End of while*/
+//return 0;
+}/*End of main()*/
+
+void insert(int key)
+
+{
+struct node *newnode;
+int upKey;
+enum KeyStatus value;
+value = ins(root, key, &amp;upKey, &amp;newnode);
+if (value == Duplicate)
+printf("Key already available\n");
+if (value == InsertIt)
+{
+struct node * uproot = root;
+root=(struct node *)malloc(sizeof(struct node));
+root-&gt;n = 1;
+root-&gt;keys[0] = upKey;
+root-&gt;p[0] = uproot;
+root-&gt;p[1] = newnode;
+}/*End of if */
+}/*End of insert()*/
+
+enum KeyStatus ins(struct node *ptr, int key, int *upKey,struct node **newnode)
+{
+struct node *newPtr, *lastPtr;
+int pos, i, n,splitPos;
+int newKey, lastKey;
+enum KeyStatus value;
+if (ptr == NULL)
+{
+*newnode = NULL;
+*upKey = key;
+return InsertIt;
+}
+n = ptr-&gt;n;
+pos = searchPos(key, ptr-&gt;keys, n);
+if (pos &lt; n &amp;&amp; key == ptr-&gt;keys[pos])
+return Duplicate;
+value = ins(ptr-&gt;p[pos], key, &amp;newKey, &amp;newPtr);
+if (value != InsertIt)
+return value;
+/*If keys in node is less than M-1 where M is order of B tree*/
+if (n &lt; M - 1)
+{
+pos = searchPos(newKey, ptr-&gt;keys, n);
+/*Shifting the key and pointer right for inserting the new key*/
+for (i=n; i&gt;pos; i--)
+{
+ptr-&gt;keys[i] = ptr-&gt;keys[i-1];
+ptr-&gt;p[i+1] = ptr-&gt;p[i];
+}
+/*Key is inserted at exact location*/
+ptr-&gt;keys[pos] = newKey;
+
+ptr-&gt;p[pos+1] = newPtr;
+++ptr-&gt;n; /*incrementing the number of keys in node*/
+return Success;
+}/*End of if */
+/*If keys in nodes are maximum and position of node to be inserted is
+last*/
+if (pos == M - 1)
+{
+lastKey = newKey;
+lastPtr = newPtr;
+}
+else /*If keys in node are maximum and position of node to be inserted
+is not last*/
+{
+lastKey = ptr-&gt;keys[M-2];
+lastPtr = ptr-&gt;p[M-1];
+for (i=M-2; i&gt;pos; i--)
+{
+ptr-&gt;keys[i] = ptr-&gt;keys[i-1];
+ptr-&gt;p[i+1] = ptr-&gt;p[i];
+}
+ptr-&gt;keys[pos] = newKey;
+ptr-&gt;p[pos+1] = newPtr;
+}
+splitPos = (M - 1)/2;
+(*upKey) = ptr-&gt;keys[splitPos];
+
+(*newnode)=(struct node *)malloc(sizeof(struct node));/*Right node after split*/
+ptr-&gt;n = splitPos; /*No. of keys for left splitted node*/
+(*newnode)-&gt;n = M-1-splitPos;/*No. of keys for right splitted node*/
+for (i=0; i &lt; (*newnode)-&gt;n; i++)
+{
+(*newnode)-&gt;p[i] = ptr-&gt;p[i + splitPos + 1];
+if(i &lt; (*newnode)-&gt;n - 1)
+(*newnode)-&gt;keys[i] = ptr-&gt;keys[i + splitPos + 1];
+else
+(*newnode)-&gt;keys[i] = lastKey;
+}
+(*newnode)-&gt;p[(*newnode)-&gt;n] = lastPtr;
+return InsertIt;
+}/*End of ins()*/
+
+void display(struct node *ptr, int blanks)
+{
+if (ptr)
+{
+int i;
+for(i=1;i&lt;=blanks;i++)
+printf(" ");
+
+for (i=0; i &lt; ptr-&gt;n; i++)
+printf("%d ",ptr-&gt;keys[i]);
+printf("\n");
+for (i=0; i &lt;= ptr-&gt;n; i++)
+display(ptr-&gt;p[i], blanks+10);
+}/*End of if*/
+}/*End of display()*/
+
+void search(int key)
+{
+int pos, i, n;
+struct node *ptr = root;
+printf("Search path:\n");
+while (ptr)
+{
+n = ptr-&gt;n;
+for (i=0; i &lt; ptr-&gt;n; i++)
+printf(" %d",ptr-&gt;keys[i]);
+printf("\n");
+pos = searchPos(key, ptr-&gt;keys, n);
+if (pos &lt; n &amp;&amp; key == ptr-&gt;keys[pos])
+{
+printf("Key %d found in position %d of last dispalyednode\n",key,i);
+return;
+}
+ptr = ptr-&gt;p[pos];
+}
+printf("Key %d is not available\n",key);
+}/*End of search()*/
+
+int searchPos(int key, int *key_arr, int n)
+{
+int pos=0;
+while (pos &lt; n &amp;&amp; key &gt; key_arr[pos])
+pos++;
+return pos;
+}/*End of searchPos()*/
+
+void DelNode(int key)
+{
+struct node *uproot;
+enum KeyStatus value;
+value = del(root,key);
+switch (value)
+{
+case SearchFailure:
+printf("Key %d is not available\n",key);
+break;
+case LessKeys:
+
+uproot = root;
+root = root-&gt;p[0];
+free(uproot);
+break;
+}/*End of switch*/
+}/*End of delnode()*/
+
+enum KeyStatus del(struct node *ptr, int key)
+{
+int pos, i, pivot, n ,min;
+int *key_arr;
+enum KeyStatus value;
+struct node **p,*lptr,*rptr;
+
+if (ptr == NULL)
+return SearchFailure;
+/*Assigns values of node*/
+n=ptr-&gt;n;
+key_arr = ptr-&gt;keys;
+p = ptr-&gt;p;
+min = (M - 1)/2;/*Minimum number of keys*/
+
+pos = searchPos(key, key_arr, n);
+if (p[0] == NULL)
+{
+if (pos == n || key &lt; key_arr[pos])
+return SearchFailure;
+/*Shift keys and pointers left*/
+for (i=pos+1; i &lt; n; i++)
+{
+key_arr[i-1] = key_arr[i];
+p[i] = p[i+1];
+}
+return --ptr-&gt;n &gt;= (ptr==root ? 1 : min) ? Success : LessKeys;
+}/*End of if */
+
+if (pos &lt; n &amp;&amp; key == key_arr[pos])
+{
+struct node *qp = p[pos], *qp1;
+int nkey;
+while(1)
+{
+nkey = qp-&gt;n;
+qp1 = qp-&gt;p[nkey];
+if (qp1 == NULL)
+break;
+qp = qp1;
+}/*End of while*/
+key_arr[pos] = qp-&gt;keys[nkey-1];
+
+qp-&gt;keys[nkey - 1] = key;
+}/*End of if */
+value = del(p[pos], key);
+if (value != LessKeys)
+return value;
+
+if (pos &gt; 0 &amp;&amp; p[pos-1]-&gt;n &gt; min)
+{
+pivot = pos - 1; /*pivot for left and right node*/
+lptr = p[pivot];
+rptr = p[pos];
+/*Assigns values for right node*/
+rptr-&gt;p[rptr-&gt;n + 1] = rptr-&gt;p[rptr-&gt;n];
+for (i=rptr-&gt;n; i&gt;0; i--)
+{
+rptr-&gt;keys[i] = rptr-&gt;keys[i-1];
+rptr-&gt;p[i] = rptr-&gt;p[i-1];
+}
+rptr-&gt;n++;
+rptr-&gt;keys[0] = key_arr[pivot];
+rptr-&gt;p[0] = lptr-&gt;p[lptr-&gt;n];
+key_arr[pivot] = lptr-&gt;keys[--lptr-&gt;n];
+return Success;
+}/*End of if */
+if (pos &gt; min)
+{
+pivot = pos; /*pivot for left and right node*/
+lptr = p[pivot];
+rptr = p[pivot+1];
+/*Assigns values for left node*/
+lptr-&gt;keys[lptr-&gt;n] = key_arr[pivot];
+lptr-&gt;p[lptr-&gt;n + 1] = rptr-&gt;p[0];
+key_arr[pivot] = rptr-&gt;keys[0];
+lptr-&gt;n++;
+rptr-&gt;n--;
+for (i=0; i &lt; rptr-&gt;n; i++)
+{
+rptr-&gt;keys[i] = rptr-&gt;keys[i+1];
+rptr-&gt;p[i] = rptr-&gt;p[i+1];
+}/*End of for*/
+rptr-&gt;p[rptr-&gt;n] = rptr-&gt;p[rptr-&gt;n + 1];
+return Success;
+}/*End of if */
+
+if(pos == n)
+pivot = pos-1;
+else
+pivot = pos;
+
+
+lptr = p[pivot];
+rptr = p[pivot+1];
+/*merge right node with left node*/
+lptr-&gt;keys[lptr-&gt;n] = key_arr[pivot];
+lptr-&gt;p[lptr-&gt;n + 1] = rptr-&gt;p[0];
+for (i=0; i &lt; rptr-&gt;n; i++)
+{
+lptr-&gt;keys[lptr-&gt;n + 1 + i] = rptr-&gt;keys[i];
+lptr-&gt;p[lptr-&gt;n + 2 + i] = rptr-&gt;p[i+1];
+}
+lptr-&gt;n = lptr-&gt;n + rptr-&gt;n +1;
+free(rptr); /*Remove right node*/
+for (i=pos+1; i &lt; n; i++)
+{
+key_arr[i-1] = key_arr[i];
+p[i] = p[i+1];
+}
+return --ptr-&gt;n &gt;= (ptr == root ? 1 : min) ? Success : LessKeys;
+}/*End of del()*/
+
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Creation of B tree <span class="sh_keyword">for</span> node <span class="sh_number">5</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span> <span class="sh_number">1</span></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>key <span class="sh_symbol">:</span> <span class="sh_number">10</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span> <span class="sh_number">1</span></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>key <span class="sh_symbol">:</span> <span class="sh_number">20</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span> <span class="sh_number">4</span></li><li><span class="sh_usertype">Btree</span><span class="sh_normal"> </span>is <span class="sh_symbol">:</span></li><li><span class="sh_number">10</span> <span class="sh_number">20</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span> <span class="sh_number">2</span></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>key <span class="sh_symbol">:</span> <span class="sh_number">10</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span> <span class="sh_number">4</span></li><li><span class="sh_usertype">Btree</span><span class="sh_normal"> </span>is <span class="sh_symbol">:</span></li><li><span class="sh_number">20</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Search</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Display</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Quit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice <span class="sh_symbol">:</span><span class="sh_number">5</span> </li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Creation of B tree for node 5
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice : 1
+Enter the key : 10
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice : 1
+Enter the key : 20
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice : 4
+Btree is :
+10 20
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice : 2
+Enter the key : 10
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice : 4
+Btree is :
+20
+1.Insert
+2.Delete
+3.Search
+4.Display
+5.Quit
+Enter your choice :5 
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

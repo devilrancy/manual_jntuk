@@ -1,0 +1,279 @@
+<ion-view title="Exercise-8">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        a)   Write a C program that uses functions to create a singly linked list.
+b)  Write a C program that uses functions to perform insertion operation on a singly linked list.
+c)  Write a C program that uses functions to perform deletion operation on a singly linked list.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #339933;">#include&lt;conio.h&gt;</span><br />
+<br />
+<span style="color: #993333;">void</span> create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> deletion<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> reverse<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">struct</span> list<br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #993333;">int</span> data<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">struct</span> list <span style="color: #339933;">*</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">typedef</span> <span style="color: #993333;">struct</span> list node<span style="color: #339933;">;</span><br />
+node <span style="color: #339933;">*</span>header<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #993333;">int</span> ch<span style="color: #339933;">,</span>item<span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;1.create &nbsp;2.insert &nbsp;3.deletion &nbsp;4.display &nbsp;5.reverese &nbsp;6.exit<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter your choice&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>ch<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">switch</span><span style="color: #009900;">&#40;</span>ch<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+deletion<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">4</span><span style="color: #339933;">:</span><br />
+display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">:</span><br />
+reverse<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">default</span> <span style="color: #339933;">:</span><br />
+exit<span style="color: #009900;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+header<span style="color: #339933;">=</span><span style="color: #009900;">&#40;</span>node<span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span>malloc<span style="color: #009900;">&#40;</span><span style="color: #993333;">sizeof</span><span style="color: #009900;">&#40;</span>node<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+header<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+node <span style="color: #339933;">*</span>new<span style="color: #339933;">,*</span>ptr<span style="color: #339933;">,*</span>prev<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">int</span> item<span style="color: #339933;">,</span>pos<span style="color: #339933;">,</span>element<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter the item you want 2 insert&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+new<span style="color: #339933;">=</span><span style="color: #009900;">&#40;</span>node<span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span>malloc<span style="color: #009900;">&#40;</span><span style="color: #993333;">sizeof</span><span style="color: #009900;">&#40;</span>node<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+new<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">=</span>item<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter position of insertio 1.begining<span style="color: #000099; font-weight: bold;">\t</span> 2.end<span style="color: #000099; font-weight: bold;">\t</span> 3.any position&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>pos<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">switch</span><span style="color: #009900;">&#40;</span>pos<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+new<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>new<span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+ptr<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+new<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>new<span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter the element after which you want 2 insert:&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>element<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">!=</span>NULL<span style="color: #339933;">&amp;&amp;</span>ptr<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">!=</span>element<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">==</span>element<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+new<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>new<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;element not found<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> deletion<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+node <span style="color: #339933;">*</span>ptr<span style="color: #339933;">,*</span>prev<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">int</span> pos<span style="color: #339933;">,</span>item<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;1.delete front <span style="color: #000099; font-weight: bold;">\t</span>2. delete last<span style="color: #000099; font-weight: bold;">\t</span> 3.delete any&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>pos<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">switch</span><span style="color: #009900;">&#40;</span>pos<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+<span style="color: #009900;">&#123;</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;list is empty<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+free<span style="color: #009900;">&#40;</span>ptr<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+<span style="color: #009900;">&#123;</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+prev<span style="color: #339933;">=</span>header<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;list is empty<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+prev<span style="color: #339933;">=</span>ptr<span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+prev<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+free<span style="color: #009900;">&#40;</span>ptr<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+<span style="color: #009900;">&#123;</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+prev<span style="color: #339933;">=</span>header<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter the item you want to delete&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">!=</span>item<span style="color: #339933;">&amp;&amp;</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+prev<span style="color: #339933;">=</span>ptr<span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">==</span>item<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+prev<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+free<span style="color: #009900;">&#40;</span>ptr<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;item not found<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+node <span style="color: #339933;">*</span>ptr<span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;header-&gt;&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>ptr<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d-&gt;&quot;</span><span style="color: #339933;">,</span>ptr<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+ptr<span style="color: #339933;">=</span>ptr<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;NULL<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> reverse<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+node <span style="color: #339933;">*</span>p1<span style="color: #339933;">,*</span>p2<span style="color: #339933;">,*</span>p3<span style="color: #339933;">,*</span>last<span style="color: #339933;">;</span><br />
+p1<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>p1<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;list is empty&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+p2<span style="color: #339933;">=</span>p1<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+p3<span style="color: #339933;">=</span>p2<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+last<span style="color: #339933;">=</span>header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>last<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+last<span style="color: #339933;">=</span>last<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>p3<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+p1<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+p2<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p1<span style="color: #339933;">;</span><br />
+header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p2<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+p1<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>p3<span style="color: #339933;">!=</span>last<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+p2<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p1<span style="color: #339933;">;</span><br />
+p1<span style="color: #339933;">=</span>p2<span style="color: #339933;">;</span><br />
+p2<span style="color: #339933;">=</span>p3<span style="color: #339933;">;</span><br />
+p3<span style="color: #339933;">=</span>p3<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+p2<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p1<span style="color: #339933;">;</span><br />
+p3<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p2<span style="color: #339933;">;</span><br />
+header<span style="color: #339933;">-&gt;</span>next<span style="color: #339933;">=</span>p3<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT:CREATE &amp; INSERT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter the item you want <span style="color: #0000dd;">2</span> insert <span style="color: #0000dd;">13</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter the item you want <span style="color: #0000dd;">2</span> insert <span style="color: #0000dd;">34</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">2</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">4</span><br />
+header<span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">56</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">13</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">34</span><span style="color: #339933;">-&gt;</span>NULL<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice<br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT:DELETE
+    </div>
+    <div class="card">
+      <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter the item you want <span style="color: #0000dd;">2</span> insert <span style="color: #0000dd;">13</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter the item you want <span style="color: #0000dd;">2</span> insert <span style="color: #0000dd;">34</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">2</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">2</span><br />
+enter position of insertion <span style="color: #0000dd;">1</span>.<span style="color: #202020;">begining</span> &nbsp;<span style="color: #0000dd;">2</span>.<span style="color: #202020;">end</span> &nbsp;<span style="color: #0000dd;">3</span>.<span style="color: #202020;">any</span> position <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">4</span><br />
+header<span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">56</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">13</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">34</span><span style="color: #339933;">-&gt;</span>NULL<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">3</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">delete</span> front <span style="color: #0000dd;">2</span>.<span style="color: #202020;">delete</span> last <span style="color: #0000dd;">3</span>.<span style="color: #202020;">delete</span> any <span style="color: #0000dd;">1</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">3</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">delete</span> front <span style="color: #0000dd;">2</span>.<span style="color: #202020;">delete</span> last <span style="color: #0000dd;">3</span>.<span style="color: #202020;">delete</span> any <span style="color: #0000dd;">2</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <span style="color: #0000dd;">4</span><br />
+header<span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">13</span><span style="color: #339933;">-&gt;</span>NULL<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">create</span> <span style="color: #0000dd;">2</span>.<span style="color: #202020;">insert</span> <span style="color: #0000dd;">3</span>.<span style="color: #202020;">deletion</span> <span style="color: #0000dd;">4</span>.<span style="color: #202020;">display</span> <span style="color: #0000dd;">5</span>.<span style="color: #202020;">reverse</span> <span style="color: #0000dd;">6</span>.<span style="color: #202020;">exit</span><br />
+enter your choice <br />
+&nbsp;</div>
+    </div>
+  </ion-content>
+</ion-view>

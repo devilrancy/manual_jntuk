@@ -1,0 +1,454 @@
+<ion-view title="Program-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+      To perform various operations i.e, insertions and deletions on AVL trees.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;malloc.h&gt;</span></li><li><span class="sh_preproc">#define</span> CHANGED <span class="sh_number">0</span></li><li><span class="sh_preproc">#define</span> BALANCED <span class="sh_number">1</span></li><li><span class="sh_type">int</span> height<span class="sh_symbol">;</span></li><li><span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">bnode</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> data<span class="sh_symbol">,</span>bfactor<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">bnode</span> <span class="sh_symbol">*</span>left<span class="sh_symbol">,*</span>right<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">typedef</span> <span class="sh_keyword">struct</span><span class="sh_normal"> </span><span class="sh_classname">bnode</span> node<span class="sh_symbol">;</span></li><li>node<span class="sh_symbol">*</span> <span class="sh_function">getnode</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> size<span class="sh_symbol">;</span></li><li>  node<span class="sh_symbol">*</span> newnode<span class="sh_symbol">;</span></li><li>  size<span class="sh_symbol">=</span><span class="sh_keyword">sizeof</span><span class="sh_symbol">(</span>node<span class="sh_symbol">);</span></li><li>  newnode<span class="sh_symbol">=(</span>node<span class="sh_symbol">*)</span><span class="sh_function">malloc</span><span class="sh_symbol">(</span>size<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span><span class="sh_symbol">(</span>newnode<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">copynode</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>r<span class="sh_symbol">,</span><span class="sh_type">int</span> data<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  r<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">=</span>data<span class="sh_symbol">;</span></li><li>  r<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>NULL<span class="sh_symbol">;</span></li><li>  r<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>NULL<span class="sh_symbol">;</span></li><li>  r<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">releasenode</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>p<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_function">free</span><span class="sh_symbol">(</span>p<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li>node<span class="sh_symbol">*</span> <span class="sh_function">searchnode</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>root<span class="sh_symbol">,</span><span class="sh_type">int</span> data<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>root<span class="sh_symbol">!=</span>NULL<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&lt;</span>root<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;  root<span class="sh_symbol">=</span><span class="sh_function">searchnode</span><span class="sh_symbol">(</span>root<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">,</span>data<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_keyword">else</span> <span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&gt;</span>root<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;  root<span class="sh_symbol">=</span><span class="sh_function">searchnode</span><span class="sh_symbol">(</span>root<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">,</span>data<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span><span class="sh_symbol">(</span>root<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li> <span class="sh_type">void</span> <span class="sh_function">lefttoleft</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Pptr<span class="sh_symbol">,</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Aptr<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>p<span class="sh_symbol">=*</span>Pptr<span class="sh_symbol">,*</span>A<span class="sh_symbol">=*</span>Aptr<span class="sh_symbol">;</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Left to left AVL Rotation</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>  p<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>A<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span></li><li>  A<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li></li><li>  </li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li>    <span class="sh_keyword">else</span></li><li>    <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li>    p<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Pptr<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Aptr<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">lefttoright</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Pptr<span class="sh_symbol">,</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Aptr<span class="sh_symbol">,</span> <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Bptr<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>    <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>p<span class="sh_symbol">=*</span>Pptr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>A<span class="sh_symbol">=*</span>Aptr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>B<span class="sh_symbol">=*</span>Bptr<span class="sh_symbol">;</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Left to Right AVL Rotation </span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>    B<span class="sh_symbol">=</span>A<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>B<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    p<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>B<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">else</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==-</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">else</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    p<span class="sh_symbol">=</span>B<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Pptr<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Aptr<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Bptr<span class="sh_symbol">=</span>B<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_type">void</span> <span class="sh_function">righttoright</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Pptr<span class="sh_symbol">,</span> <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Aptr<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>    <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>p<span class="sh_symbol">=*</span>Pptr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>A<span class="sh_symbol">=*</span>Aptr<span class="sh_symbol">;</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Right to Right AVL Rotation </span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>    p<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>A<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li>    <span class="sh_keyword">else</span></li><li>    <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li>    p<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Pptr<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Aptr<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_type">void</span> <span class="sh_function">righttoleft</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Pptr<span class="sh_symbol">,</span> <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Aptr<span class="sh_symbol">,</span> <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>Bptr<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>    <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>p<span class="sh_symbol">=*</span>Pptr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>A<span class="sh_symbol">=*</span>Aptr<span class="sh_symbol">,</span> <span class="sh_symbol">*</span>B<span class="sh_symbol">=*</span>Bptr<span class="sh_symbol">;</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Right to Left AVL Rotation </span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>    B<span class="sh_symbol">=</span>A<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>    A<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>B<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    p<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span>B<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==-</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">else</span></li><li>    p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">else</span></li><li>    A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    B<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    p<span class="sh_symbol">=</span>B<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Pptr<span class="sh_symbol">=</span>p<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Aptr<span class="sh_symbol">=</span>A<span class="sh_symbol">;</span></li><li>    <span class="sh_symbol">*</span>Bptr<span class="sh_symbol">=</span>B<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>node<span class="sh_symbol">*</span> <span class="sh_function">insertnode</span><span class="sh_symbol">(</span><span class="sh_type">int</span> data<span class="sh_symbol">,</span>node<span class="sh_symbol">*</span> p<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>   <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>A<span class="sh_symbol">,*</span>B<span class="sh_symbol">;</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>p<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">=</span><span class="sh_function">getnode</span><span class="sh_symbol">();</span></li><li>    <span class="sh_function">copynode</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,</span>data<span class="sh_symbol">);</span></li><li>    height<span class="sh_symbol">=</span>CHANGED<span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">return</span><span class="sh_symbol">(</span>p<span class="sh_symbol">);</span></li><li>   <span class="sh_cbracket">}</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&lt;</span>p<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    </li><li>p<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">=</span><span class="sh_function">insertnode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,</span>p<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">);</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>       <span class="sh_keyword">switch</span><span class="sh_symbol">(</span>p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>       <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>  <span class="sh_comment">//right heavy tree</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>  <span class="sh_comment">//balanced tree</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     A<span class="sh_symbol">=</span>p<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       <span class="sh_function">lefttoleft</span><span class="sh_symbol">(&amp;</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">lefttoright</span><span class="sh_symbol">(&amp;</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>       <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>   <span class="sh_cbracket">}</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&gt;</span>p<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    p<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">=</span><span class="sh_function">insertnode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,</span>p<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">);</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">switch</span><span class="sh_symbol">(</span>p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>      <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>    <span class="sh_comment">//left heavy trees</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span>   <span class="sh_comment">//balanaced trees</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<span class="sh_symbol">=</span>p<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span>        <span class="sh_comment">//right heavy trees</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">==-</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">righttoright</span><span class="sh_symbol">(&amp;</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">righttoleft</span><span class="sh_symbol">(&amp;</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<span class="sh_symbol">=</span>CHANGED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>      <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>    <span class="sh_keyword">return</span><span class="sh_symbol">(</span>p<span class="sh_symbol">);</span></li><li></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">del</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>N<span class="sh_symbol">,</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>C<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>    <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>T<span class="sh_symbol">,*</span>A<span class="sh_symbol">,*</span>B<span class="sh_symbol">;</span></li><li>    <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>p<span class="sh_symbol">;</span></li><li>    T<span class="sh_symbol">=(*</span>N<span class="sh_symbol">);</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">((*</span>N<span class="sh_symbol">)-&gt;</span>right<span class="sh_symbol">!=</span>NULL<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">del</span><span class="sh_symbol">(&amp;((*</span>N<span class="sh_symbol">)-&gt;</span>right<span class="sh_symbol">),</span>C<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; p<span class="sh_symbol">=</span>N<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">switch</span><span class="sh_symbol">((*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<span class="sh_symbol">=(*</span>p<span class="sh_symbol">)-&gt;</span>left<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">&gt;=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">lefttoleft</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">lefttoright</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>    <span class="sh_keyword">else</span></li><li>    <span class="sh_cbracket">{</span></li><li>      <span class="sh_symbol">(*</span>C<span class="sh_symbol">)-&gt;</span>data<span class="sh_symbol">=(*</span>N<span class="sh_symbol">)-&gt;</span>data<span class="sh_symbol">;</span></li><li>      <span class="sh_symbol">(*</span>N<span class="sh_symbol">)=(*</span>N<span class="sh_symbol">)-&gt;</span>left<span class="sh_symbol">;</span></li><li>      <span class="sh_function">releasenode</span><span class="sh_symbol">(</span>T<span class="sh_symbol">);</span></li><li>      height<span class="sh_symbol">=</span>CHANGED<span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">deletenode</span><span class="sh_symbol">(</span><span class="sh_type">int</span> data<span class="sh_symbol">,</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">**</span>p<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>A<span class="sh_symbol">,*</span>B<span class="sh_symbol">,*</span>C<span class="sh_symbol">;</span></li><li> <span class="sh_keyword">if</span><span class="sh_symbol">(*</span>p<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">AVL Tree is empty"</span><span class="sh_symbol">);</span></li><li>   <span class="sh_keyword">return</span><span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li> </li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&lt;(*</span>p<span class="sh_symbol">)-&gt;</span>data<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_function">deletenode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,&amp;((*</span>p<span class="sh_symbol">)-&gt;</span>left<span class="sh_symbol">));</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_keyword">switch</span><span class="sh_symbol">((*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<span class="sh_symbol">=(*</span>p<span class="sh_symbol">)-&gt;</span>right<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">&lt;=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">righttoright</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">righttoleft</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>   <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">else</span> <span class="sh_keyword">if</span><span class="sh_symbol">(</span>data<span class="sh_symbol">&gt;(*</span>p<span class="sh_symbol">)-&gt;</span>data<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_function">deletenode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,&amp;((*</span>p<span class="sh_symbol">)-&gt;</span>right<span class="sh_symbol">));</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_keyword">switch</span><span class="sh_symbol">((*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<span class="sh_symbol">=(*</span>p<span class="sh_symbol">)-&gt;</span>left<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">&gt;=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">lefttoleft</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <span class="sh_function">lefttoright</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>   <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">else</span></li><li></li><li><span class="sh_cbracket">{</span></li><li>   C<span class="sh_symbol">=*</span>p<span class="sh_symbol">;</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>C<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    <span class="sh_symbol">*</span>p<span class="sh_symbol">=</span>C<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">;</span></li><li>    height<span class="sh_symbol">=</span>CHANGED<span class="sh_symbol">;</span></li><li>    <span class="sh_function">releasenode</span><span class="sh_symbol">(</span>C<span class="sh_symbol">);</span></li><li>   <span class="sh_cbracket">}</span></li><li>   <span class="sh_keyword">else</span> <span class="sh_keyword">if</span><span class="sh_symbol">(</span>C<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    <span class="sh_symbol">*</span>p<span class="sh_symbol">=</span>C<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">;</span></li><li>    height<span class="sh_symbol">=</span>CHANGED<span class="sh_symbol">;</span></li><li>    <span class="sh_function">releasenode</span><span class="sh_symbol">(</span>C<span class="sh_symbol">);</span></li><li>   <span class="sh_cbracket">}</span></li><li>   <span class="sh_keyword">else</span></li><li>   <span class="sh_cbracket">{</span></li><li>     <span class="sh_function">del</span><span class="sh_symbol">(&amp;(</span>C<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">),&amp;</span>C<span class="sh_symbol">);</span></li><li>     <span class="sh_keyword">if</span><span class="sh_symbol">(</span>height<span class="sh_symbol">==</span>CHANGED<span class="sh_symbol">)</span></li><li>     <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">switch</span><span class="sh_symbol">((*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">)</span></li><li>      <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">0</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">(*</span>p<span class="sh_symbol">)-&gt;</span>bfactor<span class="sh_symbol">=-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<span class="sh_symbol">=</span>BALANCED<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<span class="sh_symbol">=(*</span>p<span class="sh_symbol">)-&gt;</span>right<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>A<span class="sh_symbol">-&gt;</span>bfactor<span class="sh_symbol">&lt;=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">righttoright</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">righttoleft</span><span class="sh_symbol">(</span>p<span class="sh_symbol">,&amp;</span>A<span class="sh_symbol">,&amp;</span>B<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>      <span class="sh_cbracket">}</span></li><li>     <span class="sh_cbracket">}</span></li><li>   <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li>    </li><li><span class="sh_type">void</span> <span class="sh_function">inorder</span><span class="sh_symbol">(</span><span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>root<span class="sh_symbol">)</span></li><li>    <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>root<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li>    <span class="sh_keyword">return</span><span class="sh_symbol">;</span></li><li>    <span class="sh_function">inorder</span><span class="sh_symbol">(</span>root<span class="sh_symbol">-&gt;</span>left<span class="sh_symbol">);</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%4d"</span><span class="sh_symbol">,</span>root<span class="sh_symbol">-&gt;</span>data<span class="sh_symbol">);</span></li><li>    <span class="sh_function">inorder</span><span class="sh_symbol">(</span>root<span class="sh_symbol">-&gt;</span>right<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li>    </li><li></li><li> <span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> data<span class="sh_symbol">,</span>ch<span class="sh_symbol">,</span>choice<span class="sh_symbol">=</span><span class="sh_string">'y'</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">node</span><span class="sh_normal"> </span><span class="sh_symbol">*</span>root<span class="sh_symbol">=</span>NULL<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Basic operations in an AVL Tree..."</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">1.Insert a node in the AVL Tree"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">2.Delete a node in the AVL Tree"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">3.View the AVL Tree"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">4.Exit"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">((</span>choice<span class="sh_symbol">==</span><span class="sh_string">'y'</span><span class="sh_symbol">)||(</span>choice<span class="sh_symbol">==</span><span class="sh_string">'Y'</span><span class="sh_symbol">))</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">fflush</span><span class="sh_symbol">(</span>stdin<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>ch<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">switch</span><span class="sh_symbol">(</span>ch<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the value to be inserted:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>data<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_function">searchnode</span><span class="sh_symbol">(</span>root<span class="sh_symbol">,</span>data<span class="sh_symbol">)==</span>NULL<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; root<span class="sh_symbol">=</span><span class="sh_function">insertnode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,</span>root<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Data already exists"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">2</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the value to be deleted:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>data<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_function">searchnode</span><span class="sh_symbol">(</span>root<span class="sh_symbol">,</span>data<span class="sh_symbol">)!=</span>NULL<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">deletenode</span><span class="sh_symbol">(</span>data<span class="sh_symbol">,&amp;</span>root<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Element to be deleted is not found"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">3</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>root<span class="sh_symbol">==</span>NULL<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">AVL Tree is Emoty</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">continue</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Inorder Traversal of the AVL Tree:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">inorder</span><span class="sh_symbol">(</span>root<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">default</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">End of run of your program..."</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">releasenode</span><span class="sh_symbol">(</span>root<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;malloc.h&gt;
+#define CHANGED 0
+#define BALANCED 1
+int height;
+struct bnode
+{
+  int data,bfactor;
+  struct bnode *left,*right;
+};
+typedef struct bnode node;
+node* getnode()
+{
+  int size;
+  node* newnode;
+  size=sizeof(node);
+  newnode=(node*)malloc(size);
+  return(newnode);
+}
+void copynode(node *r,int data)
+{
+  r-&gt;data=data;
+  r-&gt;left=NULL;
+  r-&gt;right=NULL;
+  r-&gt;bfactor=0;
+}
+void releasenode(node *p)
+{
+  free(p);
+}
+node* searchnode(node *root,int data)
+{
+  if(root!=NULL)
+    if(data&lt;root-&gt;data)
+    root=searchnode(root-&gt;left,data);
+    else if(data&gt;root-&gt;data)
+    root=searchnode(root-&gt;right,data);
+  return(root);
+}
+ void lefttoleft(node **Pptr,node **Aptr)
+ {
+  node *p=*Pptr,*A=*Aptr;
+  printf("\nLeft to left AVL Rotation\n");
+  p-&gt;left=A-&gt;right;
+  A-&gt;right=p;
+
+  
+if(A-&gt;bfactor==0)
+  {
+    p-&gt;bfactor=1;
+    A-&gt;bfactor=-1;
+    height=BALANCED;
+    }
+    else
+    {
+    p-&gt;bfactor=0;
+    A-&gt;bfactor=0;
+    }
+    p=A;
+    *Pptr=p;
+    *Aptr=A;
+  }
+
+void lefttoright(node **Pptr,node **Aptr, node **Bptr)
+    {
+    node *p=*Pptr, *A=*Aptr, *B=*Bptr;
+    printf("\n Left to Right AVL Rotation \n");
+    B=A-&gt;right;
+    A-&gt;right=B-&gt;left;
+    B-&gt;left=A;
+    p-&gt;left=B-&gt;right;
+    B-&gt;right=p;
+    if(B-&gt;bfactor==1)
+    p-&gt;bfactor=-1;
+    else
+    p-&gt;bfactor=0;
+    if(B-&gt;bfactor==-1)
+    A-&gt;bfactor=1;
+    else
+    A-&gt;bfactor=0;
+    B-&gt;bfactor=0;
+    p=B;
+    *Pptr=p;
+    *Aptr=A;
+    *Bptr=B;
+    }
+
+    void righttoright(node **Pptr, node **Aptr)
+    {
+    node *p=*Pptr, *A=*Aptr;
+    printf("\n Right to Right AVL Rotation \n");
+    p-&gt;right=A-&gt;left;
+    A-&gt;left=p;
+    if(A-&gt;bfactor==0)
+    {
+    p-&gt;bfactor=-1;
+
+    A-&gt;bfactor=1;
+    height=BALANCED;
+    }
+    else
+    {
+    p-&gt;bfactor=0;
+    A-&gt;bfactor=0;
+    }
+    p=A;
+    *Pptr=p;
+    *Aptr=A;
+    }
+
+    void righttoleft(node **Pptr, node **Aptr, node **Bptr)
+    {
+    node *p=*Pptr, *A=*Aptr, *B=*Bptr;
+    printf("\n Right to Left AVL Rotation \n");
+    B=A-&gt;left;
+    A-&gt;left=B-&gt;right;
+    B-&gt;right=A;
+    p-&gt;right=B-&gt;left;
+    B-&gt;left=p;
+    if(B-&gt;bfactor==-1)
+    p-&gt;bfactor=1;
+    else
+    p-&gt;bfactor=0;
+    if(B-&gt;bfactor==1)
+    A-&gt;bfactor=-1;
+    else
+    A-&gt;bfactor=0;
+    B-&gt;bfactor=0;
+    p=B;
+    *Pptr=p;
+    *Aptr=A;
+    *Bptr=B;
+    }
+
+node* insertnode(int data,node* p)
+{
+   node *A,*B;
+   if(p==NULL)
+   {
+    p=getnode();
+    copynode(p,data);
+    height=CHANGED;
+    return(p);
+   }
+   if(data&lt;p-&gt;data)
+   {
+    
+p-&gt;left=insertnode(data,p-&gt;left);
+    if(height==CHANGED)
+    {
+       switch(p-&gt;bfactor)
+       {
+   case -1:
+         p-&gt;bfactor=0;  //right heavy tree
+         height=BALANCED;
+         break;
+   case 0:
+         p-&gt;bfactor=1;  //balanced tree
+         break;
+   case 1:
+         A=p-&gt;left;
+         if(A-&gt;bfactor==1)
+           lefttoleft(&amp;p,&amp;A);
+         else
+      lefttoright(&amp;p,&amp;A,&amp;B);
+         height=BALANCED;
+         break;
+       }
+    }
+   }
+   if(data&gt;p-&gt;data)
+   {
+    p-&gt;right=insertnode(data,p-&gt;right);
+    if(height==CHANGED)
+    {
+      switch(p-&gt;bfactor)
+      {
+  case 1:
+    p-&gt;bfactor=0;    //left heavy trees
+    height=BALANCED;
+    break;
+  case 0:
+    p-&gt;bfactor=-1;   //balanaced trees
+    break;
+  case -1:
+    A=p-&gt;right;        //right heavy trees
+    if(A-&gt;bfactor==-1)
+      righttoright(&amp;p,&amp;A);
+    else
+     righttoleft(&amp;p,&amp;A,&amp;B);
+    height=CHANGED;
+    break;
+  }
+      }
+    }
+    return(p);
+
+}
+
+void del(node **N,node **C)
+ {
+    node *T,*A,*B;
+    node **p;
+    T=(*N);
+    if((*N)-&gt;right!=NULL)
+    {
+  del(&amp;((*N)-&gt;right),C);
+  if(height==CHANGED)
+  {
+   p=N;
+   switch((*p)-&gt;bfactor)
+   {
+    case -1:
+       (*p)-&gt;bfactor=0;
+       break;
+    case 0:
+       (*p)-&gt;bfactor=1;
+       height=BALANCED;
+       break;
+    case 1:
+      A=(*p)-&gt;left;
+      if(A-&gt;bfactor&gt;=0)
+       lefttoleft(p,&amp;A);
+      else
+       lefttoright(p,&amp;A,&amp;B);
+      break;
+   }
+  }
+    }
+    else
+    {
+      (*C)-&gt;data=(*N)-&gt;data;
+      (*N)=(*N)-&gt;left;
+      releasenode(T);
+      height=CHANGED;
+    }
+ }
+
+void deletenode(int data,node **p)
+{
+ node *A,*B,*C;
+ if(*p==NULL)
+ {
+   printf("\nAVL Tree is empty");
+   return;
+ }
+
+ 
+if(data&lt;(*p)-&gt;data)
+ {
+  deletenode(data,&amp;((*p)-&gt;left));
+  if(height==CHANGED)
+  {
+   switch((*p)-&gt;bfactor)
+   {
+  case 1:
+    (*p)-&gt;bfactor=0;
+    break;
+  case 0:
+    (*p)-&gt;bfactor=1;
+    height=BALANCED;
+    break;
+  case -1:
+    A=(*p)-&gt;right;
+    if(A-&gt;bfactor&lt;=0)
+      righttoright(p,&amp;A);
+    else
+      righttoleft(p,&amp;A,&amp;B);
+    break;
+   }
+  }
+ }
+ else if(data&gt;(*p)-&gt;data)
+ {
+  deletenode(data,&amp;((*p)-&gt;right));
+  if(height==CHANGED)
+  {
+   switch((*p)-&gt;bfactor)
+   {
+  case -1:
+    (*p)-&gt;bfactor=0;
+    break;
+  case 0:
+    (*p)-&gt;bfactor=1;
+    height=BALANCED;
+    break;
+  case 1:
+    A=(*p)-&gt;left;
+    if(A-&gt;bfactor&gt;=0)
+      lefttoleft(p,&amp;A);
+    else
+       lefttoright(p,&amp;A,&amp;B);
+    break;
+   }
+  }
+ }
+ else
+
+{
+   C=*p;
+   if(C-&gt;right==NULL)
+   {
+    *p=C-&gt;left;
+    height=CHANGED;
+    releasenode(C);
+   }
+   else if(C-&gt;left==NULL)
+   {
+    *p=C-&gt;right;
+    height=CHANGED;
+    releasenode(C);
+   }
+   else
+   {
+     del(&amp;(C-&gt;left),&amp;C);
+     if(height==CHANGED)
+     {
+      switch((*p)-&gt;bfactor)
+      {
+  case 1:
+    (*p)-&gt;bfactor=0;
+    break;
+  case 0:
+    (*p)-&gt;bfactor=-1;
+    height=BALANCED;
+    break;
+  case -1:
+    A=(*p)-&gt;right;
+    if(A-&gt;bfactor&lt;=0)
+     righttoright(p,&amp;A);
+    else
+     righttoleft(p,&amp;A,&amp;B);
+    break;
+  }
+      }
+     }
+   }
+ }
+    
+void inorder(node *root)
+    {
+    if(root==NULL)
+    return;
+    inorder(root-&gt;left);
+    printf("%4d",root-&gt;data);
+    inorder(root-&gt;right);
+    }
+    
+
+ void main()
+ {
+  int data,ch,choice='y';
+  node *root=NULL;
+  printf("\nBasic operations in an AVL Tree...");
+  printf("\n1.Insert a node in the AVL Tree");
+  printf("\n2.Delete a node in the AVL Tree");
+  printf("\n3.View the AVL Tree");
+  printf("\n4.Exit");
+  while((choice=='y')||(choice=='Y'))
+  {
+   printf("\n");
+   fflush(stdin);
+   scanf("%d",&amp;ch);
+   switch(ch)
+   {
+    case 1:
+      printf("\nEnter the value to be inserted:");
+      scanf("%d",&amp;data);
+      if(searchnode(root,data)==NULL)
+       root=insertnode(data,root);
+      else
+       printf("\nData already exists");
+      break;
+    case 2:
+      printf("Enter the value to be deleted:");
+      scanf("%d",&amp;data);
+      if(searchnode(root,data)!=NULL)
+        deletenode(data,&amp;root);
+      else
+        printf("\nElement to be deleted is not found");
+      break;
+    case 3:
+      if(root==NULL)
+      {
+        printf("\nAVL Tree is Emoty\n");
+        continue;
+      }
+      printf("\nInorder Traversal of the AVL Tree:");
+      inorder(root);
+      break;
+    default:
+      printf("\nEnd of run of your program...");
+      releasenode(root);
+      return;
+   }
+  }
+ }
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Basic operations in an <span class="sh_usertype">AVL</span><span class="sh_normal"> </span>Tree<span class="sh_symbol">...</span></li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Insert a node in the AVL Tree</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Delete a node in the AVL Tree</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>View the AVL Tree</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Exit</li><li><span class="sh_number">1</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">23</span></li><li><span class="sh_number">1</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">15</span></li><li><span class="sh_number">3</span></li><li>Inorder Traversal of the <span class="sh_usertype">AVL</span><span class="sh_normal"> </span>Tree<span class="sh_symbol">:</span>  <span class="sh_number">15</span>  <span class="sh_number">23</span></li><li></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">13</span></li><li>Left to left AVL Rotation</li><li><span class="sh_number">3</span></li><li>Inorder Traversal of the <span class="sh_usertype">AVL</span><span class="sh_normal"> </span>Tree<span class="sh_symbol">:</span>  <span class="sh_number">13</span>  <span class="sh_number">15</span>  <span class="sh_number">23</span></li><li></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">27</span></li><li><span class="sh_number">1</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">20</span></li><li><span class="sh_number">1</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">18</span></li><li> Right to Left AVL Rotation</li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">32</span></li><li> Right to Right AVL Rotation</li><li><span class="sh_number">3</span></li><li>Inorder Traversal of the <span class="sh_usertype">AVL</span><span class="sh_normal"> </span>Tree<span class="sh_symbol">:</span>  <span class="sh_number">13</span>  <span class="sh_number">15</span>  <span class="sh_number">18</span>  <span class="sh_number">20</span>  <span class="sh_number">23</span>  <span class="sh_number">27</span>  <span class="sh_number">32</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">9</span></li><li><span class="sh_number">1</span></li><li>Enter the value to <span class="sh_usertype">be</span><span class="sh_normal"> </span>inserted<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li> Left to Right AVL Rotation</li><li><span class="sh_number">3</span></li><li>Inorder Traversal of the <span class="sh_usertype">AVL</span><span class="sh_normal"> </span>Tree<span class="sh_symbol">:</span>   <span class="sh_number">9</span>  <span class="sh_number">12</span>  <span class="sh_number">13</span>  <span class="sh_number">15</span>  <span class="sh_number">18</span>  <span class="sh_number">20</span>  <span class="sh_number">23</span>  <span class="sh_number">27</span>  <span class="sh_number">32</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Basic operations in an AVL Tree...
+1.Insert a node in the AVL Tree
+2.Delete a node in the AVL Tree
+3.View the AVL Tree
+4.Exit
+1
+Enter the value to be inserted:23
+1
+Enter the value to be inserted:15
+3
+Inorder Traversal of the AVL Tree:  15  23
+
+Enter the value to be inserted:13
+Left to left AVL Rotation
+3
+Inorder Traversal of the AVL Tree:  13  15  23
+
+Enter the value to be inserted:27
+1
+Enter the value to be inserted:20
+1
+Enter the value to be inserted:18
+ Right to Left AVL Rotation
+Enter the value to be inserted:32
+ Right to Right AVL Rotation
+3
+Inorder Traversal of the AVL Tree:  13  15  18  20  23  27  32
+Enter the value to be inserted:9
+1
+Enter the value to be inserted:12
+ Left to Right AVL Rotation
+3
+Inorder Traversal of the AVL Tree:   9  12  13  15  18  20  23  27  32
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

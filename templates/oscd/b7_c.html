@@ -1,0 +1,110 @@
+<ion-view title="PART B-7(c)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+To write a c program to implement LRU page replacement algorithm
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc"> #include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> q<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">],</span>p<span class="sh_symbol">[</span><span class="sh_number">50</span><span class="sh_symbol">],</span>c<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>c1<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>f<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>k<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>n<span class="sh_symbol">,</span>r<span class="sh_symbol">,</span>t<span class="sh_symbol">,</span>b<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">],</span>c2<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">];</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter no of pages:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>n<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the reference string:"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>            <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter no of frames:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>f<span class="sh_symbol">);</span></li><li>q<span class="sh_symbol">[</span>k<span class="sh_symbol">]=</span>p<span class="sh_symbol">[</span>k<span class="sh_symbol">];</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n\t</span><span class="sh_string">%d</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">,</span>q<span class="sh_symbol">[</span>k<span class="sh_symbol">]);</span></li><li>c<span class="sh_symbol">++;</span></li><li>k<span class="sh_symbol">++;</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>            <span class="sh_cbracket">{</span></li><li>                        c1<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>                        <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>                        <span class="sh_cbracket">{</span></li><li>                                    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">]!=</span>q<span class="sh_symbol">[</span>j<span class="sh_symbol">])</span></li><li>                                    c1<span class="sh_symbol">++;</span></li><li>                        <span class="sh_cbracket">}</span></li><li>                        <span class="sh_keyword">if</span><span class="sh_symbol">(</span>c1<span class="sh_symbol">==</span>f<span class="sh_symbol">)</span></li><li>                        <span class="sh_cbracket">{</span></li><li>                                    c<span class="sh_symbol">++;</span></li><li>                                    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>k<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">)</span></li><li>                                    <span class="sh_cbracket">{</span></li><li>                                                q<span class="sh_symbol">[</span>k<span class="sh_symbol">]=</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>                                                k<span class="sh_symbol">++;</span></li><li>                                                <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>k<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>                                                <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\t</span><span class="sh_string">%d"</span><span class="sh_symbol">,</span>q<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li>                                                <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>                                    <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_keyword">else</span></li><li>                                    <span class="sh_cbracket">{</span></li><li>                                                <span class="sh_keyword">for</span><span class="sh_symbol">(</span>r<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>r<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>r<span class="sh_symbol">++)</span></li><li>                                                <span class="sh_cbracket">{</span></li><li>                                                            c2<span class="sh_symbol">[</span>r<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>                                                            <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span>i<span class="sh_number">-1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">--)</span></li><li>                                                            <span class="sh_cbracket">{</span></li><li>                                                            <span class="sh_keyword">if</span><span class="sh_symbol">(</span>q<span class="sh_symbol">[</span>r<span class="sh_symbol">]!=</span>p<span class="sh_symbol">[</span>j<span class="sh_symbol">])</span></li><li>                                                            c2<span class="sh_symbol">[</span>r<span class="sh_symbol">]++;</span></li><li>                                                            <span class="sh_keyword">else</span></li><li>                                                            <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>                                                <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_keyword">for</span><span class="sh_symbol">(</span>r<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>r<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>r<span class="sh_symbol">++)</span></li><li>                                     b<span class="sh_symbol">[</span>r<span class="sh_symbol">]=</span>c2<span class="sh_symbol">[</span>r<span class="sh_symbol">];</span></li><li>                                    <span class="sh_keyword">for</span><span class="sh_symbol">(</span>r<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>r<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>r<span class="sh_symbol">++)</span></li><li>                                    <span class="sh_cbracket">{</span></li><li>                                                <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>                                                <span class="sh_cbracket">{</span></li><li>                                                            <span class="sh_keyword">if</span><span class="sh_symbol">(</span>b<span class="sh_symbol">[</span>r<span class="sh_symbol">]&lt;</span>b<span class="sh_symbol">[</span>j<span class="sh_symbol">])</span></li><li>                                                            <span class="sh_cbracket">{</span></li><li>                                                                        t<span class="sh_symbol">=</span>b<span class="sh_symbol">[</span>r<span class="sh_symbol">];</span></li><li>                                                                        b<span class="sh_symbol">[</span>r<span class="sh_symbol">]=</span>b<span class="sh_symbol">[</span>j<span class="sh_symbol">];</span></li><li>                                                                        b<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>t<span class="sh_symbol">;</span></li><li>                                                            <span class="sh_cbracket">}</span></li><li>                                                <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_keyword">for</span><span class="sh_symbol">(</span>r<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>r<span class="sh_symbol">&lt;</span>f<span class="sh_symbol">;</span>r<span class="sh_symbol">++)</span></li><li>                                    <span class="sh_cbracket">{</span></li><li>                                                <span class="sh_keyword">if</span><span class="sh_symbol">(</span>c2<span class="sh_symbol">[</span>r<span class="sh_symbol">]==</span>b<span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">])</span></li><li>                                                q<span class="sh_symbol">[</span>r<span class="sh_symbol">]=</span>p<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>                                                <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\t</span><span class="sh_string">%d"</span><span class="sh_symbol">,</span>q<span class="sh_symbol">[</span>r<span class="sh_symbol">]);</span></li><li>                                    <span class="sh_cbracket">}</span></li><li>                                    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>                        <span class="sh_cbracket">}</span></li><li>            <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">The no of page faults is %d"</span><span class="sh_symbol">,</span>c<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable=""> #include&lt;stdio.h&gt;
+main()
+{
+int q[20],p[50],c=0,c1,d,f,i,j,k=0,n,r,t,b[20],c2[20];
+printf("Enter no of pages:");
+scanf("%d",&amp;n);
+printf("Enter the reference string:");
+for(i=0;i&lt;n;i++)
+            scanf("%d",&amp;p[i]);
+printf("Enter no of frames:");
+scanf("%d",&amp;f);
+q[k]=p[k];
+printf("\n\t%d\n",q[k]);
+c++;
+k++;
+for(i=1;i&lt;n;i++)
+            {
+                        c1=0;
+                        for(j=0;j&lt;f;j++)
+                        {
+                                    if(p[i]!=q[j])
+                                    c1++;
+                        }
+                        if(c1==f)
+                        {
+                                    c++;
+                                    if(k&lt;f)
+                                    {
+                                                q[k]=p[i];
+                                                k++;
+                                                for(j=0;j&lt;k;j++)
+                                                printf("\t%d",q[j]);
+                                                printf("\n");
+                                    }
+                                    else
+                                    {
+                                                for(r=0;r&lt;f;r++)
+                                                {
+                                                            c2[r]=0;
+                                                            for(j=i-1;j&lt;n;j--)
+                                                            {
+                                                            if(q[r]!=p[j])
+                                                            c2[r]++;
+                                                            else
+                                                            break;
+                                                }
+                                    }
+                                    for(r=0;r&lt;f;r++)
+                                     b[r]=c2[r];
+                                    for(r=0;r&lt;f;r++)
+                                    {
+                                                for(j=r;j&lt;f;j++)
+                                                {
+                                                            if(b[r]&lt;b[j])
+                                                            {
+                                                                        t=b[r];
+                                                                        b[r]=b[j];
+                                                                        b[j]=t;
+                                                            }
+                                                }
+                                    }
+                                    for(r=0;r&lt;f;r++)
+                                    {
+                                                if(c2[r]==b[0])
+                                                q[r]=p[i];
+                                                printf("\t%d",q[r]);
+                                    }
+                                    printf("\n");
+                        }
+            }
+}
+printf("\nThe no of page faults is %d",c);
+}</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li> Enter no <span class="sh_usertype">of</span><span class="sh_normal"> </span>pages<span class="sh_symbol">:</span><span class="sh_number">10</span></li><li>Enter the <span class="sh_usertype">reference</span><span class="sh_normal"> </span>string<span class="sh_symbol">:</span><span class="sh_number">7</span> <span class="sh_number">5</span> <span class="sh_number">9</span> <span class="sh_number">4</span> <span class="sh_number">3</span> <span class="sh_number">7</span> <span class="sh_number">9</span> <span class="sh_number">6</span> <span class="sh_number">2</span> <span class="sh_number">1</span></li><li>Enter no <span class="sh_usertype">of</span><span class="sh_normal"> </span>frames<span class="sh_symbol">:</span><span class="sh_number">3</span></li><li>        <span class="sh_number">7</span></li><li>        <span class="sh_number">7</span>       <span class="sh_number">5</span></li><li>        <span class="sh_number">7</span>       <span class="sh_number">5</span>       <span class="sh_number">9</span></li><li>        <span class="sh_number">4</span>       <span class="sh_number">5</span>       <span class="sh_number">9</span></li><li>        <span class="sh_number">4</span>       <span class="sh_number">3</span>       <span class="sh_number">9</span></li><li>        <span class="sh_number">4</span>       <span class="sh_number">3</span>       <span class="sh_number">7</span></li><li>        <span class="sh_number">9</span>       <span class="sh_number">3</span>       <span class="sh_number">7</span></li><li>        <span class="sh_number">9</span>       <span class="sh_number">6</span>       <span class="sh_number">7</span></li><li>        <span class="sh_number">9</span>       <span class="sh_number">6</span>       <span class="sh_number">2</span></li><li>        <span class="sh_number">1</span>       <span class="sh_number">6</span>       <span class="sh_number">2</span></li><li></li><li>The no of page faults is <span class="sh_number">10</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable=""> Enter no of pages:10
+Enter the reference string:7 5 9 4 3 7 9 6 2 1
+Enter no of frames:3
+        7
+        7       5
+        7       5       9
+        4       5       9
+        4       3       9
+        4       3       7
+        9       3       7
+        9       6       7
+        9       6       2
+        1       6       2
+
+The no of page faults is 10</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

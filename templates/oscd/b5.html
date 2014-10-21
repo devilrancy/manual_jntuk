@@ -1,0 +1,190 @@
+<ion-view title="PART B-5">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A program to simulate the Bankers Algorithm for Deadlock Avoidance.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_type">int</span> max<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">][</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> alloc<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">][</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> need<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">][</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> avail<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> n<span class="sh_symbol">,</span>r<span class="sh_symbol">;</span></li><li><span class="sh_type">void</span> <span class="sh_function">input</span><span class="sh_symbol">();</span></li><li><span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_type">void</span> <span class="sh_function">cal</span><span class="sh_symbol">();</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">,</span>j<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"********** Baner's Algo ************</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">input</span><span class="sh_symbol">();</span></li><li><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_function">cal</span><span class="sh_symbol">();</span></li><li><span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">input</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">,</span>j<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the no of Processes</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>n<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the no of resources instances</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>r<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the Max Matrix</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the Allocation Matrix</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>alloc<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the available Resources</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>avail<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">,</span>j<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Process</span><span class="sh_specialchar">\t</span><span class="sh_string"> Allocation</span><span class="sh_specialchar">\t</span><span class="sh_string"> Max</span><span class="sh_specialchar">\t</span><span class="sh_string"> Available</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">P%d</span><span class="sh_specialchar">\t</span><span class="sh_string">   "</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%d "</span><span class="sh_symbol">,</span>alloc<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%d "</span><span class="sh_symbol">,</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>i<span class="sh_symbol">==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%d "</span><span class="sh_symbol">,</span>avail<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">cal</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> finish<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">],</span>temp<span class="sh_symbol">,</span>need<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">][</span><span class="sh_number">100</span><span class="sh_symbol">],</span>flag<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">,</span>k<span class="sh_symbol">,</span>c1<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> safe<span class="sh_symbol">[</span><span class="sh_number">100</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> i<span class="sh_symbol">,</span>j<span class="sh_symbol">;</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>finish<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_comment">//find need matrix</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>need<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]-</span>alloc<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">while</span><span class="sh_symbol">(</span>flag<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>flag<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> c<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">((</span>finish<span class="sh_symbol">[</span>i<span class="sh_symbol">]==</span><span class="sh_number">0</span><span class="sh_symbol">)&amp;&amp;(</span>need<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]&lt;=</span>avail<span class="sh_symbol">[</span>j<span class="sh_symbol">]))</span></li><li><span class="sh_cbracket">{</span></li><li>    c<span class="sh_symbol">++;</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>c<span class="sh_symbol">==</span>r<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>k<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>k<span class="sh_symbol">&lt;</span>r<span class="sh_symbol">;</span>k<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li>avail<span class="sh_symbol">[</span>k<span class="sh_symbol">]+=</span>alloc<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li>finish<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>flag<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>      <span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"P%d-&gt;"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>finish<span class="sh_symbol">[</span>i<span class="sh_symbol">]==</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>i<span class="sh_symbol">=</span>n<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li>        <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>finish<span class="sh_symbol">[</span>i<span class="sh_symbol">]==</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>c1<span class="sh_symbol">++;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"P%d-&gt;"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>c1<span class="sh_symbol">==</span>n<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> The system is in safe state"</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Process are in dead lock"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> System is in unsafe state"</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int max[100][100];
+int alloc[100][100];
+int need[100][100];
+int avail[100];
+int n,r;
+void input();
+void show();
+void cal();
+int main()
+{
+int i,j;
+printf("********** Baner's Algo ************\n");
+input();
+show();
+cal();
+getch();
+return 0;
+}
+void input()
+{
+int i,j;
+printf("Enter the no of Processes\t");
+scanf("%d",&amp;n);
+printf("Enter the no of resources instances\t");
+scanf("%d",&amp;r);
+printf("Enter the Max Matrix\n");
+for(i=0;i&lt;n;i++)
+{
+for(j=0;j&lt;r;j++)
+{
+scanf("%d",&amp;max[i][j]);
+}
+}
+printf("Enter the Allocation Matrix\n");
+for(i=0;i&lt;n;i++)
+{
+for(j=0;j&lt;r;j++)
+{
+scanf("%d",&amp;alloc[i][j]);
+}
+}
+printf("Enter the available Resources\n");
+for(j=0;j&lt;r;j++)
+{
+scanf("%d",&amp;avail[j]);
+}
+}
+void show()
+{
+int i,j;
+printf("Process\t Allocation\t Max\t Available\t");
+for(i=0;i&lt;n;i++)
+{
+printf("\nP%d\t   ",i+1);
+for(j=0;j&lt;r;j++)
+{
+printf("%d ",alloc[i][j]);
+}
+printf("\t");
+for(j=0;j&lt;r;j++)
+{
+printf("%d ",max[i][j]);
+}
+printf("\t");
+if(i==0)
+{
+for(j=0;j&lt;r;j++)
+printf("%d ",avail[j]);
+}
+}
+}
+void cal()
+{
+int finish[100],temp,need[100][100],flag=1,k,c1=0;
+int safe[100];
+int i,j;
+for(i=0;i&lt;n;i++)
+{
+finish[i]=0;
+}
+//find need matrix
+for(i=0;i&lt;n;i++)
+{
+for(j=0;j&lt;r;j++)
+{
+need[i][j]=max[i][j]-alloc[i][j];
+}
+}
+printf("\n");
+while(flag)
+{
+flag=0;
+  for(i=0;i&lt;n;i++)
+{
+int c=0;
+for(j=0;j&lt;r;j++)
+{
+if((finish[i]==0)&amp;&amp;(need[i][j]&lt;=avail[j]))
+{
+    c++;
+if(c==r)
+{
+for(k=0;k&lt;r;k++)
+{
+avail[k]+=alloc[i][j];
+finish[i]=1;
+flag=1;
+      }
+printf("P%d-&gt;",i);
+if(finish[i]==1)
+{
+i=n;
+}
+        }
+}
+}
+  }
+  }
+  for(i=0;i&lt;n;i++)
+  {
+if(finish[i]==1)
+{
+c1++;
+}
+else
+{
+printf("P%d-&gt;",i);
+}
+}
+if(c1==n)
+{
+printf("\n The system is in safe state");
+}
+else
+{
+printf("\n Process are in dead lock");
+printf("\n System is in unsafe state");
+}
+}
+</pre></div></div>
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_symbol">**********</span> Banker<span class="sh_string">'s Algo ***********</span></li><li><span class="sh_string">Enter the no of Processes&nbsp;&nbsp;&nbsp;&nbsp;5</span></li><li><span class="sh_string">Enter the no of resources instances&nbsp;&nbsp;&nbsp;&nbsp;3</span></li><li><span class="sh_string">Enter the Max Matrix</span></li><li><span class="sh_string">7 5 3</span></li><li><span class="sh_string">3 2 2</span></li><li><span class="sh_string">9 0 2</span></li><li><span class="sh_string">2 2 2</span></li><li><span class="sh_string">4 3 3</span></li><li><span class="sh_string">Enter the Allocation Matrix</span></li><li><span class="sh_string">0 1 0</span></li><li><span class="sh_string">2 0 0</span></li><li><span class="sh_string">3 0 2</span></li><li><span class="sh_string">2 1 1</span></li><li><span class="sh_string">0 0 2</span></li><li><span class="sh_string">Enter the available Resources</span></li><li><span class="sh_string">3 3 2</span></li><li><span class="sh_string">Process  Allocation    Max   Available</span></li><li><span class="sh_string">P1&nbsp;&nbsp;&nbsp;&nbsp;   0 1 0     7 5 3    3 3 2</span></li><li><span class="sh_string">P2&nbsp;&nbsp;&nbsp;&nbsp;   2 0 0     3 2 2</span></li><li><span class="sh_string">P3&nbsp;&nbsp;&nbsp;&nbsp;   3 0 2     9 0 2</span></li><li><span class="sh_string">P4&nbsp;&nbsp;&nbsp;&nbsp;   2 1 1     2 2 2</span></li><li><span class="sh_string">P5 &nbsp;&nbsp;&nbsp;&nbsp;   0 0 2     4 3 3</span></li><li><span class="sh_string">P1-&gt;P3-&gt;P4-&gt;P2-&gt;P0-&gt;</span></li><li><span class="sh_string">the system is in a safe state</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">********** Banker's Algo ***********
+Enter the no of Processes 5
+Enter the no of resources instances 3
+Enter the Max Matrix
+7 5 3
+3 2 2
+9 0 2
+2 2 2
+4 3 3
+Enter the Allocation Matrix
+0 1 0
+2 0 0
+3 0 2
+2 1 1
+0 0 2
+Enter the available Resources
+3 3 2
+Process  Allocation    Max   Available
+P1     0 1 0     7 5 3    3 3 2
+P2     2 0 0     3 2 2
+P3     3 0 2     9 0 2
+P4     2 1 1     2 2 2
+P5     0 0 2     4 3 3
+P1-&gt;P3-&gt;P4-&gt;P2-&gt;P0-&gt;
+the system is in a safe state</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

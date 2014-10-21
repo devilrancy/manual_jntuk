@@ -1,0 +1,106 @@
+<ion-view title="Week-6">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_usertype">VISUAL</span><span class="sh_normal"> </span>BEANS<span class="sh_symbol">:</span></li><li>Create a simple visual bean with a area filled with <span class="sh_usertype">a</span><span class="sh_normal"> </span>color<span class="sh_symbol">.</span></li><li>The shape of the area depends on the <span class="sh_usertype">property</span><span class="sh_normal"> </span>shape<span class="sh_symbol">.</span> If it is set to <span class="sh_keyword">true</span> then the shape of the area is</li><li>Square and it <span class="sh_usertype">is</span><span class="sh_normal"> </span>Circle<span class="sh_symbol">,</span> <span class="sh_keyword">if</span> it <span class="sh_usertype">is</span><span class="sh_normal"> </span><span class="sh_keyword">false</span><span class="sh_symbol">.</span></li><li>The color of the area should be changed dynamically <span class="sh_keyword">for</span> every <span class="sh_usertype">mouse</span><span class="sh_normal"> </span>click<span class="sh_symbol">.</span> The color should also be</li><li>changed <span class="sh_keyword">if</span> we change the color in the “property window “<span class="sh_symbol">.</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">VISUAL BEANS:
+Create a simple visual bean with a area filled with a color.
+The shape of the area depends on the property shape. If it is set to true then the shape of the area is
+Square and it is Circle, if it is false.
+The color of the area should be changed dynamically for every mouse click. The color should also be
+changed if we change the color in the “property window “.
+</pre></div></div>
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <h5><b>Week6.java</b></h5>
+       <h5>Path:E:\study\WT\09P3A0547\547\bdk\demo\sunw\demo\week6\edit week.java</h5>
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">package</span> sunw<span class="sh_symbol">.</span>demo<span class="sh_symbol">.</span>week6<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>io<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>awt<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>beans<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>awt<span class="sh_symbol">.</span>event<span class="sh_symbol">.*;</span></li><li><span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal"> </span><span class="sh_classname">week6</span> <span class="sh_keyword">extends</span> Canvas</li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_keyword">private</span> <span class="sh_usertype">Color</span><span class="sh_normal"> </span>c<span class="sh_symbol">;</span></li><li> <span class="sh_keyword">private</span> <span class="sh_type">boolean</span> shape<span class="sh_symbol">;</span></li><li> <span class="sh_keyword">public</span> <span class="sh_function">week6</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li>  shape<span class="sh_symbol">=</span><span class="sh_keyword">false</span><span class="sh_symbol">;</span></li><li>  <span class="sh_function">setSize</span><span class="sh_symbol">(</span><span class="sh_number">300</span><span class="sh_symbol">,</span><span class="sh_number">300</span><span class="sh_symbol">);</span></li><li>  <span class="sh_function">addMouseListener</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_function">MouseAdapter</span><span class="sh_symbol">()</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">mousePressed</span><span class="sh_symbol">(</span><span class="sh_usertype">MouseEvent</span><span class="sh_normal"> </span>m<span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">change</span><span class="sh_symbol">();</span></li><li>   <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span><span class="sh_symbol">);</span></li><li>  <span class="sh_function">change</span><span class="sh_symbol">();</span></li><li> <span class="sh_cbracket">}</span><span class="sh_comment">//constructor</span></li><li> <span class="sh_keyword">public</span> <span class="sh_usertype">Color</span><span class="sh_normal"> </span><span class="sh_function">getc</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">return</span> c<span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">setc</span><span class="sh_symbol">(</span><span class="sh_usertype">Color</span><span class="sh_normal"> </span>c1<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  c<span class="sh_symbol">=</span>c1<span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">public</span> <span class="sh_type">boolean</span> <span class="sh_function">getshape</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li> <span class="sh_keyword">return</span> shape<span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">setshape</span><span class="sh_symbol">(</span><span class="sh_type">boolean</span> shape1<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span></li><li>  shape<span class="sh_symbol">=</span>shape1<span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">change</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> c2<span class="sh_symbol">=(</span><span class="sh_type">int</span><span class="sh_symbol">)(</span><span class="sh_number">255</span><span class="sh_symbol">*</span>Math<span class="sh_symbol">.</span><span class="sh_function">random</span><span class="sh_symbol">());</span></li><li>  <span class="sh_type">int</span> c3<span class="sh_symbol">=(</span><span class="sh_type">int</span><span class="sh_symbol">)(</span><span class="sh_number">255</span><span class="sh_symbol">*</span>Math<span class="sh_symbol">.</span><span class="sh_function">random</span><span class="sh_symbol">());</span></li><li>  <span class="sh_type">int</span> c4<span class="sh_symbol">=(</span><span class="sh_type">int</span><span class="sh_symbol">)(</span><span class="sh_number">255</span><span class="sh_symbol">*</span>Math<span class="sh_symbol">.</span><span class="sh_function">random</span><span class="sh_symbol">());</span></li><li>  c<span class="sh_symbol">=</span><span class="sh_keyword">new</span> <span class="sh_function">Color</span><span class="sh_symbol">(</span>c2<span class="sh_symbol">,</span>c3<span class="sh_symbol">,</span>c4<span class="sh_symbol">);</span></li><li>  <span class="sh_function">repaint</span><span class="sh_symbol">();</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">paint</span><span class="sh_symbol">(</span><span class="sh_usertype">Graphics</span><span class="sh_normal"> </span>g<span class="sh_symbol">)</span></li><li> <span class="sh_cbracket">{</span> </li><li>  <span class="sh_usertype">Dimension</span><span class="sh_normal"> </span>d<span class="sh_symbol">=</span><span class="sh_function">getSize</span><span class="sh_symbol">();</span></li><li>  <span class="sh_type">int</span> w<span class="sh_symbol">=</span>d<span class="sh_symbol">.</span>width<span class="sh_symbol">;</span></li><li>  <span class="sh_type">int</span> h<span class="sh_symbol">=</span>d<span class="sh_symbol">.</span>height<span class="sh_symbol">;</span></li><li>  g<span class="sh_symbol">.</span><span class="sh_function">setColor</span><span class="sh_symbol">(</span>c<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>shape<span class="sh_symbol">)</span></li><li>  g<span class="sh_symbol">.</span><span class="sh_function">fillRect</span><span class="sh_symbol">(</span><span class="sh_number">50</span><span class="sh_symbol">,</span><span class="sh_number">50</span><span class="sh_symbol">,</span>w<span class="sh_symbol">/</span><span class="sh_number">2</span><span class="sh_symbol">,</span>h<span class="sh_symbol">/</span><span class="sh_number">2</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">else</span></li><li>  g<span class="sh_symbol">.</span><span class="sh_function">fillOval</span><span class="sh_symbol">(</span><span class="sh_number">50</span><span class="sh_symbol">,</span><span class="sh_number">50</span><span class="sh_symbol">,</span>w<span class="sh_symbol">/</span><span class="sh_number">2</span><span class="sh_symbol">,</span>h<span class="sh_symbol">/</span><span class="sh_number">2</span><span class="sh_symbol">);</span></li><li> <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">package sunw.demo.week6;
+import java.io.*;
+import java.awt.*;
+import java.beans.*;
+import java.awt.event.*;
+public class week6 extends Canvas
+{
+ private Color c;
+ private boolean shape;
+ public week6()
+ {
+  shape=false;
+  setSize(300,300);
+  addMouseListener(new MouseAdapter()
+  {
+   public void mousePressed(MouseEvent m)
+   {
+    change();
+   }
+  });
+  change();
+ }//constructor
+ public Color getc()
+ {
+  return c;
+ }
+ public void setc(Color c1)
+ {
+  c=c1;
+ }
+ public boolean getshape()
+ {
+ return shape;
+ }
+ public void setshape(boolean shape1)
+ {
+  shape=shape1;
+ }
+ public void change()
+ {
+  int c2=(int)(255*Math.random());
+  int c3=(int)(255*Math.random());
+  int c4=(int)(255*Math.random());
+  c=new Color(c2,c3,c4);
+  repaint();
+ }
+ public void paint(Graphics g)
+ { 
+  Dimension d=getSize();
+  int w=d.width;
+  int h=d.height;
+  g.setColor(c);
+  if(shape)
+  g.fillRect(50,50,w/2,h/2);
+  else
+  g.fillOval(50,50,w/2,h/2);
+ }
+}
+</pre></div></div>
+       <h5><b>Week6.mft</b></h5>
+       <h5>Path:E:\study\WT\09P3A0547\547\bdk\demo\edit week6.mft</h5>
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Name<span class="sh_symbol">:</span> sunw<span class="sh_symbol">/</span>demo<span class="sh_symbol">/</span>week6<span class="sh_symbol">/</span>week6<span class="sh_symbol">.</span><span class="sh_keyword">class</span></li><li>Java<span class="sh_symbol">-</span>Bean<span class="sh_symbol">:</span> True</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Name: sunw/demo/week6/week6.class
+Java-Bean: True
+</pre></div></div>
+       <h5><b>Jar file creation</b></h5>
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>E<span class="sh_symbol">:\</span>study<span class="sh_symbol">\</span>WT<span class="sh_symbol">\</span>09P3A0547<span class="sh_symbol">\</span><span class="sh_number">547</span><span class="sh_symbol">\</span>bdk<span class="sh_symbol">\</span>demo<span class="sh_symbol">&gt;</span><span class="sh_usertype">jar</span><span class="sh_normal"> </span>cfm <span class="sh_symbol">..\</span>jars<span class="sh_symbol">\</span>week6<span class="sh_symbol">.</span><span class="sh_usertype">jar</span><span class="sh_normal"> </span>week6<span class="sh_symbol">.</span><span class="sh_usertype">mft</span><span class="sh_normal"> </span>sunw<span class="sh_symbol">\</span>demo</li><li><span class="sh_symbol">\</span>week6<span class="sh_symbol">\*.</span><span class="sh_keyword">class</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">E:\study\WT\09P3A0547\547\bdk\demo&gt;jar cfm ..\jars\week6.jar week6.mft sunw\demo
+\week6\*.class
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="item item-image">
+        <img src="img/w6_1.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w6_2.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

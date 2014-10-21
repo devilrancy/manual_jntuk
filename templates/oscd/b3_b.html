@@ -1,0 +1,65 @@
+<ion-view title="PART B-3(b)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A Program to simulate the MFT.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> m<span class="sh_symbol">,</span>p<span class="sh_symbol">,</span>s<span class="sh_symbol">,</span>p1<span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> m1<span class="sh_symbol">[</span><span class="sh_number">4</span><span class="sh_symbol">],</span>i<span class="sh_symbol">,</span>f<span class="sh_symbol">,</span>f1<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>f2<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>fra1<span class="sh_symbol">,</span>fra2<span class="sh_symbol">;</span></li><li><span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the memory size:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>m<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the no of partitions:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>p<span class="sh_symbol">);</span></li><li>s<span class="sh_symbol">=</span>m<span class="sh_symbol">/</span>p<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Each partn size is:%d"</span><span class="sh_symbol">,</span>s<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the no of processes:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>p1<span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>p1<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the memory req for process%d:"</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>m1<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>m1<span class="sh_symbol">[</span>i<span class="sh_symbol">]&lt;=</span>s<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Process is allocated in partition%d"</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li>fra1<span class="sh_symbol">=</span>s<span class="sh_symbol">-</span>m1<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Internal fragmentation for process is:%d"</span><span class="sh_symbol">,</span>fra1<span class="sh_symbol">);</span></li><li>f1<span class="sh_symbol">=</span>f1<span class="sh_symbol">+</span>fra1<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Process not allocated in partition%d"</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li>fra2<span class="sh_symbol">=</span>s<span class="sh_symbol">;</span></li><li>f2<span class="sh_symbol">=</span>f2<span class="sh_symbol">+</span>fra2<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">External fragmentation for partition is:%d"</span><span class="sh_symbol">,</span>fra2<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Process</span><span class="sh_specialchar">\t</span><span class="sh_string">memory</span><span class="sh_specialchar">\t</span><span class="sh_string">allocatedmemory"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>p1<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">%5d</span><span class="sh_specialchar">\t</span><span class="sh_string">%5d</span><span class="sh_specialchar">\t</span><span class="sh_string">%5d"</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">,</span>s<span class="sh_symbol">,</span>m1<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li>f<span class="sh_symbol">=</span>f1<span class="sh_symbol">+</span>f2<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">The tot no of fragmentation is:%d"</span><span class="sh_symbol">,</span>f<span class="sh_symbol">);</span></li><li><span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main()
+{
+int m,p,s,p1;
+int m1[4],i,f,f1=0,f2=0,fra1,fra2;
+clrscr();
+printf("Enter the memory size:");
+scanf("%d",&amp;m);
+printf("Enter the no of partitions:");
+scanf("%d",&amp;p);
+s=m/p;
+printf("Each partn size is:%d",s);
+printf("\nEnter the no of processes:");
+scanf("%d",&amp;p1);
+for(i=0;i&lt;p1;i++)
+{
+printf("\nEnter the memory req for process%d:",i+1);
+scanf("%d",&amp;m1[i]);
+if(m1[i]&lt;=s)
+{
+printf("\nProcess is allocated in partition%d",i+1);
+fra1=s-m1[i];
+printf("\nInternal fragmentation for process is:%d",fra1);
+f1=f1+fra1;
+}
+else
+{
+printf("\nProcess not allocated in partition%d",i+1);
+fra2=s;
+f2=f2+fra2;
+printf("\nExternal fragmentation for partition is:%d",fra2);
+}
+}
+printf("\nProcess\tmemory\tallocatedmemory");
+for(i=0;i&lt;p1;i++)
+printf("\n%5d\t%5d\t%5d",i+1,s,m1[i]);
+f=f1+f2;
+printf("\nThe tot no of fragmentation is:%d",f);
+getch();
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	
+    </div>
+  </ion-content>
+</ion-view>

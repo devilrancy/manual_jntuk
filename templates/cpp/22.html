@@ -1,0 +1,61 @@
+<ion-view title="Program-22">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating access data members and member functions using this pointer.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">class</span><span class="sh_normal"> </span>Rectangle<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_function">Rectangle</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_symbol">~</span><span class="sh_function">Rectangle</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">void</span> <span class="sh_function">SetLength</span><span class="sh_symbol">(</span><span class="sh_type">int</span> length<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span> this<span class="sh_symbol">-&gt;</span>itsLength <span class="sh_symbol">=</span> length<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">int</span> <span class="sh_function">GetLength</span><span class="sh_symbol">()</span> <span class="sh_keyword">const</span> <span class="sh_cbracket">{</span> <span class="sh_keyword">return</span> this<span class="sh_symbol">-&gt;</span>itsLength<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">void</span> <span class="sh_function">SetWidth</span><span class="sh_symbol">(</span><span class="sh_type">int</span> width<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span> itsWidth <span class="sh_symbol">=</span> width<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">int</span> <span class="sh_function">GetWidth</span><span class="sh_symbol">()</span> <span class="sh_keyword">const</span> <span class="sh_cbracket">{</span> <span class="sh_keyword">return</span> itsWidth<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">int</span> itsLength<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_type">int</span> itsWidth<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle<span class="sh_symbol">::</span><span class="sh_function">Rectangle</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itsWidth <span class="sh_symbol">=</span> <span class="sh_number">5</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itsLength <span class="sh_symbol">=</span> <span class="sh_number">10</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle<span class="sh_symbol">::~</span><span class="sh_function">Rectangle</span><span class="sh_symbol">()</span><span class="sh_cbracket">{}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class="sh_usertype">Rectangle</span><span class="sh_normal"> </span>theRect<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"theRect is "</span> <span class="sh_symbol">&lt;&lt;</span> theRect<span class="sh_symbol">.</span><span class="sh_function">GetLength</span><span class="sh_symbol">()</span> <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">" feet long.</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"theRect is "</span> <span class="sh_symbol">&lt;&lt;</span> theRect<span class="sh_symbol">.</span><span class="sh_function">GetWidth</span><span class="sh_symbol">()</span> <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">" feet wide.</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  theRect<span class="sh_symbol">.</span><span class="sh_function">SetLength</span><span class="sh_symbol">(</span><span class="sh_number">20</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  theRect<span class="sh_symbol">.</span><span class="sh_function">SetWidth</span><span class="sh_symbol">(</span><span class="sh_number">10</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"theRect is "</span> <span class="sh_symbol">&lt;&lt;</span> theRect<span class="sh_symbol">.</span><span class="sh_function">GetLength</span><span class="sh_symbol">()&lt;&lt;</span> <span class="sh_string">" feet long.</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"theRect is "</span> <span class="sh_symbol">&lt;&lt;</span> theRect<span class="sh_symbol">.</span><span class="sh_function">GetWidth</span><span class="sh_symbol">()&lt;&lt;</span> <span class="sh_string">" feet wide.</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li> </li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;iostream.h&gt;
+
+    class Rectangle{
+    public:
+        Rectangle();
+        ~Rectangle();
+        void SetLength(int length) { this-&gt;itsLength = length; }
+        int GetLength() const { return this-&gt;itsLength; }
+
+        void SetWidth(int width) { itsWidth = width; }
+        int GetWidth() const { return itsWidth; }
+
+    private:
+        int itsLength;
+        int itsWidth;
+    };
+
+    Rectangle::Rectangle(){
+       itsWidth = 5;
+       itsLength = 10;
+    }
+    Rectangle::~Rectangle(){}
+
+    int main(){
+        Rectangle theRect;
+        cout &lt;&lt; "theRect is " &lt;&lt; theRect.GetLength() &lt;&lt; " feet long.\n";
+        cout &lt;&lt; "theRect is " &lt;&lt; theRect.GetWidth() &lt;&lt; " feet wide.\n";
+        theRect.SetLength(20);
+        theRect.SetWidth(10);
+        cout &lt;&lt; "theRect is " &lt;&lt; theRect.GetLength()&lt;&lt; " feet long.\n";
+        cout &lt;&lt; "theRect is " &lt;&lt; theRect.GetWidth()&lt;&lt; " feet wide.\n";
+    return 0;
+}
+ 
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>theRect is <span class="sh_number">10</span> <span class="sh_usertype">feet</span><span class="sh_normal"> </span><span class="sh_type">long</span><span class="sh_symbol">.</span></li><li>theRect is <span class="sh_number">5</span> <span class="sh_usertype">feet</span><span class="sh_normal"> </span>wide<span class="sh_symbol">.</span></li><li>theRect is <span class="sh_number">20</span> <span class="sh_usertype">feet</span><span class="sh_normal"> </span><span class="sh_type">long</span><span class="sh_symbol">.</span></li><li>theRect is <span class="sh_number">10</span> <span class="sh_usertype">feet</span><span class="sh_normal"> </span>wide<span class="sh_symbol">.</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">theRect is 10 feet long.
+theRect is 5 feet wide.
+theRect is 20 feet long.
+theRect is 10 feet wide.</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

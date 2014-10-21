@@ -1,0 +1,243 @@
+<ion-view title="PART A-3">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Design predictive parser for the given language.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_flex snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>stdio<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span></li><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>ctype<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span></li><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>string<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span></li><li>#<span class="sh_preproc">include</span><span class="sh_symbol">&lt;</span>stdlib<span class="sh_symbol">.</span>h<span class="sh_symbol">&gt;</span></li><li>#<span class="sh_preproc">define</span> SIZE 128</li><li>#<span class="sh_preproc">define</span> NONE <span class="sh_symbol">-</span>1</li><li>#<span class="sh_preproc">define</span> EOS '<span class="sh_symbol">\</span>0'</li><li>#<span class="sh_preproc">define</span> NUM 257</li><li>#<span class="sh_preproc">define</span> KEYWORD 258</li><li>#<span class="sh_preproc">define</span> ID 259</li><li>#<span class="sh_preproc">define</span> DONE 260</li><li>#<span class="sh_preproc">define</span> MAX 999</li><li><span class="sh_preproc">char</span> lexemes<span class="sh_symbol">[</span>MAX<span class="sh_symbol">];</span></li><li><span class="sh_preproc">char</span> buffer<span class="sh_symbol">[</span>SIZE<span class="sh_symbol">];</span></li><li><span class="sh_preproc">int</span> lastchar<span class="sh_symbol">=-</span>1<span class="sh_symbol">;</span></li><li><span class="sh_preproc">int</span> lastentry<span class="sh_symbol">=</span>0<span class="sh_symbol">;</span></li><li><span class="sh_preproc">int</span> tokenval<span class="sh_symbol">=</span>DONE<span class="sh_symbol">;</span></li><li><span class="sh_preproc">int</span> lineno<span class="sh_symbol">=</span>1<span class="sh_symbol">;</span></li><li><span class="sh_preproc">int</span> lookahead<span class="sh_symbol">;</span></li><li><span class="sh_preproc">struct</span> entry</li><li>{</li><li>  <span class="sh_preproc">char</span> <span class="sh_symbol">*</span>lexptr<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">int</span> token<span class="sh_symbol">;</span></li><li>}<span class="sh_preproc">symtable</span><span class="sh_symbol">[</span>100<span class="sh_symbol">];</span></li><li><span class="sh_preproc">struct</span> entry </li><li><span class="sh_preproc">keywords</span><span class="sh_symbol">[]=</span>{<span class="sh_string">"if"</span><span class="sh_symbol">,</span>KEYWORD<span class="sh_symbol">,</span><span class="sh_string">"else"</span><span class="sh_symbol">,</span>KEYWORD<span class="sh_symbol">,</span><span class="sh_string">"for"</span><span class="sh_symbol">,</span>KEYWORD<span class="sh_symbol">,</span><span class="sh_string">"int"</span><span class="sh_symbol">,</span>KEYWORD<span class="sh_symbol">,</span></li><li>"<span class="sh_preproc">float</span><span class="sh_string">",KEYWORD,"</span>double<span class="sh_string">",KEYWORD,"</span>char<span class="sh_string">",KEYWORD,"</span>struct<span class="sh_string">",KEYWORD,"</span>ret</li><li><span class="sh_preproc">urn</span><span class="sh_string">",KEYWORD,0,0};</span></li><li><span class="sh_preproc">void</span> Error_Message<span class="sh_symbol">(</span>char <span class="sh_symbol">*</span>m<span class="sh_symbol">)</span></li><li>{</li><li>  <span class="sh_preproc">fprintf</span><span class="sh_symbol">(</span>stderr<span class="sh_symbol">,</span><span class="sh_string">"line %d, %s \n"</span><span class="sh_symbol">,</span>lineno<span class="sh_symbol">,</span>m<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">exit</span><span class="sh_symbol">(</span>1<span class="sh_symbol">);</span></li><li>}</li><li><span class="sh_preproc">int</span> look_up<span class="sh_symbol">(</span>char s<span class="sh_symbol">[</span> <span class="sh_symbol">])</span></li><li>{</li><li>  <span class="sh_preproc">int</span> k<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">for</span><span class="sh_symbol">(</span>k<span class="sh_symbol">=</span>lastentry<span class="sh_symbol">;</span>k<span class="sh_symbol">&gt;</span>0<span class="sh_symbol">;</span>k<span class="sh_symbol">--)</span></li><li>    <span class="sh_preproc">if</span><span class="sh_symbol">(</span>strcmp<span class="sh_symbol">(</span>symtable<span class="sh_symbol">[</span>k<span class="sh_symbol">].</span>lexptr<span class="sh_symbol">,</span>s<span class="sh_symbol">)==</span>0<span class="sh_symbol">)</span></li><li>      <span class="sh_preproc">return</span> k<span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">return</span> 0<span class="sh_symbol">;</span></li><li>}</li><li><span class="sh_preproc">int</span> insert<span class="sh_symbol">(</span>char s<span class="sh_symbol">[</span> <span class="sh_symbol">],</span>int tok<span class="sh_symbol">)</span></li><li>{</li><li>  <span class="sh_preproc">int</span> len<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">len</span><span class="sh_symbol">=</span>strlen<span class="sh_symbol">(</span>s<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">if</span><span class="sh_symbol">(</span>lastentry<span class="sh_symbol">+</span>1<span class="sh_symbol">&gt;=</span>MAX<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">Error_Message</span><span class="sh_symbol">(</span><span class="sh_string">"Symbpl table is full"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">if</span><span class="sh_symbol">(</span>lastchar<span class="sh_symbol">+</span>len<span class="sh_symbol">+</span>1<span class="sh_symbol">&gt;=</span>MAX<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">Error_Message</span><span class="sh_symbol">(</span><span class="sh_string">"Lexemes array is full"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">lastentry</span><span class="sh_symbol">=</span>lastentry<span class="sh_symbol">+</span>1<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">symtable</span><span class="sh_symbol">[</span>lastentry<span class="sh_symbol">].</span>token<span class="sh_symbol">=</span>tok<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">symtable</span><span class="sh_symbol">[</span>lastentry<span class="sh_symbol">].</span>lexptr<span class="sh_symbol">=&amp;</span>lexemes<span class="sh_symbol">[</span>lastchar<span class="sh_symbol">+</span>1<span class="sh_symbol">];</span></li><li>  <span class="sh_preproc">lastchar</span><span class="sh_symbol">=</span>lastchar<span class="sh_symbol">+</span>len<span class="sh_symbol">+</span>1<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">strcpy</span><span class="sh_symbol">(</span>symtable<span class="sh_symbol">[</span>lastentry<span class="sh_symbol">].</span>lexptr<span class="sh_symbol">,</span>s<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">return</span> lastentry<span class="sh_symbol">;</span></li><li>}</li><li>/*<span class="sh_preproc">void</span> Initialize<span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">struct</span> entry <span class="sh_symbol">*</span>ptr<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">for</span><span class="sh_symbol">(</span>ptr<span class="sh_symbol">=</span>keywords<span class="sh_symbol">;</span>ptr<span class="sh_symbol">-</span> <span class="sh_symbol">&gt;</span>token<span class="sh_symbol">;</span>ptr<span class="sh_symbol">+</span>1<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">insert</span><span class="sh_symbol">(</span>ptr<span class="sh_symbol">-&gt;</span>lexptr<span class="sh_symbol">,</span>ptr<span class="sh_symbol">-&gt;</span>token<span class="sh_symbol">);</span></li><li>}*/</li><li><span class="sh_preproc">int</span> lexer<span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">int</span> t<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">int</span> val<span class="sh_symbol">,</span>i<span class="sh_symbol">=</span>0<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">while</span><span class="sh_symbol">(</span>1<span class="sh_symbol">)</span></li><li>  {</li><li>    <span class="sh_preproc">t</span><span class="sh_symbol">=</span>getchar<span class="sh_symbol">();</span></li><li>    <span class="sh_preproc">if</span><span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>' '<span class="sh_symbol">||</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">\</span>t'<span class="sh_symbol">);</span></li><li>    <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">\</span>n'<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">lineno</span><span class="sh_symbol">=</span>lineno<span class="sh_symbol">+</span>1<span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>isdigit<span class="sh_symbol">(</span>t<span class="sh_symbol">))</span></li><li>    {</li><li>      <span class="sh_preproc">ungetc</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>stdin<span class="sh_symbol">);</span></li><li>      <span class="sh_preproc">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>tokenval<span class="sh_symbol">);</span></li><li>      <span class="sh_preproc">return</span> NUM<span class="sh_symbol">;</span></li><li>    }</li><li>    <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>isalpha<span class="sh_symbol">(</span>t<span class="sh_symbol">))</span></li><li>    {</li><li>      <span class="sh_preproc">while</span><span class="sh_symbol">(</span>isalnum<span class="sh_symbol">(</span>t<span class="sh_symbol">))</span></li><li>      {</li><li>        <span class="sh_preproc">buffer</span><span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>t<span class="sh_symbol">;</span></li><li>        <span class="sh_preproc">t</span><span class="sh_symbol">=</span>getchar<span class="sh_symbol">();</span></li><li>        <span class="sh_preproc">i</span><span class="sh_symbol">=</span>i<span class="sh_symbol">+</span>1<span class="sh_symbol">;</span></li><li>        <span class="sh_preproc">if</span><span class="sh_symbol">(</span>i<span class="sh_symbol">&gt;=</span>SIZE<span class="sh_symbol">)</span></li><li>          <span class="sh_preproc">Error_Message</span><span class="sh_symbol">(</span><span class="sh_string">"Compiler error"</span><span class="sh_symbol">);</span></li><li>      }</li><li>      <span class="sh_preproc">buffer</span><span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>EOS<span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">if</span><span class="sh_symbol">(</span>t<span class="sh_symbol">!=</span>EOF<span class="sh_symbol">)</span></li><li>      <span class="sh_preproc">ungetc</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>stdin<span class="sh_symbol">);</span></li><li>      <span class="sh_preproc">val</span><span class="sh_symbol">=</span>look_up<span class="sh_symbol">(</span>buffer<span class="sh_symbol">);</span></li><li>      <span class="sh_preproc">if</span><span class="sh_symbol">(</span>val<span class="sh_symbol">==</span>0<span class="sh_symbol">)</span></li><li>        <span class="sh_preproc">val</span><span class="sh_symbol">=</span>insert<span class="sh_symbol">(</span>buffer<span class="sh_symbol">,</span>ID<span class="sh_symbol">);</span></li><li>      <span class="sh_preproc">tokenval</span><span class="sh_symbol">=</span>val<span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">return</span> symtable<span class="sh_symbol">[</span>val<span class="sh_symbol">].</span>token<span class="sh_symbol">;</span></li><li>    }</li><li>    <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>EOF<span class="sh_symbol">)</span></li><li>      <span class="sh_preproc">return</span> DONE<span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">else</span></li><li>    {</li><li>      <span class="sh_preproc">tokenval</span><span class="sh_symbol">=</span>NONE<span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">return</span> t<span class="sh_symbol">;</span></li><li>    }</li><li>  }</li><li>}</li><li><span class="sh_preproc">void</span> Match<span class="sh_symbol">(</span>int t<span class="sh_symbol">)</span></li><li>{</li><li>  <span class="sh_preproc">if</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">==</span>t<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">lookahead</span><span class="sh_symbol">=</span>lexer<span class="sh_symbol">();</span></li><li>  <span class="sh_preproc">else</span></li><li>    <span class="sh_preproc">Error_Message</span><span class="sh_symbol">(</span><span class="sh_string">"Syntax error"</span><span class="sh_symbol">);</span></li><li>}</li><li><span class="sh_preproc">void</span> display<span class="sh_symbol">(</span>int t<span class="sh_symbol">,</span>int tval<span class="sh_symbol">)</span></li><li>{</li><li>  <span class="sh_preproc">if</span><span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">+</span>'<span class="sh_symbol">||</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">-</span>'<span class="sh_symbol">||</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">*</span>'<span class="sh_symbol">||</span>t<span class="sh_symbol">==</span>'<span class="sh_symbol">/</span>'<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\nArithmetic Operator: %c"</span><span class="sh_symbol">,</span>t<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>NUM<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\n Number: %d"</span><span class="sh_symbol">,</span>tval<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">else</span> if<span class="sh_symbol">(</span>t<span class="sh_symbol">==</span>ID<span class="sh_symbol">)</span></li><li>    <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\n Identifier : %s"</span><span class="sh_symbol">,</span>symtable<span class="sh_symbol">[</span>tval<span class="sh_symbol">].</span>lexptr<span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">else</span></li><li>    <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\n Token %d tokenval %d"</span><span class="sh_symbol">,</span>t<span class="sh_symbol">,</span>tokenval<span class="sh_symbol">);</span></li><li>}</li><li><span class="sh_preproc">void</span> F<span class="sh_symbol">()</span></li><li>{</li><li>  //<span class="sh_preproc">void</span> E<span class="sh_symbol">();</span></li><li>  <span class="sh_preproc">switch</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">)</span></li><li>  {</li><li>    <span class="sh_preproc">case</span> '<span class="sh_symbol">(</span>' <span class="sh_symbol">:</span> Match<span class="sh_symbol">(</span>'<span class="sh_symbol">(</span>'<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">E</span><span class="sh_symbol">();</span></li><li>               <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>'<span class="sh_symbol">)</span>'<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">break</span><span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">case</span> NUM <span class="sh_symbol">:</span> display<span class="sh_symbol">(</span>NUM<span class="sh_symbol">,</span>tokenval<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>NUM<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">break</span><span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">case</span> ID <span class="sh_symbol">:</span>  display<span class="sh_symbol">(</span>ID<span class="sh_symbol">,</span>tokenval<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>ID<span class="sh_symbol">);</span></li><li>               <span class="sh_preproc">break</span><span class="sh_symbol">;</span></li><li>    <span class="sh_preproc">default</span> <span class="sh_symbol">:</span>  Error_Message<span class="sh_symbol">(</span><span class="sh_string">"Syntax error"</span><span class="sh_symbol">);</span></li><li>  }</li><li>}</li><li><span class="sh_preproc">void</span> T<span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">int</span> t<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">F</span><span class="sh_symbol">();</span></li><li>  <span class="sh_preproc">while</span><span class="sh_symbol">(</span>1<span class="sh_symbol">)</span></li><li>  {</li><li>    <span class="sh_preproc">switch</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">)</span></li><li>    {</li><li>      <span class="sh_preproc">case</span> '<span class="sh_symbol">*</span>' <span class="sh_symbol">:</span> t<span class="sh_symbol">=</span>lookahead<span class="sh_symbol">;</span></li><li>                 <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">F</span><span class="sh_symbol">();</span></li><li>                 <span class="sh_preproc">display</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>NONE<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">continue</span><span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">case</span> '<span class="sh_symbol">/</span>' <span class="sh_symbol">:</span> t<span class="sh_symbol">=</span>lookahead<span class="sh_symbol">;</span></li><li>                 <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">display</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>NONE<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">continue</span><span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">default</span> <span class="sh_symbol">:</span>  return<span class="sh_symbol">;</span></li><li>    }</li><li>  }</li><li>}</li><li><span class="sh_preproc">void</span> E<span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">int</span> t<span class="sh_symbol">;</span></li><li>  <span class="sh_preproc">T</span><span class="sh_symbol">();</span></li><li>  <span class="sh_preproc">while</span><span class="sh_symbol">(</span>1<span class="sh_symbol">)</span></li><li>  {</li><li>    <span class="sh_preproc">switch</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">)</span></li><li>    {</li><li>      <span class="sh_preproc">case</span> '<span class="sh_symbol">+</span>' <span class="sh_symbol">:</span> t<span class="sh_symbol">=</span>lookahead<span class="sh_symbol">;</span></li><li>                 <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">T</span><span class="sh_symbol">();</span></li><li>                 <span class="sh_preproc">display</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>NONE<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">continue</span><span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">case</span> '<span class="sh_symbol">-</span>' <span class="sh_symbol">:</span> t<span class="sh_symbol">=</span>lookahead<span class="sh_symbol">;</span></li><li>                 <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">T</span><span class="sh_symbol">();</span></li><li>                 <span class="sh_preproc">display</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>NONE<span class="sh_symbol">);</span></li><li>                 <span class="sh_preproc">continue</span><span class="sh_symbol">;</span></li><li>      <span class="sh_preproc">default</span> <span class="sh_symbol">:</span>  return<span class="sh_symbol">;</span></li><li>    }</li><li>  }</li><li>}</li><li><span class="sh_preproc">void</span> parser<span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">lookahead</span><span class="sh_symbol">=</span>lexer<span class="sh_symbol">();</span></li><li>  <span class="sh_preproc">while</span><span class="sh_symbol">(</span>lookahead<span class="sh_symbol">!=</span>DONE<span class="sh_symbol">)</span></li><li>  {</li><li>    <span class="sh_preproc">E</span><span class="sh_symbol">();</span></li><li>    <span class="sh_preproc">Match</span><span class="sh_symbol">(</span>'<span class="sh_symbol">;</span>'<span class="sh_symbol">);</span></li><li>  }</li><li>}</li><li><span class="sh_preproc">main</span><span class="sh_symbol">()</span></li><li>{</li><li>  <span class="sh_preproc">char</span> ans<span class="sh_symbol">[</span>10<span class="sh_symbol">];</span></li><li>  <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\n Program for recursive decent parsing "</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"\n Enter the expression "</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"And place ; at the end\n"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Press Ctrl-Z to terminate\n"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_preproc">parser</span><span class="sh_symbol">();</span></li><li>}</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;ctype.h&gt;
+#include&lt;string.h&gt;
+#include&lt;stdlib.h&gt;
+#define SIZE 128
+#define NONE -1
+#define EOS '\0'
+#define NUM 257
+#define KEYWORD 258
+#define ID 259
+#define DONE 260
+#define MAX 999
+char lexemes[MAX];
+char buffer[SIZE];
+int lastchar=-1;
+int lastentry=0;
+int tokenval=DONE;
+int lineno=1;
+int lookahead;
+struct entry
+{
+  char *lexptr;
+  int token;
+}symtable[100];
+struct entry 
+keywords[]={"if",KEYWORD,"else",KEYWORD,"for",KEYWORD,"int",KEYWORD,
+"float",KEYWORD,"double",KEYWORD,"char",KEYWORD,"struct",KEYWORD,"ret
+urn",KEYWORD,0,0};
+void Error_Message(char *m)
+{
+  fprintf(stderr,"line %d, %s \n",lineno,m);
+  exit(1);
+}
+int look_up(char s[ ])
+{
+  int k;
+  for(k=lastentry;k&gt;0;k--)
+    if(strcmp(symtable[k].lexptr,s)==0)
+      return k;
+    return 0;
+}
+int insert(char s[ ],int tok)
+{
+  int len;
+  len=strlen(s);
+  if(lastentry+1&gt;=MAX)
+    Error_Message("Symbpl table is full");
+  if(lastchar+len+1&gt;=MAX)
+    Error_Message("Lexemes array is full");
+  lastentry=lastentry+1;
+  symtable[lastentry].token=tok;
+  symtable[lastentry].lexptr=&amp;lexemes[lastchar+1];
+  lastchar=lastchar+len+1;
+  strcpy(symtable[lastentry].lexptr,s);
+  return lastentry;
+}
+/*void Initialize()
+{
+  struct entry *ptr;
+  for(ptr=keywords;ptr- &gt;token;ptr+1)
+    insert(ptr-&gt;lexptr,ptr-&gt;token);
+}*/
+int lexer()
+{
+  int t;
+  int val,i=0;
+  while(1)
+  {
+    t=getchar();
+    if(t==' '||t=='\t');
+    else if(t=='\n')
+    lineno=lineno+1;
+    else if(isdigit(t))
+    {
+      ungetc(t,stdin);
+      scanf("%d",&amp;tokenval);
+      return NUM;
+    }
+    else if(isalpha(t))
+    {
+      while(isalnum(t))
+      {
+        buffer[i]=t;
+        t=getchar();
+        i=i+1;
+        if(i&gt;=SIZE)
+          Error_Message("Compiler error");
+      }
+      buffer[i]=EOS;
+      if(t!=EOF)
+      ungetc(t,stdin);
+      val=look_up(buffer);
+      if(val==0)
+        val=insert(buffer,ID);
+      tokenval=val;
+      return symtable[val].token;
+    }
+    else if(t==EOF)
+      return DONE;
+    else
+    {
+      tokenval=NONE;
+      return t;
+    }
+  }
+}
+void Match(int t)
+{
+  if(lookahead==t)
+    lookahead=lexer();
+  else
+    Error_Message("Syntax error");
+}
+void display(int t,int tval)
+{
+  if(t=='+'||t=='-'||t=='*'||t=='/')
+    printf("\nArithmetic Operator: %c",t);
+  else if(t==NUM)
+    printf("\n Number: %d",tval);
+  else if(t==ID)
+    printf("\n Identifier : %s",symtable[tval].lexptr);
+  else
+    printf("\n Token %d tokenval %d",t,tokenval);
+}
+void F()
+{
+  //void E();
+  switch(lookahead)
+  {
+    case '(' : Match('(');
+               E();
+               Match(')');
+               break;
+    case NUM : display(NUM,tokenval);
+               Match(NUM);
+               break;
+    case ID :  display(ID,tokenval);
+               Match(ID);
+               break;
+    default :  Error_Message("Syntax error");
+  }
+}
+void T()
+{
+  int t;
+  F();
+  while(1)
+  {
+    switch(lookahead)
+    {
+      case '*' : t=lookahead;
+                 Match(lookahead);
+                 F();
+                 display(t,NONE);
+                 continue;
+      case '/' : t=lookahead;
+                 Match(lookahead);
+                 display(t,NONE);
+                 continue;
+      default :  return;
+    }
+  }
+}
+void E()
+{
+  int t;
+  T();
+  while(1)
+  {
+    switch(lookahead)
+    {
+      case '+' : t=lookahead;
+                 Match(lookahead);
+                 T();
+                 display(t,NONE);
+                 continue;
+      case '-' : t=lookahead;
+                 Match(lookahead);
+                 T();
+                 display(t,NONE);
+                 continue;
+      default :  return;
+    }
+  }
+}
+void parser()
+{
+  lookahead=lexer();
+  while(lookahead!=DONE)
+  {
+    E();
+    Match(';');
+  }
+}
+main()
+{
+  char ans[10];
+  printf("\n Program for recursive decent parsing ");
+  printf("\n Enter the expression ");
+  printf("And place ; at the end\n");
+  printf("Press Ctrl-Z to terminate\n");
+  parser();
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_flex snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">Program</span> for recursive decent parsing</li><li><span class="sh_preproc">Enter</span> the expression And place <span class="sh_symbol">;</span> at the end</li><li><span class="sh_preproc">Press</span> Ctrl<span class="sh_symbol">-</span>Z to terminate</li><li><span class="sh_preproc">a</span><span class="sh_symbol">+</span>b<span class="sh_symbol">*</span>c<span class="sh_symbol">;</span></li><li><span class="sh_preproc">Identifier</span><span class="sh_symbol">:</span> a</li><li><span class="sh_preproc">Identifier</span><span class="sh_symbol">:</span> b</li><li><span class="sh_preproc">Identifier</span><span class="sh_symbol">:</span> c</li><li><span class="sh_preproc">Arithmetic</span> Operator<span class="sh_symbol">:</span> <span class="sh_symbol">*</span></li><li><span class="sh_preproc">Arithmetic</span> Operator<span class="sh_symbol">:</span> <span class="sh_symbol">+</span></li><li>2*3;</li><li><span class="sh_preproc">Number</span><span class="sh_symbol">:</span> 2</li><li><span class="sh_preproc">Number</span><span class="sh_symbol">:</span> 3</li><li><span class="sh_preproc">Arithmetic</span> Operator<span class="sh_symbol">:</span> <span class="sh_symbol">*</span></li><li>+3;</li><li><span class="sh_preproc">line</span> 5<span class="sh_symbol">,</span>Syntax error</li><li><span class="sh_preproc">Ctrl-Z</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Program for recursive decent parsing
+Enter the expression And place ; at the end
+Press Ctrl-Z to terminate
+a+b*c;
+Identifier: a
+Identifier: b
+Identifier: c
+Arithmetic Operator: *
+Arithmetic Operator: +
+2*3;
+Number: 2
+Number: 3
+Arithmetic Operator: *
++3;
+line 5,Syntax error
+Ctrl-Z
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

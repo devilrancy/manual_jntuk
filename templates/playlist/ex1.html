@@ -1,0 +1,203 @@
+<ion-view title="Program-1">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+      Implement functions of Dictionary using Hashing (division method, Multiplication method, Universal hashing).
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;process.h&gt;</span></li><li><span class="sh_type">int</span> <span class="sh_function">hsearch</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">,</span><span class="sh_type">int</span> d<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>ht<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>empty<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> i<span class="sh_symbol">=</span>key<span class="sh_symbol">%(</span>d<span class="sh_symbol">);</span></li><li>  <span class="sh_type">int</span> j<span class="sh_symbol">=</span>i<span class="sh_symbol">;</span></li><li>  <span class="sh_type">int</span> c<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">do</span></li><li>  <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>empty<span class="sh_symbol">[</span>j<span class="sh_symbol">]||(*(</span>ht<span class="sh_symbol">+</span>j<span class="sh_symbol">)==</span>key<span class="sh_symbol">))</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> j<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;c<span class="sh_symbol">++;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;j<span class="sh_symbol">=(</span>i<span class="sh_symbol">+</span>c<span class="sh_symbol">)%(</span>d<span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span><span class="sh_keyword">while</span><span class="sh_symbol">(</span>j<span class="sh_symbol">!=</span>i<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">search</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">,</span><span class="sh_type">int</span> d<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>ht<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>empty<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> b<span class="sh_symbol">=</span><span class="sh_function">hsearch</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>empty<span class="sh_symbol">[</span>b<span class="sh_symbol">])</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_symbol">-</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> b<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span>  <span class="sh_function">insert</span><span class="sh_symbol">(</span><span class="sh_type">int</span> key<span class="sh_symbol">,</span><span class="sh_type">int</span> d<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>ht<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>empty<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> b<span class="sh_symbol">=</span><span class="sh_function">hsearch</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>empty<span class="sh_symbol">[</span>b<span class="sh_symbol">])</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;empty<span class="sh_symbol">[</span>b<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*(</span>ht<span class="sh_symbol">+</span>b<span class="sh_symbol">)=</span>key<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Element is inserted</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">delete1</span><span class="sh_symbol">(</span><span class="sh_type">int</span>  key<span class="sh_symbol">,</span><span class="sh_type">int</span> d<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>ht<span class="sh_symbol">,</span><span class="sh_type">int</span><span class="sh_symbol">*</span> empty<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> b<span class="sh_symbol">=</span><span class="sh_function">hsearch</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">*(</span>ht<span class="sh_symbol">+</span>b<span class="sh_symbol">)=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;empty<span class="sh_symbol">[</span>b<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Element is delted</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">(</span><span class="sh_type">int</span> d<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>ht<span class="sh_symbol">,</span><span class="sh_type">int</span> <span class="sh_symbol">*</span>empty<span class="sh_symbol">)</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> i<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Hash table elements are</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>d<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>empty<span class="sh_symbol">[</span>i<span class="sh_symbol">])</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"      0"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%5d"</span><span class="sh_symbol">,*(</span>ht<span class="sh_symbol">+</span>i<span class="sh_symbol">));</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> choice<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> key<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> d<span class="sh_symbol">,</span>i<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> <span class="sh_symbol">*</span>empty<span class="sh_symbol">,*</span>ht<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the hash table size:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>d<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;ht<span class="sh_symbol">=(</span><span class="sh_type">int</span><span class="sh_symbol">*)</span><span class="sh_function">malloc</span><span class="sh_symbol">(</span>d<span class="sh_symbol">*</span><span class="sh_keyword">sizeof</span><span class="sh_symbol">(</span><span class="sh_type">int</span><span class="sh_symbol">));</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;empty<span class="sh_symbol">=(</span><span class="sh_type">int</span><span class="sh_symbol">*)</span><span class="sh_function">malloc</span><span class="sh_symbol">(</span>d<span class="sh_symbol">*</span><span class="sh_keyword">sizeof</span><span class="sh_symbol">(</span><span class="sh_type">int</span><span class="sh_symbol">));</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>d<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;  empty<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">while</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> LINEAR PROBING"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">1.insert hash table"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">2.delete hash table"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">3.search hash table"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">4.display hash table"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">5.Exit"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter your choice:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>choice<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">switch</span><span class="sh_symbol">(</span>choice<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the element:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">insert</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">2</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter to remove from hash table:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">delete1</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">3</span><span class="sh_symbol">:</span></li><li></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the search element:"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>key<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_function">search</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">)==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Not found</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">else</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Element found at index %d"</span><span class="sh_symbol">,</span><span class="sh_function">hsearch</span><span class="sh_symbol">(</span>key<span class="sh_symbol">,</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">));</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">4</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">display</span><span class="sh_symbol">(</span>d<span class="sh_symbol">,</span>ht<span class="sh_symbol">,</span>empty<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">case</span> <span class="sh_number">5</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">exit</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;process.h&gt;
+int hsearch(int key,int d,int *ht,int *empty)
+{
+  int i=key%(d);
+  int j=i;
+  int c=0;
+  do
+  {
+  if(empty[j]||(*(ht+j)==key))
+    return j;
+  c++;
+  j=(i+c)%(d);
+  }while(j!=i);
+  return 0;
+}
+
+int search(int key,int d,int *ht,int *empty)
+{
+  int b=hsearch(key,d,ht,empty);
+  if(empty[b])
+    return -1;
+  else
+    return b;
+}
+void  insert(int key,int d,int *ht,int *empty)
+{
+  int b=hsearch(key,d,ht,empty);
+  if(empty[b])
+  {
+    empty[b]=0;
+    *(ht+b)=key;
+    printf("Element is inserted\n");
+
+  }
+}
+void delete1(int  key,int d,int *ht,int* empty)
+{
+  int b=hsearch(key,d,ht,empty);
+  *(ht+b)=0;
+  empty[b]=1;
+  printf("Element is delted\n");
+}
+void display(int d,int *ht,int *empty)
+
+            
+{
+  int i;
+  printf("Hash table elements are\n");
+  for(i=0;i&lt;d;i++)
+  {
+    if(empty[i])
+         printf("      0");
+    else
+         printf("%5d",*(ht+i));
+  }
+  printf("\n");
+}
+void main()
+{
+  int choice=1;
+  int key;
+  int d,i;
+  int *empty,*ht;
+  clrscr();
+  printf("Enter the hash table size:");
+  scanf("%d",&amp;d);
+  ht=(int*)malloc(d*sizeof(int));
+  empty=(int*)malloc(d*sizeof(int));
+  for(i=0;i&lt;d;i++)
+    empty[i]=1;
+  while(1)
+  {
+    printf("\n");
+    printf("\n LINEAR PROBING");
+    printf("\n1.insert hash table");
+    printf("\n2.delete hash table");
+    printf("\n3.search hash table");
+    printf("\n4.display hash table");
+    printf("\n5.Exit");
+    printf("Enter your choice:");
+    scanf("%d",&amp;choice);
+    switch(choice)
+    {
+      case 1:
+          printf("Enter the element:");
+          scanf("%d",&amp;key);
+          insert(key,d,ht,empty);
+          break;
+      case 2:
+          printf("Enter to remove from hash table:");
+          scanf("%d",&amp;key);
+          delete1(key,d,ht,empty);
+          break;
+      case 3:
+
+
+          printf("Enter the search element:");
+          scanf("%d",&amp;key);
+          if(search(key,d,ht,empty)==0)
+            printf("Not found\n");
+          else
+            printf("Element found at index %d",hsearch(key,d,ht,empty));
+          break;
+      case 4:
+          display(d,ht,empty);
+          break;
+      case 5:
+          exit(0);
+    }
+    getch();
+  }
+}
+
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">1</span></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>element<span class="sh_symbol">:</span><span class="sh_number">11</span></li><li>Element is inserted</li><li></li><li>LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li></li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">1</span></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>element<span class="sh_symbol">:</span><span class="sh_number">22</span></li><li>Element is inserted</li><li></li><li> LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">4</span></li><li>Hash table elements are</li><li>   <span class="sh_number">11</span>   <span class="sh_number">22</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span></li><li></li><li> LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">2</span></li><li>Enter to remove from <span class="sh_usertype">hash</span><span class="sh_normal"> </span>table<span class="sh_symbol">:</span><span class="sh_number">11</span></li><li>Element is delted</li><li></li><li></li><li> LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">4</span></li><li>Hash table elements are</li><li>      <span class="sh_number">0</span>   <span class="sh_number">22</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span>      <span class="sh_number">0</span></li><li></li><li></li><li> LINEAR PROBING</li><li><span class="sh_number">1</span><span class="sh_symbol">.</span>insert hash table</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>delete hash table</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>search hash table</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>display hash table</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li>Enter <span class="sh_usertype">your</span><span class="sh_normal"> </span>choice<span class="sh_symbol">:</span><span class="sh_number">3</span></li><li>Enter the <span class="sh_usertype">search</span><span class="sh_normal"> </span>element<span class="sh_symbol">:</span><span class="sh_number">11</span></li><li>Not found</li><li> </li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+Enter your choice:1
+Enter the element:11
+Element is inserted
+
+LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+
+Enter your choice:1
+Enter the element:22
+Element is inserted
+
+ LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+Enter your choice:4
+Hash table elements are
+   11   22      0      0      0      0      0      0      0      0      0
+
+ LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+Enter your choice:2
+Enter to remove from hash table:11
+Element is delted
+
+
+ LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+Enter your choice:4
+Hash table elements are
+      0   22      0      0      0      0      0      0      0      0      0
+
+
+ LINEAR PROBING
+1.insert hash table
+2.delete hash table
+3.search hash table
+4.display hash table
+5.Exit
+Enter your choice:3
+Enter the search element:11
+Not found
+ 
+
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

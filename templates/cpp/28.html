@@ -1,0 +1,38 @@
+<ion-view title="Program-28">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write a C++ program illustrating overloading function template.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li></li><li>template<span class="sh_symbol">&lt;</span><span class="sh_usertype">class</span><span class="sh_normal"> </span>T<span class="sh_symbol">&gt;</span> <span class="sh_type">void</span> <span class="sh_function">f</span><span class="sh_symbol">(</span><span class="sh_usertype">T</span><span class="sh_normal"> </span>x<span class="sh_symbol">,</span> <span class="sh_usertype">T</span><span class="sh_normal"> </span>y<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span> cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"Template"</span> <span class="sh_symbol">&lt;&lt;</span> endl<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">f</span><span class="sh_symbol">(</span><span class="sh_type">int</span> w<span class="sh_symbol">,</span> <span class="sh_type">int</span> z<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span> cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"Non-template"</span> <span class="sh_symbol">&lt;&lt;</span> endl<span class="sh_symbol">;</span> <span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">f</span><span class="sh_symbol">(</span> <span class="sh_number">1</span> <span class="sh_symbol">,</span>  <span class="sh_number">2</span> <span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">f</span><span class="sh_symbol">(</span><span class="sh_string">'a'</span><span class="sh_symbol">,</span> <span class="sh_string">'b'</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">f</span><span class="sh_symbol">(</span> <span class="sh_number">1</span> <span class="sh_symbol">,</span> <span class="sh_string">'b'</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;iostream.h&gt;
+
+
+template&lt;class T&gt; void f(T x, T y) { cout &lt;&lt; "Template" &lt;&lt; endl; }
+
+void f(int w, int z) { cout &lt;&lt; "Non-template" &lt;&lt; endl; }
+
+int main() {
+  f( 1 ,  2 );
+  f('a', 'b');
+  f( 1 , 'b');
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Non<span class="sh_symbol">-</span>template</li><li>Template</li><li>Non<span class="sh_symbol">-</span>template</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Non-template
+Template
+Non-template</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

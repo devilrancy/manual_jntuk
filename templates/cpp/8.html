@@ -1,0 +1,46 @@
+<ion-view title="Program-8">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating factorial using recursion.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">factorial</span><span class="sh_symbol">(</span><span class="sh_type">int</span><span class="sh_symbol">);</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> fact<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Whoes Factorial you want to find:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>fact<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;fact<span class="sh_symbol">=</span><span class="sh_function">factorial</span><span class="sh_symbol">(</span>fact<span class="sh_symbol">);</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span>fact<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">factorial</span><span class="sh_symbol">(</span><span class="sh_type">int</span> fact<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>fact<span class="sh_symbol">!=</span><span class="sh_number">1</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fact<span class="sh_symbol">*=</span><span class="sh_function">factorial</span><span class="sh_symbol">(</span>fact<span class="sh_number">-1</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> fact<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+
+int factorial(int);
+
+void main()
+{
+int fact;
+  cout&lt;&lt;"Whoes Factorial you want to find:";
+  cin&gt;&gt;fact;
+
+  fact=factorial(fact);
+
+  cout&lt;&lt;fact;
+}
+
+int factorial(int fact)
+{
+  if(fact!=1)
+    fact*=factorial(fact-1);
+  return fact;
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Whose Factorial you want <span class="sh_usertype">to</span><span class="sh_normal"> </span>find<span class="sh_symbol">:</span><span class="sh_number">7</span></li><li>Factorial of <span class="sh_number">7</span> is<span class="sh_symbol">:</span><span class="sh_number">5040</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Whose Factorial you want to find:7
+Factorial of 7 is:5040</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

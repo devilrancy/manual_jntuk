@@ -1,0 +1,92 @@
+<ion-view title="Week-11">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Create tables in the database which contain the details of items (books in our case like Book</li><li>name , Price, Quantity, Amount )) of each category. Modify your catalogue page (week 2)in such</li><li>a way that you should connect to the database and extract data from the tables and display them</li><li>in the catalogue page using JDBC.</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Create tables in the database which contain the details of items (books in our case like Book
+name , Price, Quantity, Amount )) of each category. Modify your catalogue page (week 2)in such
+a way that you should connect to the database and extract data from the tables and display them
+in the catalogue page using JDBC.
+</pre></div></div>
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <h5><b>cart.jsp</b></h5>
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>        &lt;%@page language="java" import="java.sql.*" %&gt;</li><li>&lt;%</li><li>  Connection con=null;</li><li>  int count=0;</li><li>  Statement stmt=null;</li><li>  ResultSet rs=null;</li><li>   String[] bname=new String[20];</li><li>   int[] price=new int[15];</li><li>  int [] quantity=new int[15];</li><li>  int[] amount=new int[15];</li><li>          try{</li><li>              Class.forName("com.mysql.jdbc.Driver");</li><li>              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sandy","root","root");</li><li>              stmt =con.createStatement();</li><li>             rs=stmt.executeQuery("select  * from cart");</li><li>             for(int i=0;rs.next();i++)</li><li>                 {</li><li>                     count++;</li><li>                    bname[i]=rs.getString(1);</li><li>                      price[i]=rs.getInt(2);</li><li>                      quantity[i]=rs.getInt(3);</li><li>                      amount[i]=rs.getInt(4);</li><li>                    }</li><li>                      if(count!=0)</li><li>                     {</li><li>                     %&gt;</li><li>                    <span class="sh_keyword">&lt;html&gt;</span></li><li>                        <span class="sh_keyword">&lt;body&gt;</span></li><li>                             <span class="sh_keyword">&lt;table</span> <span class="sh_type">border</span><span class="sh_symbol">=</span><span class="sh_string">"1"</span><span class="sh_keyword">&gt;</span></li><li>                               <span class="sh_keyword">&lt;tr&gt;</span></li><li>                                    <span class="sh_keyword">&lt;th&gt;</span>BookName<span class="sh_keyword">&lt;/th&gt;</span></li><li>                                    <span class="sh_keyword">&lt;th&gt;</span>Price<span class="sh_keyword">&lt;/th&gt;</span></li><li>                                    <span class="sh_keyword">&lt;th&gt;</span>Quantity<span class="sh_keyword">&lt;/th&gt;</span></li><li>                                    <span class="sh_keyword">&lt;th&gt;</span>Amount<span class="sh_keyword">&lt;/th&gt;</span></li><li>                                <span class="sh_keyword">&lt;/tr&gt;</span></li><li>                      &lt;%</li><li>                      for(int j=0;j<span class="sh_keyword">&lt;count</span><span class="sh_type">;j++)</span></li><li>                      <span class="sh_type">{</span></li><li>                     <span class="sh_type">%</span><span class="sh_keyword">&gt;</span></li><li>                        <span class="sh_keyword">&lt;tr&gt;</span></li><li>                             <span class="sh_keyword">&lt;th&gt;</span>&lt;%=bname[j]%&gt;<span class="sh_keyword">&lt;/th&gt;</span></li><li>                            <span class="sh_keyword">&lt;th&gt;</span>&lt;%=price[j]%&gt;<span class="sh_keyword">&lt;/th&gt;</span></li><li>                             <span class="sh_keyword">&lt;th&gt;</span>&lt;%=quantity[j]%&gt;<span class="sh_keyword">&lt;/th&gt;</span></li><li>                           <span class="sh_keyword">&lt;th&gt;</span>&lt;%=amount[j]%&gt;<span class="sh_keyword">&lt;/th&gt;</span></li><li>                        <span class="sh_keyword">&lt;/tr&gt;</span></li><li>           <span class="sh_keyword">&lt;/body&gt;</span></li><li>          <span class="sh_keyword">&lt;/html&gt;</span></li><li>           &lt;%</li><li>                 }</li><li>              }</li><li>          }</li><li>          catch(Exception e)</li><li>                  {</li><li>                    e.getMessage();</li><li>                    }</li><li>%&gt;</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">        &lt;%@page language="java" import="java.sql.*" %&gt;
+&lt;%
+  Connection con=null;
+  int count=0;
+  Statement stmt=null;
+  ResultSet rs=null;
+   String[] bname=new String[20];
+   int[] price=new int[15];
+  int [] quantity=new int[15];
+  int[] amount=new int[15];
+          try{
+              Class.forName("com.mysql.jdbc.Driver");
+              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sandy","root","root");
+              stmt =con.createStatement();
+             rs=stmt.executeQuery("select  * from cart");
+             for(int i=0;rs.next();i++)
+                 {
+                     count++;
+                    bname[i]=rs.getString(1);
+                      price[i]=rs.getInt(2);
+                      quantity[i]=rs.getInt(3);
+                      amount[i]=rs.getInt(4);
+                    }
+                      if(count!=0)
+                     {
+                     %&gt;
+                    &lt;html&gt;
+                        &lt;body&gt;
+                             &lt;table border="1"&gt;
+                               &lt;tr&gt;
+                                    &lt;th&gt;BookName&lt;/th&gt;
+                                    &lt;th&gt;Price&lt;/th&gt;
+                                    &lt;th&gt;Quantity&lt;/th&gt;
+                                    &lt;th&gt;Amount&lt;/th&gt;
+                                &lt;/tr&gt;
+                      &lt;%
+                      for(int j=0;j&lt;count;j++)
+                      {
+                     %&gt;
+                        &lt;tr&gt;
+                             &lt;th&gt;&lt;%=bname[j]%&gt;&lt;/th&gt;
+                            &lt;th&gt;&lt;%=price[j]%&gt;&lt;/th&gt;
+                             &lt;th&gt;&lt;%=quantity[j]%&gt;&lt;/th&gt;
+                           &lt;th&gt;&lt;%=amount[j]%&gt;&lt;/th&gt;
+                        &lt;/tr&gt;
+           &lt;/body&gt;
+          &lt;/html&gt;
+           &lt;%
+                 }
+              }
+          }
+          catch(Exception e)
+                  {
+                    e.getMessage();
+                    }
+%&gt;
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w11_1.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w11_2.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

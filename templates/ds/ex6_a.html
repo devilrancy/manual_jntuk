@@ -1,0 +1,178 @@
+<ion-view title="Exercise-6">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write C programs that implement stack (its operations) using arrays.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #339933;">#include&lt;conio.h&gt;</span><br />
+<span style="color: #339933;">#include&lt;stdlib.h&gt;</span><br />
+<br />
+<span style="color: #339933;">#define size 5</span><br />
+<span style="color: #993333;">struct</span> stack <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> s<span style="color: #009900;">&#91;</span>size<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> top<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span> st<span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #993333;">int</span> stfull<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>st.<span style="color: #202020;">top</span> <span style="color: #339933;">&gt;=</span> size <span style="color: #339933;">-</span> <span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+<span style="color: #993333;">void</span> push<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> item<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;st.<span style="color: #202020;">top</span><span style="color: #339933;">++;</span><br />
+&nbsp; &nbsp;st.<span style="color: #202020;">s</span><span style="color: #009900;">&#91;</span>st.<span style="color: #202020;">top</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> item<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+<span style="color: #993333;">int</span> stempty<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>st.<span style="color: #202020;">top</span> <span style="color: #339933;">==</span> <span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+<span style="color: #993333;">int</span> pop<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> item<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;item <span style="color: #339933;">=</span> st.<span style="color: #202020;">s</span><span style="color: #009900;">&#91;</span>st.<span style="color: #202020;">top</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;st.<span style="color: #202020;">top</span><span style="color: #339933;">--;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span>item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+<span style="color: #993333;">void</span> display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> i<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>stempty<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Stack Is Empty!&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">for</span> <span style="color: #009900;">&#40;</span>i <span style="color: #339933;">=</span> st.<span style="color: #202020;">top</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span> i<span style="color: #339933;">--</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>%d&quot;</span><span style="color: #339933;">,</span> st.<span style="color: #202020;">s</span><span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<br />
+<span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> item<span style="color: #339933;">,</span> choice<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">char</span> ans<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;st.<span style="color: #202020;">top</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+<br />
+&nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\t</span>Implementation Of Stack&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">do</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Main Menu&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>1.Push <span style="color: #000099; font-weight: bold;">\n</span>2.Pop <span style="color: #000099; font-weight: bold;">\n</span>3.Display <span style="color: #000099; font-weight: bold;">\n</span>4.exit&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter Your Choice&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>choice<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">switch</span> <span style="color: #009900;">&#40;</span>choice<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter The item to be pushed&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>stfull<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Stack is Full!&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; push<span style="color: #009900;">&#40;</span>item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>stempty<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Empty stack!Underflow !!&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #b1b100;">else</span> <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; item <span style="color: #339933;">=</span> pop<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>The popped element is %d&quot;</span><span style="color: #339933;">,</span> item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">4</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;exit<span style="color: #009900;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Do You want To Continue?&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; ans <span style="color: #339933;">=</span> getche<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span> <span style="color: #b1b100;">while</span> <span style="color: #009900;">&#40;</span>ans <span style="color: #339933;">==</span> <span style="color: #ff0000;">'Y'</span> <span style="color: #339933;">||</span> ans <span style="color: #339933;">==</span> <span style="color: #ff0000;">'y'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT:PUSH
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">&nbsp; &nbsp; Implementation Of Stack<br />
+Main Menu<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Display</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your choice <span style="color: #0000dd;">1</span><br />
+<br />
+Enter The item to be pushed <span style="color: #0000dd;">23</span><br />
+<br />
+Do You want To Continue<span style="color: #339933;">?</span>Y<br />
+Main Menu<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Display</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your Choice <span style="color: #0000dd;">1</span> <br />
+<br />
+Enter The item to be pushed <span style="color: #0000dd;">34</span><br />
+<br />
+Do You want to Continue<span style="color: #339933;">?</span>Y<br />
+Main Menu <br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Disply</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your Choice <span style="color: #0000dd;">3</span><br />
+<br />
+<span style="color: #0000dd;">34</span><br />
+<span style="color: #0000dd;">23</span><br />
+Do You want to Continue<span style="color: #339933;">?</span>N<br />
+&nbsp;</div>
+    </div>
+
+    <div class="item item-divider item-dark">
+      OUTPUT:POP
+    </div>
+    <div class="card">
+      <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">&nbsp; &nbsp; Implementation Of Stack<br />
+Main Menu<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Display</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your choice <span style="color: #0000dd;">1</span><br />
+<br />
+Enter The item to be pushed <span style="color: #0000dd;">23</span><br />
+<br />
+Do You want To Continue<span style="color: #339933;">?</span>Y<br />
+Main Menu<br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Display</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your Choice <span style="color: #0000dd;">1</span> <br />
+<br />
+Enter The item to be pushed <span style="color: #0000dd;">34</span><br />
+<br />
+Do You want to Continue<span style="color: #339933;">?</span>Y<br />
+Main Menu <br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">Push</span><br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">Pop</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">Disply</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">exit</span><br />
+Enter your Choice <span style="color: #0000dd;">2</span><br />
+<br />
+The popped element is <span style="color: #0000dd;">34</span><br />
+Do You want to Continue<span style="color: #339933;">?</span>N<br />
+&nbsp;</div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,65 @@
+<ion-view title="Program-20">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating constructor overloading (Both Parameterised and Default).
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li>class student</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;private<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> roll<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> name<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> age<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">student</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;roll<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">student</span><span class="sh_symbol">(</span><span class="sh_type">int</span> r<span class="sh_symbol">,</span><span class="sh_type">int</span> a<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;roll<span class="sh_symbol">=</span>r<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age<span class="sh_symbol">=</span>a<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Roll:"</span><span class="sh_symbol">&lt;&lt;</span>roll<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Age:"</span><span class="sh_symbol">&lt;&lt;</span>age<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">student</span><span class="sh_normal"> </span>obj<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">student</span><span class="sh_normal"> </span><span class="sh_function">obj1</span><span class="sh_symbol">(</span><span class="sh_number">2</span><span class="sh_symbol">,</span><span class="sh_number">10</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj1<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+
+class student
+{
+  private:
+    int roll;
+    char name[20];
+    int age;
+  public:
+    student()
+    {
+      roll=0;
+      age=0;
+    }
+    student(int r,int a)
+    {
+      roll=r;
+      age=a;
+    }
+
+    void show()
+    {
+      cout&lt;&lt;"\nRoll:"&lt;&lt;roll;
+      cout&lt;&lt;"\nAge:"&lt;&lt;age;
+    }
+
+};
+
+void main()
+{
+  student obj;
+  obj.show();
+  student obj1(2,10);
+  obj1.show();
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Value After Calling <span class="sh_keyword">default</span> constructor</li><li>Roll<span class="sh_symbol">:</span><span class="sh_number">0</span></li><li>Age<span class="sh_symbol">:</span><span class="sh_number">0</span></li><li></li><li>Value After Calling Parameterised Constructor</li><li>Roll<span class="sh_symbol">:</span><span class="sh_number">2</span></li><li>Age<span class="sh_symbol">:</span><span class="sh_number">10</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Value After Calling default constructor
+Roll:0
+Age:0
+
+Value After Calling Parameterised Constructor
+Roll:2
+Age:10</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

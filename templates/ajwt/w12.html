@@ -1,0 +1,108 @@
+<ion-view title="Week-12">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>HTTP is a stateless protocol. Session is required to maintain the state.</li><li>The user may add some items to cart from the catalog page. He can check the cart page for the</li><li>selected items. He may visit the catalogue again and select some more items. Here our interest</li><li>is the selected items should be added to the old cart rather than a new cart. Multiple users can</li><li>do the same thing at a time(i.e., from different systems in the LAN using the ip-address instead of</li><li>localhost). This can be achieved through the use of sessions. Every user will have his own</li><li>session which will be created after his successful login to the website. When the user logs out his</li><li>session should get invalidated (by using the method session.invalidate() ).</li><li>Modify your catalogue and cart JSP pages to achieve the above mentioned functionality using</li><li>sessions.</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">HTTP is a stateless protocol. Session is required to maintain the state.
+The user may add some items to cart from the catalog page. He can check the cart page for the
+selected items. He may visit the catalogue again and select some more items. Here our interest
+is the selected items should be added to the old cart rather than a new cart. Multiple users can
+do the same thing at a time(i.e., from different systems in the LAN using the ip-address instead of
+localhost). This can be achieved through the use of sessions. Every user will have his own
+session which will be created after his successful login to the website. When the user logs out his
+session should get invalidated (by using the method session.invalidate() ).
+Modify your catalogue and cart JSP pages to achieve the above mentioned functionality using
+sessions.
+</pre></div></div>
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <h5><b>session.html</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_comment">&lt;!--session.html--&gt;</span></li><li><span class="sh_keyword">&lt;html&gt;&lt;head&gt;&lt;title&gt;</span>login<span class="sh_keyword">&lt;/title&gt;&lt;/head&gt;</span></li><li><span class="sh_keyword">&lt;body&gt;</span></li><li><span class="sh_keyword">&lt;form</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"f"</span> <span class="sh_type">action</span><span class="sh_symbol">=</span><span class="sh_string">"http://localhost:8084/WebApplication1/session"</span><span class="sh_keyword">&gt;</span></li><li> <span class="sh_keyword">&lt;div</span> <span class="sh_type">align</span><span class="sh_symbol">=</span><span class="sh_string">"center"</span><span class="sh_keyword">&gt;</span></li><li> UserName:<span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"text"</span> <span class="sh_type">size</span><span class="sh_symbol">=</span><span class="sh_string">"10"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"username"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">""</span><span class="sh_keyword">/&gt;&lt;br&gt;&lt;br&gt;</span></li><li> Password:<span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"password"</span> <span class="sh_type">size</span><span class="sh_symbol">=</span><span class="sh_string">"10"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"password"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">""</span><span class="sh_keyword">/&gt;&lt;br&gt;&lt;br&gt;</span></li><li> <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"submit"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">"submit"</span><span class="sh_keyword">/&gt;</span></li><li> <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"reset"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">"reset"</span><span class="sh_keyword">/&gt;</span></li><li><span class="sh_keyword">&lt;/div&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;!--session.html--&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;login&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="f" action="http://localhost:8084/WebApplication1/session"&gt;
+ &lt;div align="center"&gt;
+ UserName:&lt;input type="text" size="10" name="username" value=""/&gt;&lt;br&gt;&lt;br&gt;
+ Password:&lt;input type="password" size="10" name="password" value=""/&gt;&lt;br&gt;&lt;br&gt;
+ &lt;input type="submit" value="submit"/&gt;
+ &lt;input type="reset" value="reset"/&gt;
+&lt;/div&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+</pre></div></div>
+       <h5><b>session.php</b></h5>
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>io<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>util<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>http<span class="sh_symbol">.*;</span></li><li><span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal"> </span><span class="sh_classname">Session</span> <span class="sh_keyword">extends</span> HttpServlet <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">doGet</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>    <span class="sh_keyword">throws</span> IOException<span class="sh_symbol">,</span> ServletException</li><li>    <span class="sh_cbracket">{</span></li><li>        response<span class="sh_symbol">.</span><span class="sh_function">setContentType</span><span class="sh_symbol">(</span><span class="sh_string">"text/html"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_usertype">PrintWriter</span><span class="sh_normal"> </span>out <span class="sh_symbol">=</span> response<span class="sh_symbol">.</span><span class="sh_function">getWriter</span><span class="sh_symbol">();</span></li><li>        <span class="sh_usertype">HttpSession</span><span class="sh_normal"> </span>session <span class="sh_symbol">=</span> request<span class="sh_symbol">.</span><span class="sh_function">getSession</span><span class="sh_symbol">(</span><span class="sh_keyword">true</span><span class="sh_symbol">);</span></li><li>       <span class="sh_comment">// print session info</span></li><li>        <span class="sh_usertype">Date</span><span class="sh_normal"> </span>created <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">Date</span><span class="sh_symbol">(</span>session<span class="sh_symbol">.</span><span class="sh_function">getCreationTime</span><span class="sh_symbol">());</span></li><li>        <span class="sh_usertype">Date</span><span class="sh_normal"> </span>accessed <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">Date</span><span class="sh_symbol">(</span>session<span class="sh_symbol">.</span><span class="sh_function">getLastAccessedTime</span><span class="sh_symbol">());</span></li><li>        out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"ID "</span> <span class="sh_symbol">+</span> session<span class="sh_symbol">.</span><span class="sh_function">getId</span><span class="sh_symbol">());</span></li><li>        out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"Created: "</span> <span class="sh_symbol">+</span> created<span class="sh_symbol">);</span></li><li>        out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"Last Accessed: "</span> <span class="sh_symbol">+</span> accessed<span class="sh_symbol">);</span></li><li>        <span class="sh_comment">// set session info if needed</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>dataName <span class="sh_symbol">=</span> request<span class="sh_symbol">.</span><span class="sh_function">getParameter</span><span class="sh_symbol">(</span><span class="sh_string">"dataName"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_keyword">if</span> <span class="sh_symbol">(</span>dataName <span class="sh_symbol">!=</span> <span class="sh_keyword">null</span> <span class="sh_symbol">&amp;&amp;</span> dataName<span class="sh_symbol">.</span><span class="sh_function">length</span><span class="sh_symbol">()</span> <span class="sh_symbol">&gt;</span> <span class="sh_number">0</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            <span class="sh_usertype">String</span><span class="sh_normal"> </span>dataValue <span class="sh_symbol">=</span> request<span class="sh_symbol">.</span><span class="sh_function">getParameter</span><span class="sh_symbol">(</span><span class="sh_string">"dataValue"</span><span class="sh_symbol">);</span></li><li>            session<span class="sh_symbol">.</span><span class="sh_function">setAttribute</span><span class="sh_symbol">(</span>dataName<span class="sh_symbol">,</span> dataValue<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li>        <span class="sh_comment">// print session contents</span></li><li>       <span class="sh_usertype">Enumeration</span><span class="sh_normal"> </span>e <span class="sh_symbol">=</span> session<span class="sh_symbol">.</span><span class="sh_function">getAttributeNames</span><span class="sh_symbol">();</span></li><li>         <span class="sh_keyword">while</span> <span class="sh_symbol">(</span>e<span class="sh_symbol">.</span><span class="sh_function">hasMoreElements</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>            <span class="sh_usertype">String</span><span class="sh_normal"> </span>name <span class="sh_symbol">=</span> <span class="sh_symbol">(</span>String<span class="sh_symbol">)</span>e<span class="sh_symbol">.</span><span class="sh_function">nextElement</span><span class="sh_symbol">();</span></li><li>            <span class="sh_usertype">String</span><span class="sh_normal"> </span>value <span class="sh_symbol">=</span> session<span class="sh_symbol">.</span><span class="sh_function">getAttribute</span><span class="sh_symbol">(</span>name<span class="sh_symbol">).</span><span class="sh_function">toString</span><span class="sh_symbol">();</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span>name <span class="sh_symbol">+</span> <span class="sh_string">" = "</span> <span class="sh_symbol">+</span> value<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class Session extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException
+    {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession(true);
+       // print session info
+        Date created = new Date(session.getCreationTime());
+        Date accessed = new Date(session.getLastAccessedTime());
+        out.println("ID " + session.getId());
+        out.println("Created: " + created);
+        out.println("Last Accessed: " + accessed);
+        // set session info if needed
+        String dataName = request.getParameter("dataName");
+        if (dataName != null &amp;&amp; dataName.length() &gt; 0) {
+            String dataValue = request.getParameter("dataValue");
+            session.setAttribute(dataName, dataValue);
+        }
+        // print session contents
+       Enumeration e = session.getAttributeNames();
+         while (e.hasMoreElements()) {
+            String name = (String)e.nextElement();
+            String value = session.getAttribute(name).toString();
+            out.println(name + " = " + value);
+        }
+    }
+}
+</pre></div></div>
+<h5><b>web.xml</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_xml snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_keyword">&lt;web-app&gt;</span></li><li>     <span class="sh_keyword">&lt;servlet&gt;</span></li><li>         <span class="sh_keyword">&lt;servlet-name&gt;</span>session<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>         <span class="sh_keyword">&lt;servlet-class&gt;</span>session<span class="sh_keyword">&lt;/servlet-class&gt;</span></li><li>     <span class="sh_keyword">&lt;/servlet&gt;</span></li><li>     <span class="sh_keyword">&lt;servlet-mapping&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-name&gt;</span>session<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>        <span class="sh_keyword">&lt;url-pattern&gt;</span>/session<span class="sh_keyword">&lt;/url-pattern&gt;</span></li><li>    <span class="sh_keyword">&lt;/servlet-mapping&gt;</span></li><li><span class="sh_keyword">&lt;/web-app&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;web-app&gt;
+     &lt;servlet&gt;
+         &lt;servlet-name&gt;session&lt;/servlet-name&gt;
+         &lt;servlet-class&gt;session&lt;/servlet-class&gt;
+     &lt;/servlet&gt;
+     &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;session&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/session&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</pre></div></div>
+    </div>
+<div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w12_1.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w12_2.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w12_3.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w12_4.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

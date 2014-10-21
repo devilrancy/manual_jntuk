@@ -1,0 +1,42 @@
+<ion-view title="Program-1">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+      Write a C++ Program illustrating Variable scope.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li></li><li><span class="sh_type">int</span> num<span class="sh_symbol">=</span><span class="sh_number">10</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Number is having Global Scope:"</span><span class="sh_symbol">&lt;&lt;</span>num<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> num<span class="sh_symbol">=</span><span class="sh_number">15</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Number is having Local Scope:"</span><span class="sh_symbol">&lt;&lt;</span>num<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Number again having Local Scope:"</span><span class="sh_symbol">&lt;&lt;</span>num<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+#include&lt;conio.h&gt;
+
+int num=10;
+
+void main()
+{
+  cout&lt;&lt;"Number is having Global Scope:"&lt;&lt;num;
+
+  {
+    int num=15;
+    cout&lt;&lt;"\nNumber is having Local Scope:"&lt;&lt;num;
+  }
+
+  cout&lt;&lt;"\nNumber again having Local Scope:"&lt;&lt;num;
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Number is having <span class="sh_usertype">Global</span><span class="sh_normal"> </span>Scope<span class="sh_symbol">:</span><span class="sh_number">10</span></li><li>Number is having <span class="sh_usertype">Local</span><span class="sh_normal"> </span>Scope<span class="sh_symbol">:</span><span class="sh_number">15</span></li><li>Numb again having <span class="sh_usertype">Local</span><span class="sh_normal"> </span>Scope<span class="sh_symbol">:</span><span class="sh_number">10</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Number is having Global Scope:10
+Number is having Local Scope:15
+Numb again having Local Scope:10</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

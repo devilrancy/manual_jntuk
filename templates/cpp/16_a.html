@@ -1,0 +1,93 @@
+<ion-view title="Program-16(a)">
+  <ion-content class="has-header">
+    <div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+      <p>
+Write a C++ Program illustrating overloading increment and decrement.
+      </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+       <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span> <span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li></li><li>class Time</li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;private<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> hours<span class="sh_symbol">;</span>             <span class="sh_comment">// 0 to 23</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> minutes<span class="sh_symbol">;</span>           <span class="sh_comment">// 0 to 59</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// required constructors</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">Time</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hours <span class="sh_symbol">=</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minutes <span class="sh_symbol">=</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">Time</span><span class="sh_symbol">(</span><span class="sh_type">int</span> h<span class="sh_symbol">,</span> <span class="sh_type">int</span> m<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hours <span class="sh_symbol">=</span> h<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minutes <span class="sh_symbol">=</span> m<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// method to display time</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">displayTime</span><span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">"H: "</span> <span class="sh_symbol">&lt;&lt;</span> hours <span class="sh_symbol">&lt;&lt;</span> <span class="sh_string">" M:"</span> <span class="sh_symbol">&lt;&lt;</span> minutes <span class="sh_symbol">&lt;&lt;</span>endl<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// overloaded prefix ++ operator</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Time</span><span class="sh_normal"> </span>operator<span class="sh_symbol">++</span> <span class="sh_symbol">()</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>minutes<span class="sh_symbol">;</span>          <span class="sh_comment">// increment this object</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>minutes <span class="sh_symbol">&gt;=</span> <span class="sh_number">60</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>hours<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minutes <span class="sh_symbol">-=</span> <span class="sh_number">60</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_function">Time</span><span class="sh_symbol">(</span>hours<span class="sh_symbol">,</span> minutes<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// overloaded postfix ++ operator</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Time</span><span class="sh_normal"> </span>operator<span class="sh_symbol">++(</span> <span class="sh_type">int</span> <span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// save the orignal value</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Time</span><span class="sh_normal"> </span><span class="sh_function">T</span><span class="sh_symbol">(</span>hours<span class="sh_symbol">,</span> minutes<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// increment this object</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>minutes<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(</span>minutes <span class="sh_symbol">&gt;=</span> <span class="sh_number">60</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>hours<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minutes <span class="sh_symbol">-=</span> <span class="sh_number">60</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// return old original value</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> T<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Time</span><span class="sh_normal"> </span><span class="sh_function">T1</span><span class="sh_symbol">(</span><span class="sh_number">11</span><span class="sh_symbol">,</span> <span class="sh_number">59</span><span class="sh_symbol">),</span> <span class="sh_function">T2</span><span class="sh_symbol">(</span><span class="sh_number">10</span><span class="sh_symbol">,</span><span class="sh_number">40</span><span class="sh_symbol">);</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>T1<span class="sh_symbol">;</span>                    <span class="sh_comment">// increment T1</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T1<span class="sh_symbol">.</span><span class="sh_function">displayTime</span><span class="sh_symbol">();</span>        <span class="sh_comment">// display T1</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>T1<span class="sh_symbol">;</span>                    <span class="sh_comment">// increment T1 again</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T1<span class="sh_symbol">.</span><span class="sh_function">displayTime</span><span class="sh_symbol">();</span>        <span class="sh_comment">// display T1</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T2<span class="sh_symbol">++;</span>                    <span class="sh_comment">// increment T2</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T2<span class="sh_symbol">.</span><span class="sh_function">displayTime</span><span class="sh_symbol">();</span>        <span class="sh_comment">// display T2</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T2<span class="sh_symbol">++;</span>                    <span class="sh_comment">// increment T2 again</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;T2<span class="sh_symbol">.</span><span class="sh_function">displayTime</span><span class="sh_symbol">();</span>        <span class="sh_comment">// display T2</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_comment">//same for decrement operator</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include &lt;iostream.h&gt;
+
+
+class Time
+{
+  private:
+    int hours;             // 0 to 23
+    int minutes;           // 0 to 59
+  public:
+    // required constructors
+    Time(){
+      hours = 0;
+      minutes = 0;
+    }
+    Time(int h, int m){
+      hours = h;
+      minutes = m;
+    }
+    // method to display time
+    void displayTime()
+    {
+      cout &lt;&lt; "H: " &lt;&lt; hours &lt;&lt; " M:" &lt;&lt; minutes &lt;&lt;endl;
+    }
+    // overloaded prefix ++ operator
+    Time operator++ ()
+    {
+      ++minutes;          // increment this object
+      if(minutes &gt;= 60)
+      {
+        ++hours;
+        minutes -= 60;
+      }
+      return Time(hours, minutes);
+    }
+    // overloaded postfix ++ operator
+    Time operator++( int )
+    {
+      // save the orignal value
+      Time T(hours, minutes);
+      // increment this object
+      ++minutes;
+      if(minutes &gt;= 60)
+      {
+        ++hours;
+        minutes -= 60;
+      }
+      // return old original value
+      return T;
+    }
+};
+int main()
+{
+  Time T1(11, 59), T2(10,40);
+
+  ++T1;                    // increment T1
+  T1.displayTime();        // display T1
+  ++T1;                    // increment T1 again
+  T1.displayTime();        // display T1
+
+  T2++;                    // increment T2
+  T2.displayTime();        // display T2
+  T2++;                    // increment T2 again
+  T2.displayTime();        // display T2
+  return 0;
+}
+//same for decrement operator
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+      <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>H<span class="sh_symbol">:</span> <span class="sh_number">12</span> M<span class="sh_symbol">:</span><span class="sh_number">0</span></li><li>H<span class="sh_symbol">:</span> <span class="sh_number">12</span> M<span class="sh_symbol">:</span><span class="sh_number">1</span></li><li>H<span class="sh_symbol">:</span> <span class="sh_number">10</span> M<span class="sh_symbol">:</span><span class="sh_number">41</span></li><li>H<span class="sh_symbol">:</span> <span class="sh_number">10</span> M<span class="sh_symbol">:</span><span class="sh_number">42</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">H: 12 M:0
+H: 12 M:1
+H: 10 M:41
+H: 10 M:42</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,83 @@
+<ion-view title="Program-15">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating Function Template.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li>template<span class="sh_symbol">&lt;</span><span class="sh_usertype">class</span><span class="sh_normal"> </span>T<span class="sh_symbol">&gt;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">swapVariables</span><span class="sh_symbol">(</span><span class="sh_usertype">T</span><span class="sh_normal"> </span><span class="sh_symbol">&amp;</span>var1<span class="sh_symbol">,</span> <span class="sh_usertype">T</span><span class="sh_normal"> </span><span class="sh_symbol">&amp;</span>var2<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">T</span><span class="sh_normal"> </span>temp<span class="sh_symbol">;</span>           </li><li>  temp <span class="sh_symbol">=</span> var1<span class="sh_symbol">;</span></li><li>  var1 <span class="sh_symbol">=</span> var2<span class="sh_symbol">;</span></li><li>  var2 <span class="sh_symbol">=</span> temp<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_type">int</span> <span class="sh_function">main</span><span class="sh_symbol">(</span> <span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li>  <span class="sh_type">float</span> float1 <span class="sh_symbol">=</span> <span class="sh_number">3.5</span><span class="sh_symbol">,</span> float2 <span class="sh_symbol">=</span> <span class="sh_number">5.6</span><span class="sh_symbol">;</span></li><li>  <span class="sh_type">int</span> int1<span class="sh_symbol">=</span><span class="sh_number">2</span><span class="sh_symbol">,</span>int2<span class="sh_symbol">=</span><span class="sh_number">10</span><span class="sh_symbol">;</span></li><li>  <span class="sh_type">char</span> char1<span class="sh_symbol">=</span><span class="sh_string">'a'</span><span class="sh_symbol">,</span>char2<span class="sh_symbol">=</span><span class="sh_string">'b'</span><span class="sh_symbol">;</span></li><li></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Before Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Float 1:"</span><span class="sh_symbol">&lt;&lt;</span>float1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float 2:"</span><span class="sh_symbol">&lt;&lt;</span>float2<span class="sh_symbol">;</span></li><li> <span class="sh_function">swapVariables</span><span class="sh_symbol">(</span>float1<span class="sh_symbol">,</span> float2<span class="sh_symbol">);</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">After Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Float 1:"</span><span class="sh_symbol">&lt;&lt;</span>float1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Float 2:"</span><span class="sh_symbol">&lt;&lt;</span>float2<span class="sh_symbol">;</span></li><li></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n\n</span><span class="sh_string">Before Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Int 1:"</span><span class="sh_symbol">&lt;&lt;</span>int1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Int 2:"</span><span class="sh_symbol">&lt;&lt;</span>int2<span class="sh_symbol">;</span></li><li> <span class="sh_function">swapVariables</span><span class="sh_symbol">(</span>int1<span class="sh_symbol">,</span> int2<span class="sh_symbol">);</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">After Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Int 1:"</span><span class="sh_symbol">&lt;&lt;</span>int1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Int 2:"</span><span class="sh_symbol">&lt;&lt;</span>int2<span class="sh_symbol">;</span></li><li></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n\n\n</span><span class="sh_string">Before Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"char 1:"</span><span class="sh_symbol">&lt;&lt;</span>char1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">char 2:"</span><span class="sh_symbol">&lt;&lt;</span>char2<span class="sh_symbol">;</span></li><li> <span class="sh_function">swapVariables</span><span class="sh_symbol">(</span>char1<span class="sh_symbol">,</span> char2<span class="sh_symbol">);</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">After Swapping</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li> cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"char 1:"</span><span class="sh_symbol">&lt;&lt;</span>char1<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">char 2:"</span><span class="sh_symbol">&lt;&lt;</span>char2<span class="sh_symbol">;</span></li><li></li><li></li><li></li><li></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+
+template&lt;class T&gt;
+
+void swapVariables(T &amp;var1, T &amp;var2)
+{
+  T temp;           
+  temp = var1;
+  var1 = var2;
+  var2 = temp;
+}
+
+int main( )
+{
+  float float1 = 3.5, float2 = 5.6;
+  int int1=2,int2=10;
+  char char1='a',char2='b';
+
+ cout&lt;&lt;"\nBefore Swapping\n";
+ cout&lt;&lt;"Float 1:"&lt;&lt;float1&lt;&lt;"\nFloat 2:"&lt;&lt;float2;
+ swapVariables(float1, float2);
+ cout&lt;&lt;"\nAfter Swapping\n";
+ cout&lt;&lt;"Float 1:"&lt;&lt;float1&lt;&lt;"\nFloat 2:"&lt;&lt;float2;
+
+ cout&lt;&lt;"\n\n\nBefore Swapping\n";
+ cout&lt;&lt;"Int 1:"&lt;&lt;int1&lt;&lt;"\nInt 2:"&lt;&lt;int2;
+ swapVariables(int1, int2);
+ cout&lt;&lt;"\nAfter Swapping\n";
+ cout&lt;&lt;"Int 1:"&lt;&lt;int1&lt;&lt;"\nInt 2:"&lt;&lt;int2;
+
+ cout&lt;&lt;"\n\n\nBefore Swapping\n";
+ cout&lt;&lt;"char 1:"&lt;&lt;char1&lt;&lt;"\nchar 2:"&lt;&lt;char2;
+ swapVariables(char1, char2);
+ cout&lt;&lt;"\nAfter Swapping\n";
+ cout&lt;&lt;"char 1:"&lt;&lt;char1&lt;&lt;"\nchar 2:"&lt;&lt;char2;
+
+
+
+
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Before Swapping</li><li>Float <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">3.5</span></li><li>Float <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">5.6</span></li><li>Afetr Swapping</li><li>Float <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">5.6</span></li><li>Float <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">3.5</span></li><li></li><li>Before Swapping</li><li><span class="sh_type">int</span> <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">2</span></li><li><span class="sh_type">int</span> <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">10</span></li><li>Afetr Swapping</li><li><span class="sh_type">int</span> <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">10</span></li><li><span class="sh_type">int</span> <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">2</span></li><li></li><li>Before Swapping</li><li><span class="sh_type">char</span> <span class="sh_number">1</span><span class="sh_symbol">:</span>a</li><li><span class="sh_type">char</span> <span class="sh_number">2</span><span class="sh_symbol">:</span>b</li><li>Afetr Swapping</li><li><span class="sh_type">char</span> <span class="sh_number">1</span><span class="sh_symbol">:</span>b</li><li>chat <span class="sh_number">2</span><span class="sh_symbol">:</span>a</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Before Swapping
+Float 1:3.5
+Float 2:5.6
+Afetr Swapping
+Float 1:5.6
+Float 2:3.5
+
+Before Swapping
+int 1:2
+int 2:10
+Afetr Swapping
+int 1:10
+int 2:2
+
+Before Swapping
+char 1:a
+char 2:b
+Afetr Swapping
+char 1:b
+chat 2:a</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

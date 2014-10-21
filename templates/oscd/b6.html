@@ -1,0 +1,229 @@
+<ion-view title="PART B-6">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A program to simulate Bankers Algorithm for Deadlock Prevention.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_type">int</span> pno<span class="sh_symbol">,</span>rno<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>prc<span class="sh_symbol">,</span>count<span class="sh_symbol">,</span>t<span class="sh_symbol">,</span>total<span class="sh_symbol">;</span></li><li> count<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li> <span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter number of process:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>pno<span class="sh_symbol">);</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter number of resources:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>rno<span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span> <span class="sh_symbol">=</span>pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  flag<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter total numbers of each resources:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>tres<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter Max resources for each process:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> for process %d:"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>   <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter allocated resources for each process:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> for process %d:"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>   <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>allocated<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li></li><li></li><li> <span class="sh_cbracket">}</span></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> available resources:</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  avail<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>  total<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   total<span class="sh_symbol">+=</span>allocated<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li>  <span class="sh_cbracket">}</span></li><li>  avail<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>tres<span class="sh_symbol">[</span>j<span class="sh_symbol">]-</span>total<span class="sh_symbol">;</span></li><li>  work<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>avail<span class="sh_symbol">[</span>j<span class="sh_symbol">];</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"     %d </span><span class="sh_specialchar">\t</span><span class="sh_string">"</span><span class="sh_symbol">,</span>work<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li></li><li> <span class="sh_keyword">do</span></li><li> <span class="sh_cbracket">{</span></li><li></li><li></li><li></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   need<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]-</span>allocated<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li>  <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Allocated matrix        Max      need"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%4d"</span><span class="sh_symbol">,</span>allocated<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"|"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%4d"</span><span class="sh_symbol">,</span>max<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li>  <span class="sh_cbracket">}</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"|"</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"%4d"</span><span class="sh_symbol">,</span>need<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li>  <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span></li><li></li><li></li><li></li><li></li><li>  prc<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span> pno<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>flag<span class="sh_symbol">[</span>i<span class="sh_symbol">]==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    prc<span class="sh_symbol">=</span>i<span class="sh_symbol">;</span></li><li></li><li>    <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>    <span class="sh_cbracket">{</span></li><li>     <span class="sh_keyword">if</span><span class="sh_symbol">(</span>work<span class="sh_symbol">[</span>j<span class="sh_symbol">]&lt;</span> need<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">])</span></li><li>     <span class="sh_cbracket">{</span></li><li>       prc<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>       <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>     <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>   <span class="sh_cbracket">}</span></li><li></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>prc<span class="sh_symbol">!=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>   <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>prc<span class="sh_symbol">!=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Process %d completed"</span><span class="sh_symbol">,</span>i<span class="sh_symbol">);</span></li><li>   count<span class="sh_symbol">++;</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Available matrix:"</span><span class="sh_symbol">);</span></li><li>   <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span> rno<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>   <span class="sh_cbracket">{</span></li><li>    work<span class="sh_symbol">[</span>j<span class="sh_symbol">]+=</span>allocated<span class="sh_symbol">[</span>prc<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li>    allocated<span class="sh_symbol">[</span>prc<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    max<span class="sh_symbol">[</span>prc<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>    flag<span class="sh_symbol">[</span>prc<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>    <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"   %d"</span><span class="sh_symbol">,</span>work<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li>   <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li></li><li> <span class="sh_cbracket">}</span><span class="sh_keyword">while</span><span class="sh_symbol">(</span>count<span class="sh_symbol">!=</span>pno<span class="sh_symbol">&amp;&amp;</span>prc<span class="sh_symbol">!=</span><span class="sh_number">0</span><span class="sh_symbol">);</span></li><li></li><li> <span class="sh_keyword">if</span><span class="sh_symbol">(</span>count<span class="sh_symbol">==</span>pno<span class="sh_symbol">)</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">The system is in a safe state!!"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">else</span></li><li>  <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">The system is in an unsafe state!!"</span><span class="sh_symbol">);</span></li><li> </li><li><span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">int pno,rno,i,j,prc,count,t,total;
+ count=0;
+ clrscr();
+
+ printf("\n Enter number of process:");
+ scanf("%d",&amp;pno);
+ printf("\n Enter number of resources:");
+ scanf("%d",&amp;rno);
+ for(i=1;i&lt; =pno;i++)
+ {
+  flag[i]=0;
+ }
+ printf("\n Enter total numbers of each resources:");
+ for(i=1;i&lt;= rno;i++)
+  scanf("%d",&amp;tres[i]);
+
+
+ printf("\n Enter Max resources for each process:");
+ for(i=1;i&lt;= pno;i++)
+ {
+  printf("\n for process %d:",i);
+  for(j=1;j&lt;= rno;j++)
+   scanf("%d",&amp;max[i][j]);
+ }
+
+
+ printf("\n Enter allocated resources for each process:");
+ for(i=1;i&lt;= pno;i++)
+ {
+  printf("\n for process %d:",i);
+  for(j=1;j&lt;= rno;j++)
+   scanf("%d",&amp;allocated[i][j]);
+
+
+ }
+
+ printf("\n available resources:\n");
+ for(j=1;j&lt;= rno;j++)
+ {
+  avail[j]=0;
+  total=0;
+  for(i=1;i&lt;= pno;i++)
+  {
+   total+=allocated[i][j];
+  }
+  avail[j]=tres[j]-total;
+  work[j]=avail[j];
+  printf("     %d \t",work[j]);
+ }
+
+
+ do
+ {
+
+
+
+ for(i=1;i&lt;= pno;i++)
+ {
+  for(j=1;j&lt;= rno;j++)
+  {
+   need[i][j]=max[i][j]-allocated[i][j];
+  }
+ }
+
+ printf("\n Allocated matrix        Max      need");
+ for(i=1;i&lt;= pno;i++)
+ {
+  printf("\n");
+  for(j=1;j&lt;= rno;j++)
+  {
+   printf("%4d",allocated[i][j]);
+  }
+  printf("|");
+  for(j=1;j&lt;= rno;j++)
+  {
+   printf("%4d",max[i][j]);
+  }
+   printf("|");
+  for(j=1;j&lt;= rno;j++)
+  {
+   printf("%4d",need[i][j]);
+  }
+ }
+
+
+
+
+  prc=0;
+
+  for(i=1;i&lt;= pno;i++)
+  {
+   if(flag[i]==0)
+   {
+    prc=i;
+
+    for(j=1;j&lt;= rno;j++)
+    {
+     if(work[j]&lt; need[i][j])
+     {
+       prc=0;
+       break;
+     }
+    }
+   }
+
+   if(prc!=0)
+   break;
+  }
+
+  if(prc!=0)
+  {
+   printf("\n Process %d completed",i);
+   count++;
+   printf("\n Available matrix:");
+   for(j=1;j&lt;= rno;j++)
+   {
+    work[j]+=allocated[prc][j];
+    allocated[prc][j]=0;
+    max[prc][j]=0;
+    flag[prc]=1;
+    printf("   %d",work[j]);
+   }
+  }
+
+ }while(count!=pno&amp;&amp;prc!=0);
+
+ if(count==pno)
+  printf("\nThe system is in a safe state!!");
+ else
+  printf("\nThe system is in an unsafe state!!");
+ 
+getch();
+}</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter number <span class="sh_usertype">of</span><span class="sh_normal"> </span>process<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li></li><li> Enter number <span class="sh_usertype">of</span><span class="sh_normal"> </span>resources<span class="sh_symbol">:</span><span class="sh_number">3</span></li><li></li><li> Enter total numbers of <span class="sh_usertype">each</span><span class="sh_normal"> </span>resources<span class="sh_symbol">:</span><span class="sh_number">10</span> <span class="sh_number">5</span> <span class="sh_number">7</span></li><li></li><li> Enter Max resources <span class="sh_keyword">for</span> <span class="sh_usertype">each</span><span class="sh_normal"> </span>process<span class="sh_symbol">:</span></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">7</span> <span class="sh_number">5</span> <span class="sh_number">3</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">3</span> <span class="sh_number">2</span> <span class="sh_number">2</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">3</span><span class="sh_symbol">:</span><span class="sh_number">9</span> <span class="sh_number">0</span> <span class="sh_number">2</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">4</span><span class="sh_symbol">:</span><span class="sh_number">2</span> <span class="sh_number">2</span> <span class="sh_number">2</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">5</span><span class="sh_symbol">:</span><span class="sh_number">4</span> <span class="sh_number">3</span> <span class="sh_number">3</span></li><li></li><li> Enter allocated resources <span class="sh_keyword">for</span> <span class="sh_usertype">each</span><span class="sh_normal"> </span>process<span class="sh_symbol">:</span></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">1</span><span class="sh_symbol">:</span><span class="sh_number">0</span> <span class="sh_number">1</span> <span class="sh_number">0</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">2</span><span class="sh_symbol">:</span><span class="sh_number">3</span> <span class="sh_number">0</span> <span class="sh_number">2</span></li><li></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">3</span><span class="sh_symbol">:</span><span class="sh_number">3</span> <span class="sh_number">0</span> <span class="sh_number">2</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">4</span><span class="sh_symbol">:</span><span class="sh_number">2</span> <span class="sh_number">1</span> <span class="sh_number">1</span></li><li></li><li> <span class="sh_keyword">for</span> process <span class="sh_number">5</span><span class="sh_symbol">:</span><span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">2</span></li><li></li><li> <span class="sh_usertype">available</span><span class="sh_normal"> </span>resources<span class="sh_symbol">:</span></li><li>     <span class="sh_number">2</span>       <span class="sh_number">3</span>       <span class="sh_number">0</span></li><li></li><li></li><li> Allocated matrix        Max      need</li><li>   <span class="sh_number">0</span>   <span class="sh_number">1</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">5</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span></li><li>   <span class="sh_number">3</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">3</span>   <span class="sh_number">2</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">3</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">9</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">6</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">2</span>   <span class="sh_number">1</span>   <span class="sh_number">1</span><span class="sh_symbol">|</span>   <span class="sh_number">2</span>   <span class="sh_number">2</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">1</span>   <span class="sh_number">1</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">1</span></li><li> Process <span class="sh_number">2</span> completed</li><li> <span class="sh_usertype">Available</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span>   <span class="sh_number">5</span>   <span class="sh_number">3</span>   <span class="sh_number">2</span></li><li> Allocated matrix        Max      need</li><li>   <span class="sh_number">0</span>   <span class="sh_number">1</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">5</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">3</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">9</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">6</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">2</span>   <span class="sh_number">1</span>   <span class="sh_number">1</span><span class="sh_symbol">|</span>   <span class="sh_number">2</span>   <span class="sh_number">2</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">1</span>   <span class="sh_number">1</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">1</span></li><li> Process <span class="sh_number">4</span> completed</li><li> <span class="sh_usertype">Available</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span>   <span class="sh_number">7</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span></li><li> Allocated matrix        Max      need</li><li>   <span class="sh_number">0</span>   <span class="sh_number">1</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">5</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">7</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">3</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">9</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">6</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">1</span></li><li> Process <span class="sh_number">1</span> completed</li><li> <span class="sh_usertype">Available</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span>   <span class="sh_number">7</span>   <span class="sh_number">5</span>   <span class="sh_number">3</span></li><li> Allocated matrix        Max      need</li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">3</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">9</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">6</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">1</span></li><li> Process <span class="sh_number">3</span> completed</li><li> <span class="sh_usertype">Available</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span>   <span class="sh_number">10</span>   <span class="sh_number">5</span>   <span class="sh_number">5</span></li><li> Allocated matrix        Max      need</li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span><span class="sh_symbol">|</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">0</span></li><li>   <span class="sh_number">0</span>   <span class="sh_number">0</span>   <span class="sh_number">2</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">3</span><span class="sh_symbol">|</span>   <span class="sh_number">4</span>   <span class="sh_number">3</span>   <span class="sh_number">1</span></li><li> Process <span class="sh_number">5</span> completed</li><li> <span class="sh_usertype">Available</span><span class="sh_normal"> </span>matrix<span class="sh_symbol">:</span>   <span class="sh_number">10</span>   <span class="sh_number">5</span>   <span class="sh_number">7</span></li><li>The system is in a <span class="sh_usertype">safe</span><span class="sh_normal"> </span>state<span class="sh_symbol">!!</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter number of process:5
+
+ Enter number of resources:3
+
+ Enter total numbers of each resources:10 5 7
+
+ Enter Max resources for each process:
+ for process 1:7 5 3
+
+ for process 2:3 2 2
+
+ for process 3:9 0 2
+
+ for process 4:2 2 2
+
+ for process 5:4 3 3
+
+ Enter allocated resources for each process:
+ for process 1:0 1 0
+
+ for process 2:3 0 2
+
+
+ for process 3:3 0 2
+
+ for process 4:2 1 1
+
+ for process 5:0 0 2
+
+ available resources:
+     2       3       0
+
+
+ Allocated matrix        Max      need
+   0   1   0|   7   5   3|   7   4   3
+   3   0   2|   3   2   2|   0   2   0
+   3   0   2|   9   0   2|   6   0   0
+   2   1   1|   2   2   2|   0   1   1
+   0   0   2|   4   3   3|   4   3   1
+ Process 2 completed
+ Available matrix:   5   3   2
+ Allocated matrix        Max      need
+   0   1   0|   7   5   3|   7   4   3
+   0   0   0|   0   0   0|   0   0   0
+   3   0   2|   9   0   2|   6   0   0
+   2   1   1|   2   2   2|   0   1   1
+   0   0   2|   4   3   3|   4   3   1
+ Process 4 completed
+ Available matrix:   7   4   3
+ Allocated matrix        Max      need
+   0   1   0|   7   5   3|   7   4   3
+   0   0   0|   0   0   0|   0   0   0
+   3   0   2|   9   0   2|   6   0   0
+   0   0   0|   0   0   0|   0   0   0
+   0   0   2|   4   3   3|   4   3   1
+ Process 1 completed
+ Available matrix:   7   5   3
+ Allocated matrix        Max      need
+   0   0   0|   0   0   0|   0   0   0
+   0   0   0|   0   0   0|   0   0   0
+   3   0   2|   9   0   2|   6   0   0
+   0   0   0|   0   0   0|   0   0   0
+   0   0   2|   4   3   3|   4   3   1
+ Process 3 completed
+ Available matrix:   10   5   5
+ Allocated matrix        Max      need
+   0   0   0|   0   0   0|   0   0   0
+   0   0   0|   0   0   0|   0   0   0
+   0   0   0|   0   0   0|   0   0   0
+   0   0   0|   0   0   0|   0   0   0
+   0   0   2|   4   3   3|   4   3   1
+ Process 5 completed
+ Available matrix:   10   5   7
+The system is in a safe state!!</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

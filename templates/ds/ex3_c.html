@@ -1,0 +1,192 @@
+<ion-view title="Exercise-3">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write C programs that use both recursive and non recursive functions to perform Fibonacci search for a Key value in a given list.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM:RECURSIVE
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #993333;">int</span> n<span style="color: #339933;">,</span>a<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">50</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>i<span style="color: #339933;">,</span>key<span style="color: #339933;">,</span>loc<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>m<span style="color: #339933;">,</span>fk<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>enter number elements to be entered&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter elements&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i<span style="color: #339933;">=</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>i<span style="color: #339933;">&lt;=</span>n<span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>a<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter the key element&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; fk<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>n<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; p<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>fk<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; q<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>p<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; r<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>q<span style="color: #009900;">&#41;</span> <span style="color: #339933;">;</span><br />
+&nbsp; m<span style="color: #339933;">=</span><span style="color: #009900;">&#40;</span>n<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #009900;">&#40;</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>q<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">&gt;</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; p<span style="color: #339933;">=</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>m<span style="color: #339933;">;</span><br />
+&nbsp; loc<span style="color: #339933;">=</span>rfibsearch<span style="color: #009900;">&#40;</span>a<span style="color: #339933;">,</span>n<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>loc<span style="color: #339933;">==</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;key is not found&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d is found at location %d&quot;</span><span style="color: #339933;">,</span>key<span style="color: #339933;">,</span>loc<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; getch<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">int</span> fib<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> m<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #993333;">int</span> a<span style="color: #339933;">,</span>b<span style="color: #339933;">,</span>c<span style="color: #339933;">;</span><br />
+&nbsp; a<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; b<span style="color: #339933;">=</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; c<span style="color: #339933;">=</span>a<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>b<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>c<span style="color: #339933;">&lt;</span>m<span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; a<span style="color: #339933;">=</span>b<span style="color: #339933;">;</span><br />
+&nbsp; b<span style="color: #339933;">=</span>c<span style="color: #339933;">;</span><br />
+&nbsp; c<span style="color: #339933;">=</span>a<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>b<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> b<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">int</span> rfibsearch<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> a<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><span style="color: #993333;">int</span> n<span style="color: #339933;">,</span><span style="color: #993333;">int</span> p<span style="color: #339933;">,</span><span style="color: #993333;">int</span> q<span style="color: #339933;">,</span><span style="color: #993333;">int</span> r<span style="color: #339933;">,</span><span style="color: #993333;">int</span> key<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #993333;">int</span> t<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>p<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">1</span><span style="color: #339933;">||</span>p<span style="color: #339933;">&gt;</span>n<span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">==</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> p<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">&lt;</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>r<span style="color: #339933;">==</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; p<span style="color: #339933;">=</span>p<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; t<span style="color: #339933;">=</span>q<span style="color: #339933;">;</span><br />
+&nbsp; q<span style="color: #339933;">=</span>r<span style="color: #339933;">;</span><br />
+&nbsp; r<span style="color: #339933;">=</span>t<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> rfibsearch<span style="color: #009900;">&#40;</span>a<span style="color: #339933;">,</span>n<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>q<span style="color: #339933;">==</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; p<span style="color: #339933;">=</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>r<span style="color: #339933;">;</span><br />
+&nbsp; q<span style="color: #339933;">=</span>q<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; r<span style="color: #339933;">=</span>r<span style="color: #339933;">-</span>q<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> rfibsearch<span style="color: #009900;">&#40;</span>a<span style="color: #339933;">,</span>n<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; <span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">enter number of elements to be entered <span style="color: #0000dd;">5</span><br />
+enter elements<br />
+<span style="color: #0000dd;">12</span> <span style="color: #0000dd;">43</span> <span style="color: #0000dd;">54</span> <span style="color: #0000dd;">65</span> <span style="color: #0000dd;">76</span><br />
+enter the key element<br />
+<span style="color: #0000dd;">65</span><br />
+<span style="color: #0000dd;">65</span> is found at location <span style="color: #0000dd;">4</span></div>
+    </div>
+
+    <div class="item item-divider item-dark">
+      PROGRAM:NON-RECURSIVE
+    </div>
+    <div class="card">
+      <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> a<span style="color: #009900;">&#91;</span><span style="color: #0000dd;">50</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span>i<span style="color: #339933;">,</span>n<span style="color: #339933;">,</span>key<span style="color: #339933;">,</span>loc<span style="color: #339933;">,</span>fk<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>m<span style="color: #339933;">;</span><br />
+<br />
+&nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter number of elements to be entered&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter elements&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span>i<span style="color: #339933;">=</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>i<span style="color: #339933;">&lt;=</span>n<span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>a<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;enter the key element to search&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;fk<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>n<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>fk<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;q<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>p<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;r<span style="color: #339933;">=</span>fib<span style="color: #009900;">&#40;</span>q<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;m<span style="color: #339933;">=</span><span style="color: #009900;">&#40;</span>n<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">-</span><span style="color: #009900;">&#40;</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>q<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">&lt;</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>m<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;loc<span style="color: #339933;">=</span>fibsearch<span style="color: #009900;">&#40;</span>a<span style="color: #339933;">,</span>p<span style="color: #339933;">,</span>q<span style="color: #339933;">,</span>r<span style="color: #339933;">,</span>key<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>loc<span style="color: #339933;">==</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;the key is not found&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp;<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d is found at %d&quot;</span><span style="color: #339933;">,</span>key<span style="color: #339933;">,</span>loc<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;getch<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">int</span> fib<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> m<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> a<span style="color: #339933;">,</span>b<span style="color: #339933;">,</span>c<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;a<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;b<span style="color: #339933;">=</span><span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;c<span style="color: #339933;">=</span>a<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>b<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>c<span style="color: #339933;">&lt;</span>m<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;a<span style="color: #339933;">=</span>b<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;b<span style="color: #339933;">=</span>c<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;c<span style="color: #339933;">=</span>a<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>b<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">return</span> b<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">int</span> fibsearch<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> a<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><span style="color: #993333;">int</span> p<span style="color: #339933;">,</span><span style="color: #993333;">int</span> q<span style="color: #339933;">,</span><span style="color: #993333;">int</span> r<span style="color: #339933;">,</span><span style="color: #993333;">int</span> key<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #993333;">int</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>p<span style="color: #339933;">!=</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">==</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">return</span> p<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>key<span style="color: #339933;">&lt;</span>a<span style="color: #009900;">&#91;</span>p<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>r<span style="color: #339933;">==</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span>p<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;t<span style="color: #339933;">=</span>q<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;q<span style="color: #339933;">=</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;r<span style="color: #339933;">=</span>t<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>q<span style="color: #339933;">==</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp;p<span style="color: #339933;">=</span>p<span style="color: #339933;"~ezentity_gt+ezentity_lt~/span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;q<span style="color: #339933;">=</span>q<span style="color: #339933;">-</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;r<span style="color: #339933;">=</span>r<span style="color: #339933;">-</span>q<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp;<span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>  
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+      <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">enter number of elements to be entered <span style="color: #0000dd;">5</span><br />
+enter elements<br />
+<span style="color: #0000dd;">32</span> <span style="color: #0000dd;">43</span> <span style="color: #0000dd;">54</span> <span style="color: #0000dd;">65</span> <span style="color: #0000dd;">76</span><br />
+enter the key element<br />
+<span style="color: #0000dd;">54</span><br />
+<span style="color: #0000dd;">54</span> is found at <span style="color: #0000dd;">3</span></div>
+    </div>
+  </ion-content>
+</ion-view>

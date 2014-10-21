@@ -1,0 +1,153 @@
+<ion-view title="Program-18">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+C++ Program to Add ,Substract,Multiply and Divide Complex Numbers.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_preproc"> #include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_preproc"> #include</span><span class="sh_string">&lt;string.h&gt;</span></li><li><span class="sh_preproc"> #include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li> class complex</li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_type">int</span> i<span class="sh_symbol">,</span>r<span class="sh_symbol">;</span></li><li>  public<span class="sh_symbol">:</span></li><li>  <span class="sh_type">void</span> <span class="sh_function">read</span><span class="sh_symbol">()</span></li><li>  <span class="sh_cbracket">{</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter Real Part:"</span><span class="sh_symbol">;</span></li><li>  cin<span class="sh_symbol">&gt;&gt;</span>r<span class="sh_symbol">;</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Enter Imaginary Part:"</span><span class="sh_symbol">;</span></li><li>  cin<span class="sh_symbol">&gt;&gt;</span>i<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">()</span></li><li>  <span class="sh_cbracket">{</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"= "</span><span class="sh_symbol">&lt;&lt;</span>r<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"+"</span><span class="sh_symbol">&lt;&lt;</span>i<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"i"</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>operator<span class="sh_symbol">+(</span><span class="sh_usertype">complex</span><span class="sh_normal"> </span>a2<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>a<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>r<span class="sh_symbol">=</span>r<span class="sh_symbol">+</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>i<span class="sh_symbol">=</span>i<span class="sh_symbol">+</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">return</span> a<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>operator<span class="sh_symbol">-(</span><span class="sh_usertype">complex</span><span class="sh_normal"> </span>a2<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>a<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>r<span class="sh_symbol">=</span>r<span class="sh_symbol">-</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>i<span class="sh_symbol">=</span>i<span class="sh_symbol">-</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">return</span> a<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>operator<span class="sh_symbol">*(</span><span class="sh_usertype">complex</span><span class="sh_normal"> </span>a2<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>a<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>r<span class="sh_symbol">=(</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">)-(</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">);</span></li><li>  a<span class="sh_symbol">.</span>i<span class="sh_symbol">=(</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">)+(</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> a<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>operator<span class="sh_symbol">/(</span><span class="sh_usertype">complex</span><span class="sh_normal"> </span>a2<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>  <span class="sh_usertype">complex</span><span class="sh_normal"> </span>a<span class="sh_symbol">;</span></li><li>  a<span class="sh_symbol">.</span>r<span class="sh_symbol">=((</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">)+(</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">))/((</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">)+(</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">));</span></li><li>  a<span class="sh_symbol">.</span>i<span class="sh_symbol">=((</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">)-(</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">))/((</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>r<span class="sh_symbol">)+(</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">*</span>a2<span class="sh_symbol">.</span>i<span class="sh_symbol">));</span></li><li>  <span class="sh_keyword">return</span> a<span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li> <span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li> <span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li> <span class="sh_cbracket">{</span></li><li> <span class="sh_type">int</span> ch<span class="sh_symbol">;</span></li><li> <span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li> <span class="sh_usertype">complex</span><span class="sh_normal"> </span>a<span class="sh_symbol">,</span>b<span class="sh_symbol">,</span>c<span class="sh_symbol">;</span></li><li> <span class="sh_keyword">do</span></li><li> <span class="sh_cbracket">{</span></li><li> <span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">1.Addition</span><span class="sh_specialchar">\n</span><span class="sh_string"> 2.Substraction"</span><span class="sh_symbol">;</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">" </span><span class="sh_specialchar">\n</span><span class="sh_string">3.Mulitplication</span><span class="sh_specialchar">\n</span><span class="sh_string"> 4.Division</span><span class="sh_specialchar">\n</span><span class="sh_string"> 5.Exit</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">;</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter the choice :"</span><span class="sh_symbol">;</span></li><li>  cin<span class="sh_symbol">&gt;&gt;</span>ch<span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">switch</span><span class="sh_symbol">(</span>ch<span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">case</span> <span class="sh_number">1</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The First Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The Second Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">=</span>a<span class="sh_symbol">+</span>b<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Result is: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">case</span> <span class="sh_number">2</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The First Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The Second Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">=</span>b<span class="sh_symbol">-</span>a<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Result is: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">case</span> <span class="sh_number">3</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The First Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The Second Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">=</span>a<span class="sh_symbol">*</span>b<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Result is: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>  <span class="sh_keyword">case</span> <span class="sh_number">4</span><span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The First Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter The Second Complex Number:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">read</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">=</span>a<span class="sh_symbol">/</span>b<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Result is: "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c<span class="sh_symbol">.</span><span class="sh_function">display</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_keyword">break</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Press any key to continue..."</span><span class="sh_symbol">;</span></li><li>  <span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li>  <span class="sh_cbracket">}</span><span class="sh_keyword">while</span><span class="sh_symbol">(</span>ch<span class="sh_symbol">!=</span><span class="sh_number">5</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li> <span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+ #include&lt;conio.h&gt;
+ #include&lt;string.h&gt;
+ #include&lt;stdio.h&gt;
+ class complex
+ {
+  int i,r;
+  public:
+  void read()
+  {
+  cout&lt;&lt;"\nEnter Real Part:";
+  cin&gt;&gt;r;
+  cout&lt;&lt;"Enter Imaginary Part:";
+  cin&gt;&gt;i;
+  }
+  void display()
+  {
+  cout&lt;&lt;"= "&lt;&lt;r&lt;&lt;"+"&lt;&lt;i&lt;&lt;"i";
+  }
+  complex operator+(complex a2)
+  {
+  complex a;
+  a.r=r+a2.r;
+  a.i=i+a2.i;
+  return a;
+  }
+  complex operator-(complex a2)
+  {
+  complex a;
+  a.r=r-a2.r;
+  a.i=i-a2.i;
+  return a;
+  }
+  complex operator*(complex a2)
+  {
+  complex a;
+  a.r=(r*a2.r)-(i*a2.i);
+  a.i=(r*a2.i)+(i*a2.r);
+  return a;
+  }
+  complex operator/(complex a2)
+  {
+  complex a;
+  a.r=((r*a2.r)+(i*a2.i))/((a2.r*a2.r)+(a2.i*a2.i));
+  a.i=((i*a2.r)-(r*a2.i))/((a2.r*a2.r)+(a2.i*a2.i));
+  return a;
+  }
+ };
+ void main()
+ {
+ int ch;
+ clrscr();
+ complex a,b,c;
+ do
+ {
+ clrscr();
+  cout&lt;&lt;"\n1.Addition\n 2.Substraction";
+  cout&lt;&lt;" \n3.Mulitplication\n 4.Division\n 5.Exit\n";
+  cout&lt;&lt;"\nEnter the choice :";
+  cin&gt;&gt;ch;
+  switch(ch)
+  {
+  case 1:
+     cout&lt;&lt;"\nEnter The First Complex Number:";
+     a.read();
+     a.display();
+     cout&lt;&lt;"\nEnter The Second Complex Number:";
+     b.read();
+     b.display();
+     c=a+b;
+     cout&lt;&lt;"\nResult is: ";
+     c.display();
+     break;
+  case 2:
+     cout&lt;&lt;"\nEnter The First Complex Number:";
+     a.read();
+     a.display();
+     cout&lt;&lt;"\nEnter The Second Complex Number:";
+     b.read();
+     b.display();
+     c=b-a;
+     cout&lt;&lt;"\nResult is: ";
+     c.display();
+     break;
+  case 3:
+     cout&lt;&lt;"\nEnter The First Complex Number:";
+     a.read();
+     a.display();
+     cout&lt;&lt;"\nEnter The Second Complex Number:";
+     b.read();
+     b.display();
+     c=a*b;
+     cout&lt;&lt;"\nResult is: ";
+     c.display();
+     break;
+  case 4:
+     cout&lt;&lt;"\nEnter The First Complex Number:";
+     a.read();
+     a.display();
+     cout&lt;&lt;"\nEnter The Second Complex Number:";
+     b.read();
+     b.display();
+     c=a/b;
+     cout&lt;&lt;"\nResult is: ";
+     c.display();
+     break;
+  }
+  cout&lt;&lt;"\nPress any key to continue...";
+  getch();
+  }while(ch!=5);
+ getch();
+ }
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_number">1</span><span class="sh_symbol">.</span>Addition</li><li><span class="sh_number">2</span><span class="sh_symbol">.</span>Subtraction</li><li><span class="sh_number">3</span><span class="sh_symbol">.</span>Multiplication</li><li><span class="sh_number">4</span><span class="sh_symbol">.</span>Division</li><li><span class="sh_number">5</span><span class="sh_symbol">.</span>Exit</li><li></li><li>Enter <span class="sh_usertype">the</span><span class="sh_normal"> </span>Choice <span class="sh_symbol">:</span><span class="sh_number">1</span></li><li></li><li>Enter the First <span class="sh_usertype">Complex</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span></li><li>Enter <span class="sh_usertype">Real</span><span class="sh_normal"> </span>Part<span class="sh_symbol">:</span><span class="sh_number">2</span></li><li>Enter <span class="sh_usertype">Imaginary</span><span class="sh_normal"> </span>Part<span class="sh_symbol">:</span><span class="sh_number">3</span></li><li><span class="sh_symbol">=</span> <span class="sh_number">2</span><span class="sh_symbol">+</span>3i</li><li>Enter the Second <span class="sh_usertype">Complex</span><span class="sh_normal"> </span>Number<span class="sh_symbol">:</span></li><li>Enter <span class="sh_usertype">Real</span><span class="sh_normal"> </span>Part<span class="sh_symbol">:</span><span class="sh_number">4</span></li><li>Enter <span class="sh_usertype">Imaginary</span><span class="sh_normal"> </span>Part<span class="sh_symbol">:</span><span class="sh_number">5</span></li><li><span class="sh_symbol">=</span> <span class="sh_number">4</span><span class="sh_symbol">+</span>5i</li><li><span class="sh_usertype">Result</span><span class="sh_normal"> </span>is<span class="sh_symbol">:=</span> <span class="sh_number">6</span><span class="sh_symbol">+</span>8i</li><li>Press any key <span class="sh_usertype">to</span><span class="sh_normal"> </span><span class="sh_keyword">continue</span><span class="sh_symbol">...</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">1.Addition
+2.Subtraction
+3.Multiplication
+4.Division
+5.Exit
+
+Enter the Choice :1
+
+Enter the First Complex Number:
+Enter Real Part:2
+Enter Imaginary Part:3
+= 2+3i
+Enter the Second Complex Number:
+Enter Real Part:4
+Enter Imaginary Part:5
+= 4+5i
+Result is:= 6+8i
+Press any key to continue...</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

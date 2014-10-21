@@ -1,0 +1,79 @@
+<ion-view title="Program-8">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        To implement Prim’s algorithm to generate a min-cost spanning tree.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_type">int</span> a<span class="sh_symbol">,</span>b<span class="sh_symbol">,</span>u<span class="sh_symbol">,</span>v<span class="sh_symbol">,</span>n<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>ne<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li><span class="sh_type">int</span> visited<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">]=</span><span class="sh_cbracket">{</span><span class="sh_number">0</span><span class="sh_cbracket">}</span><span class="sh_symbol">,</span>min<span class="sh_symbol">,</span>mincost<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>cost<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">][</span><span class="sh_number">10</span><span class="sh_symbol">];</span>    <span class="sh_comment">/*declaration of matrix*/</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter the number of nodes:"</span><span class="sh_symbol">);</span></li><li> <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>n<span class="sh_symbol">);</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Enter the adjacency matrix:</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span>    <span class="sh_comment">/*entering the adjacency matrix*/</span></li><li> <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]);</span></li><li>   <span class="sh_keyword">if</span><span class="sh_symbol">(</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]=</span><span class="sh_number">999</span><span class="sh_symbol">;</span>                <span class="sh_comment">/*setting all cost matrix element to 999 except element entered by user*/</span></li><li>  <span class="sh_cbracket">}</span></li><li> visited<span class="sh_symbol">[</span><span class="sh_number">1</span><span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">"</span><span class="sh_symbol">);</span></li><li> <span class="sh_keyword">while</span><span class="sh_symbol">(</span>ne<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">)</span>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">/*finding the minimum cost*/</span></li><li> <span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">,</span>min<span class="sh_symbol">=</span><span class="sh_number">999</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li>   <span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;=</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">]&lt;</span>min<span class="sh_symbol">)</span></li><li>     </li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>visited<span class="sh_symbol">[</span>i<span class="sh_symbol">]!=</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>     <span class="sh_cbracket">{</span></li><li>      min<span class="sh_symbol">=</span>cost<span class="sh_symbol">[</span>i<span class="sh_symbol">][</span>j<span class="sh_symbol">];</span></li><li>      a<span class="sh_symbol">=</span>u<span class="sh_symbol">=</span>i<span class="sh_symbol">;</span></li><li>      b<span class="sh_symbol">=</span>v<span class="sh_symbol">=</span>j<span class="sh_symbol">;</span></li><li>     <span class="sh_cbracket">}</span></li><li>  <span class="sh_keyword">if</span><span class="sh_symbol">(</span>visited<span class="sh_symbol">[</span>u<span class="sh_symbol">]==</span><span class="sh_number">0</span> <span class="sh_symbol">||</span> visited<span class="sh_symbol">[</span>v<span class="sh_symbol">]==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>  <span class="sh_cbracket">{</span></li><li>   <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Edge %d:(%d %d) cost:%d"</span><span class="sh_symbol">,</span>ne<span class="sh_symbol">++,</span>a<span class="sh_symbol">,</span>b<span class="sh_symbol">,</span>min<span class="sh_symbol">);</span></li><li>   mincost<span class="sh_symbol">+=</span>min<span class="sh_symbol">;</span></li><li>   visited<span class="sh_symbol">[</span>b<span class="sh_symbol">]=</span><span class="sh_number">1</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span></li><li>  cost<span class="sh_symbol">[</span>a<span class="sh_symbol">][</span>b<span class="sh_symbol">]=</span>cost<span class="sh_symbol">[</span>b<span class="sh_symbol">][</span>a<span class="sh_symbol">]=</span><span class="sh_number">999</span><span class="sh_symbol">;</span></li><li> <span class="sh_cbracket">}</span></li><li> <span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string"> Minimun cost=%d"</span><span class="sh_symbol">,</span>mincost<span class="sh_symbol">);</span></li><li> <span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span>                              <span class="sh_comment">/*end of main*/</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int a,b,u,v,n,i,j,ne=1;
+int visited[10]={0},min,mincost=0,cost[10][10];    /*declaration of matrix*/
+
+void main()
+{
+ printf("\n Enter the number of nodes:");
+ scanf("%d",&amp;n);
+ printf("\n Enter the adjacency matrix:\n");    /*entering the adjacency matrix*/
+ for(i=1;i&lt;=n;i++)
+  for(j=1;j&lt;=n;j++)
+  {
+   scanf("%d",&amp;cost[i][j]);
+   if(cost[i][j]==0)
+  cost[i][j]=999;                /*setting all cost matrix element to 999 except element entered by user*/
+  }
+ visited[1]=1;
+ printf("\n");
+ while(ne&lt;n)         /*finding the minimum cost*/
+ {
+  for(i=1,min=999;i&lt;=n;i++)
+   for(j=1;j&lt;=n;j++)
+    if(cost[i][j]&lt;min)
+     
+if(visited[i]!=0)
+     {
+      min=cost[i][j];
+      a=u=i;
+      b=v=j;
+     }
+  if(visited[u]==0 || visited[v]==0)
+  {
+   printf("\n Edge %d:(%d %d) cost:%d",ne++,a,b,min);
+   mincost+=min;
+   visited[b]=1;
+  }
+  cost[a][b]=cost[b][a]=999;
+ }
+ printf("\n Minimun cost=%d",mincost);
+ getch();
+}                              /*end of main*/
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter the number <span class="sh_usertype">of</span><span class="sh_normal"> </span>nodes <span class="sh_symbol">:</span> <span class="sh_number">5</span> </li><li>Enter the <span class="sh_usertype">Adjacency</span><span class="sh_normal"> </span>Matrix <span class="sh_symbol">:</span></li><li><span class="sh_number">0</span> <span class="sh_number">1</span> <span class="sh_number">2</span> <span class="sh_number">0</span> <span class="sh_number">3</span></li><li><span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span></li><li><span class="sh_number">1</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">0</span> <span class="sh_number">2</span></li><li><span class="sh_number">3</span> <span class="sh_number">2</span> <span class="sh_number">4</span> <span class="sh_number">0</span> <span class="sh_number">1</span> </li><li><span class="sh_number">1</span> <span class="sh_number">2</span> <span class="sh_number">3</span> <span class="sh_number">4</span> <span class="sh_number">2</span></li><li></li><li>Edge <span class="sh_number">1</span><span class="sh_symbol">:</span> <span class="sh_symbol">(</span><span class="sh_number">1</span> <span class="sh_number">2</span><span class="sh_symbol">)</span> cost <span class="sh_symbol">:</span><span class="sh_number">1</span></li><li>Edge <span class="sh_number">2</span><span class="sh_symbol">:</span> <span class="sh_symbol">(</span><span class="sh_number">1</span> <span class="sh_number">3</span><span class="sh_symbol">)</span> cost <span class="sh_symbol">:</span><span class="sh_number">2</span></li><li>Edge <span class="sh_number">3</span><span class="sh_symbol">:</span> <span class="sh_symbol">(</span><span class="sh_number">3</span> <span class="sh_number">5</span><span class="sh_symbol">)</span> cost <span class="sh_symbol">:</span><span class="sh_number">2</span></li><li>Edge <span class="sh_number">4</span><span class="sh_symbol">:</span> <span class="sh_symbol">(</span><span class="sh_number">5</span> <span class="sh_number">4</span><span class="sh_symbol">)</span> cost <span class="sh_symbol">:</span><span class="sh_number">4</span></li><li><span class="sh_usertype">Minimum</span><span class="sh_normal"> </span>cost <span class="sh_symbol">:</span> <span class="sh_number">9</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter the number of nodes : 5 
+Enter the Adjacency Matrix :
+0 1 2 0 3
+0 0 0 0 0
+1 0 0 0 2
+3 2 4 0 1 
+1 2 3 4 2
+
+Edge 1: (1 2) cost :1
+Edge 2: (1 3) cost :2
+Edge 3: (3 5) cost :2
+Edge 4: (5 4) cost :4
+Minimum cost : 9
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

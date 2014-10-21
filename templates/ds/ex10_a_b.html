@@ -1,0 +1,225 @@
+<ion-view title="Exercise-10">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        a)   Write a C program to Create a Binary Tree of integers.
+b)  Write a recursive C program, for Traversing a binary tree in preorder, in
+order and post order.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #339933;">#include&lt;conio.h&gt;</span><br />
+<span style="color: #993333;">struct</span> node<br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #993333;">int</span> data<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">struct</span> node <span style="color: #339933;">*</span>rlink<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">struct</span> node <span style="color: #339933;">*</span>llink<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><span style="color: #339933;">*</span>tmp<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">typedef</span> <span style="color: #993333;">struct</span> node NODE<span style="color: #339933;">;</span><br />
+NODE <span style="color: #339933;">*</span>create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> preorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> inorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> postorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #993333;">int</span> n<span style="color: #339933;">,</span>i<span style="color: #339933;">,</span>m<span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #b1b100;">do</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>0.create<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>1.insert <span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>2.preorder<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>3.postorder<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>4.inorder<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>5.exit<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Enter ur choice&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>m<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">switch</span><span style="color: #009900;">&#40;</span>m<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">:</span><br />
+tmp<span style="color: #339933;">=</span>create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+insert<span style="color: #009900;">&#40;</span>tmp<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Display tree in Preorder traversal<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+preorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Display Tree in Postorder<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+postorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">4</span><span style="color: #339933;">:</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Inorder<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+inorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">case</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">:</span><br />
+exit<span style="color: #009900;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>n<span style="color: #339933;">!=</span><span style="color: #0000dd;">5</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+getch<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span>root<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+NODE <span style="color: #339933;">*</span>newnode<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>root<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+newnode<span style="color: #339933;">=</span>create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+root<span style="color: #339933;">=</span>newnode<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">else</span><br />
+<span style="color: #009900;">&#123;</span><br />
+newnode<span style="color: #339933;">=</span>create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>newnode<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">&lt;</span>root<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>root<span style="color: #339933;">-&gt;</span>llink<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+root<span style="color: #339933;">-&gt;</span>llink<span style="color: #339933;">=</span>newnode<span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+root<span style="color: #339933;">=</span>root<span style="color: #339933;">-&gt;</span>llink<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>newnode<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">&gt;</span>root<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>root<span style="color: #339933;">-&gt;</span>rlink<span style="color: #339933;">==</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+root<span style="color: #339933;">-&gt;</span>rlink<span style="color: #339933;">=</span>newnode<span style="color: #339933;">;</span><br />
+<span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+root<span style="color: #339933;">=</span>root<span style="color: #339933;">-&gt;</span>rlink<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+NODE <span style="color: #339933;">*</span>create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+NODE <span style="color: #339933;">*</span>newnode<span style="color: #339933;">;</span><br />
+<span style="color: #993333;">int</span> n<span style="color: #339933;">;</span><br />
+newnode<span style="color: #339933;">=</span><span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span>malloc<span style="color: #009900;">&#40;</span><span style="color: #993333;">sizeof</span><span style="color: #009900;">&#40;</span>NODE<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Enter the Data &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,&amp;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+newnode<span style="color: #339933;">-&gt;</span>data<span style="color: #339933;">=</span>n<span style="color: #339933;">;</span><br />
+newnode<span style="color: #339933;">-&gt;</span>llink<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+newnode<span style="color: #339933;">-&gt;</span>rlink<span style="color: #339933;">=</span>NULL<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">return</span><span style="color: #009900;">&#40;</span>newnode<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> postorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span>tmp<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+postorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>llink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+postorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>rlink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d-&gt;&quot;</span><span style="color: #339933;">,</span>tmp<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> inorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span>tmp<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+inorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>llink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d-&gt;&quot;</span><span style="color: #339933;">,</span>tmp<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+inorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>rlink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">void</span> preorder<span style="color: #009900;">&#40;</span>NODE <span style="color: #339933;">*</span>tmp<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">!=</span>NULL<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d-&gt;&quot;</span><span style="color: #339933;">,</span>tmp<span style="color: #339933;">-&gt;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+preorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>llink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+preorder<span style="color: #009900;">&#40;</span>tmp<span style="color: #339933;">-&gt;</span>rlink<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">0</span><br />
+Enter the Data <span style="color: #0000dd;">12</span><br />
+<br />
+<span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">1</span><br />
+Enter the Data <span style="color: #0000dd;">34</span><br />
+<br />
+<span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">1</span></div>
+        </div>  
+<div class="decoration"></div>
+            <div class="decoration"></div>
+            <div class="portfolio-item-full-width">
+            <h6 class="uppercase">OUTPUT:PREORDER</h6>
+                <!-- paste the output here -->
+<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">2</span><br />
+<br />
+Display tree in Preorder traversal <br />
+<span style="color: #0000dd;">12</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">34</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">45</span><span style="color: #339933;">-&gt;</span></div>
+        </div>  
+        <div class="decoration"></div>
+            <div class="portfolio-item-full-width">
+            <h6 class="uppercase">OUTPUT:POSTORDER</h6>
+                <!-- paste the output here -->
+<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">3</span><br />
+<br />
+Display tree in Preorder traversal <br />
+<span style="color: #0000dd;">45</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">34</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">12</span><span style="color: #339933;">-&gt;</span></div>
+        </div>  
+        <div class="decoration"></div>
+            <div class="portfolio-item-full-width">
+            <h6 class="uppercase">OUTPUT:INORDER</h6>
+                <!-- paste the output here -->
+<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #0000dd;">0</span>.<span style="color: #202020;">create</span><br />
+<span style="color: #0000dd;">1</span>.<span style="color: #202020;">insert</span> <br />
+<span style="color: #0000dd;">2</span>.<span style="color: #202020;">preorder</span><br />
+<span style="color: #0000dd;">3</span>.<span style="color: #202020;">postorder</span><br />
+<span style="color: #0000dd;">4</span>.<span style="color: #202020;">inorder</span><br />
+<span style="color: #0000dd;">5</span>.<span style="color: #202020;">exit</span><br />
+<br />
+Enter ur choice <span style="color: #0000dd;">4</span><br />
+<br />
+Inorder <br />
+<span style="color: #0000dd;">12</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">34</span><span style="color: #339933;">-&gt;</span><span style="color: #0000dd;">45</span><span style="color: #339933;">-&gt;</span></div>
+    </div>
+  </ion-content>
+</ion-view>

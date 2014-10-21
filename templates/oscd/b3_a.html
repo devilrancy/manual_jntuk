@@ -1,0 +1,62 @@
+<ion-view title="PART B-3(a)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A program to simulate the MVT.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> m<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>m1<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>m2<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>p<span class="sh_symbol">,</span>count<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>i<span class="sh_symbol">;</span></li><li><span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"enter the memory capacity:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>m<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"enter the no of processes:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>p<span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>p<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">enter memory req for process%d: "</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>m1<span class="sh_symbol">);</span></li><li>count<span class="sh_symbol">=</span>count<span class="sh_symbol">+</span>m1<span class="sh_symbol">;</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>m1<span class="sh_symbol">&lt;=</span>m<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>count<span class="sh_symbol">==</span>m<span class="sh_symbol">)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"there is no further memory remaining:"</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"the memory allocated for process%d is: %d "</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">,</span>m<span class="sh_symbol">);</span></li><li>m2<span class="sh_symbol">=</span>m<span class="sh_symbol">-</span>m1<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">remaining memory is: %d"</span><span class="sh_symbol">,</span>m2<span class="sh_symbol">);</span></li><li>m<span class="sh_symbol">=</span>m2<span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">else</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"memory is not allocated for process%d"</span><span class="sh_symbol">,</span>i<span class="sh_number">+1</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">external fragmentation for this process is:%d"</span><span class="sh_symbol">,</span>m2<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main()
+{
+int m=0,m1=0,m2=0,p,count=0,i;
+clrscr();
+printf("enter the memory capacity:");
+scanf("%d",&amp;m);
+printf("enter the no of processes:");
+scanf("%d",&amp;p);
+for(i=0;i&lt;p;i++)
+{
+printf("\nenter memory req for process%d: ",i+1);
+scanf("%d",&amp;m1);
+count=count+m1;
+if(m1&lt;=m)
+{
+if(count==m)
+{
+printf("there is no further memory remaining:");
+}
+else
+{
+printf("the memory allocated for process%d is: %d ",i+1,m);
+m2=m-m1;
+printf("\nremaining memory is: %d",m2);
+m=m2;
+}
+}
+else
+{
+printf("memory is not allocated for process%d",i+1);
+}
+printf("\nexternal fragmentation for this process is:%d",m2);
+}
+getch();
+
+}
+</pre></div></div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	
+    </div>
+  </ion-content>
+</ion-view>

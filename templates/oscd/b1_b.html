@@ -1,0 +1,94 @@
+<ion-view title="PART B-1(b)">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+A program to simulate the SJF CPU scheduling algorithm.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;stdio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;conio.h&gt;</span></li><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;string.h&gt;</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_type">int</span> et<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">],</span>at<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span>n<span class="sh_symbol">,</span>i<span class="sh_symbol">,</span>j<span class="sh_symbol">,</span>temp<span class="sh_symbol">,</span>st<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span>ft<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span>wt<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">],</span>ta<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li><span class="sh_type">int</span> totwt<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span>totta<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li><span class="sh_type">float</span> awt<span class="sh_symbol">,</span>ata<span class="sh_symbol">;</span></li><li><span class="sh_type">char</span> pn<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">][</span><span class="sh_number">10</span><span class="sh_symbol">],</span>t<span class="sh_symbol">[</span><span class="sh_number">10</span><span class="sh_symbol">];</span></li><li><span class="sh_function">clrscr</span><span class="sh_symbol">();</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter the number of process:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%d"</span><span class="sh_symbol">,&amp;</span>n<span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"Enter process name, arrival time &amp; execution time:"</span><span class="sh_symbol">);</span></li><li><span class="sh_function">flushall</span><span class="sh_symbol">();</span></li><li><span class="sh_function">scanf</span><span class="sh_symbol">(</span><span class="sh_string">"%s%d%d"</span><span class="sh_symbol">,</span>pn<span class="sh_symbol">[</span>i<span class="sh_symbol">],&amp;</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">],&amp;</span>et<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>j<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>j<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>j<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>et<span class="sh_symbol">[</span>i<span class="sh_symbol">]&lt;</span>et<span class="sh_symbol">[</span>j<span class="sh_symbol">])</span></li><li><span class="sh_cbracket">{</span></li><li>temp<span class="sh_symbol">=</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>at<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>at<span class="sh_symbol">[</span>j<span class="sh_symbol">];</span></li><li>at<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>temp<span class="sh_symbol">;</span></li><li>temp<span class="sh_symbol">=</span>et<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>et<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>et<span class="sh_symbol">[</span>j<span class="sh_symbol">];</span></li><li>et<span class="sh_symbol">[</span>j<span class="sh_symbol">]=</span>temp<span class="sh_symbol">;</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>t<span class="sh_symbol">,</span>pn<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>pn<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span>pn<span class="sh_symbol">[</span>j<span class="sh_symbol">]);</span></li><li><span class="sh_function">strcpy</span><span class="sh_symbol">(</span>pn<span class="sh_symbol">[</span>j<span class="sh_symbol">],</span>t<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_cbracket">{</span></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span>i<span class="sh_symbol">==</span><span class="sh_number">0</span><span class="sh_symbol">)</span></li><li>st<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li><span class="sh_keyword">else</span></li><li>st<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>ft<span class="sh_symbol">[</span>i<span class="sh_number">-1</span><span class="sh_symbol">];</span></li><li>wt<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>st<span class="sh_symbol">[</span>i<span class="sh_symbol">]-</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>ft<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>st<span class="sh_symbol">[</span>i<span class="sh_symbol">]+</span>et<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>ta<span class="sh_symbol">[</span>i<span class="sh_symbol">]=</span>ft<span class="sh_symbol">[</span>i<span class="sh_symbol">]-</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>totwt<span class="sh_symbol">+=</span>wt<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li>totta<span class="sh_symbol">+=</span>ta<span class="sh_symbol">[</span>i<span class="sh_symbol">];</span></li><li><span class="sh_cbracket">}</span></li><li>awt<span class="sh_symbol">=(</span><span class="sh_type">float</span><span class="sh_symbol">)</span>totwt<span class="sh_symbol">/</span>n<span class="sh_symbol">;</span></li><li>ata<span class="sh_symbol">=(</span><span class="sh_type">float</span><span class="sh_symbol">)</span>totta<span class="sh_symbol">/</span>n<span class="sh_symbol">;</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Pname</span><span class="sh_specialchar">\t</span><span class="sh_string">arrivaltime</span><span class="sh_specialchar">\t</span><span class="sh_string">executiontime</span><span class="sh_specialchar">\t</span><span class="sh_string">waitingtime</span><span class="sh_specialchar">\t</span><span class="sh_string">tatime"</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">for</span><span class="sh_symbol">(</span>i<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span>i<span class="sh_symbol">&lt;</span>n<span class="sh_symbol">;</span>i<span class="sh_symbol">++)</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">%s</span><span class="sh_specialchar">\t</span><span class="sh_string">%5d</span><span class="sh_specialchar">\t\t</span><span class="sh_string">%5d</span><span class="sh_specialchar">\t\t</span><span class="sh_string">%5d</span><span class="sh_specialchar">\t\t</span><span class="sh_string">%5d"</span><span class="sh_symbol">,</span>pn<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span>at<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span>et<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span>wt<span class="sh_symbol">[</span>i<span class="sh_symbol">],</span>ta<span class="sh_symbol">[</span>i<span class="sh_symbol">]);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Average waiting time is:%f"</span><span class="sh_symbol">,</span>awt<span class="sh_symbol">);</span></li><li><span class="sh_function">printf</span><span class="sh_symbol">(</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Average turnaroundtime is:%f"</span><span class="sh_symbol">,</span>ata<span class="sh_symbol">);</span></li><li><span class="sh_function">getch</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;string.h&gt;
+void main()
+{
+int et[20],at[10],n,i,j,temp,st[10],ft[10],wt[10],ta[10];
+int totwt=0,totta=0;
+float awt,ata;
+char pn[10][10],t[10];
+clrscr();
+printf("Enter the number of process:");
+scanf("%d",&amp;n);
+for(i=0;i&lt;n;i++)
+{
+printf("Enter process name, arrival time &amp; execution time:");
+flushall();
+scanf("%s%d%d",pn[i],&amp;at[i],&amp;et[i]);
+}
+for(i=0;i&lt;n;i++)
+for(j=0;j&lt;n;j++)
+{
+if(et[i]&lt;et[j])
+{
+temp=at[i];
+at[i]=at[j];
+at[j]=temp;
+temp=et[i];
+et[i]=et[j];
+et[j]=temp;
+strcpy(t,pn[i]);
+strcpy(pn[i],pn[j]);
+strcpy(pn[j],t);
+}
+}
+for(i=0;i&lt;n;i++)
+{
+if(i==0)
+st[i]=at[i];
+else
+st[i]=ft[i-1];
+wt[i]=st[i]-at[i];
+ft[i]=st[i]+et[i];
+ta[i]=ft[i]-at[i];
+totwt+=wt[i];
+totta+=ta[i];
+}
+awt=(float)totwt/n;
+ata=(float)totta/n;
+printf("\nPname\tarrivaltime\texecutiontime\twaitingtime\ttatime");
+for(i=0;i&lt;n;i++)
+printf("\n%s\t%5d\t\t%5d\t\t%5d\t\t%5d",pn[i],at[i],et[i],wt[i],ta[i]);
+printf("\nAverage waiting time is:%f",awt);
+printf("\nAverage turnaroundtime is:%f",ata);
+getch();
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Input<span class="sh_symbol">:</span></li><li>Enter the number <span class="sh_usertype">of</span><span class="sh_normal"> </span>processes<span class="sh_symbol">:</span> <span class="sh_number">3</span></li><li>Enter the <span class="sh_usertype">Process</span><span class="sh_normal"> </span>Name<span class="sh_symbol">,</span> <span class="sh_usertype">Arrival</span><span class="sh_normal"> </span>Time <span class="sh_symbol">&amp;</span> <span class="sh_usertype">Burst</span><span class="sh_normal"> </span>Time<span class="sh_symbol">:</span> <span class="sh_number">1</span> <span class="sh_number">4</span> <span class="sh_number">6</span></li><li>Enter the <span class="sh_usertype">Process</span><span class="sh_normal"> </span>Name<span class="sh_symbol">,</span> <span class="sh_usertype">Arrival</span><span class="sh_normal"> </span>Time <span class="sh_symbol">&amp;</span> <span class="sh_usertype">Burst</span><span class="sh_normal"> </span>Time<span class="sh_symbol">:</span> <span class="sh_number">2</span> <span class="sh_number">5</span> <span class="sh_number">15</span></li><li>Enter the <span class="sh_usertype">Process</span><span class="sh_normal"> </span>Name<span class="sh_symbol">,</span> <span class="sh_usertype">Arrival</span><span class="sh_normal"> </span>Time <span class="sh_symbol">&amp;</span> <span class="sh_usertype">Burst</span><span class="sh_normal"> </span>Time<span class="sh_symbol">:</span> <span class="sh_number">3</span> <span class="sh_number">6</span> <span class="sh_number">11</span></li><li></li><li>Output<span class="sh_symbol">:</span></li><li></li><li>Pname    arrivaltime   executiontime   waitingtime  tatime</li><li><span class="sh_number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;     &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">0</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">6</span></li><li><span class="sh_number">3</span>&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">15</span></li><li><span class="sh_number">2</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">16</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_number">31</span></li><li></li><li>Average <span class="sh_usertype">Waiting</span><span class="sh_normal"> </span>Time<span class="sh_symbol">:</span> <span class="sh_number">6.6667</span></li><li>Average Turn <span class="sh_usertype">Around</span><span class="sh_normal"> </span>Time<span class="sh_symbol">:</span> <span class="sh_number">17.3333</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Input:
+Enter the number of processes: 3
+Enter the Process Name, Arrival Time &amp; Burst Time: 1 4 6
+Enter the Process Name, Arrival Time &amp; Burst Time: 2 5 15
+Enter the Process Name, Arrival Time &amp; Burst Time: 3 6 11
+
+Output:
+
+Pname    arrivaltime   executiontime   waitingtime  tatime
+1       4   6   0 6
+3       6   11    4 15
+2   5   15    16  31
+
+Average Waiting Time: 6.6667
+Average Turn Around Time: 17.3333
+</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

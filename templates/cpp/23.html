@@ -1,0 +1,70 @@
+<ion-view title="Program-23">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating for overloading ++ operator to increment data.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>Inc<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> val<span class="sh_symbol">;</span></li><li>public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">Inc</span><span class="sh_symbol">()</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">Inc</span><span class="sh_symbol">(</span><span class="sh_type">int</span> v<span class="sh_symbol">)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val<span class="sh_symbol">=</span>v<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Inc</span><span class="sh_normal"> </span>operator<span class="sh_symbol">++()</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>val<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> <span class="sh_function">Inc</span><span class="sh_symbol">(</span>val<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Inc</span><span class="sh_normal"> </span>operator<span class="sh_symbol">++(</span><span class="sh_type">int</span><span class="sh_symbol">)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Inc</span><span class="sh_normal"> </span><span class="sh_function">I</span><span class="sh_symbol">(</span>val<span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>val<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">return</span> I<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">show</span><span class="sh_symbol">()</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Value:"</span><span class="sh_symbol">&lt;&lt;</span>val<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span></li><li><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_usertype">Inc</span><span class="sh_normal"> </span><span class="sh_function">obj</span><span class="sh_symbol">(</span><span class="sh_number">15</span><span class="sh_symbol">);</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"Before "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">++</span>obj<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">After "</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;obj<span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+
+class Inc{
+  int val;
+public:
+  Inc() {
+    val=0;
+  }
+
+  Inc(int v)  {
+    val=v;
+  }
+
+  Inc operator++()  {
+    ++val;
+    return Inc(val);
+  }
+
+  Inc operator++(int) {
+    Inc I(val);
+    ++val;
+    return I;
+  }
+
+  void show() {
+    cout&lt;&lt;"Value:"&lt;&lt;val;
+  }
+};
+
+void main()
+{
+  Inc obj(15);
+  cout&lt;&lt;"Before ";
+  obj.show();
+  ++obj;
+  cout&lt;&lt;"\nAfter ";
+  obj.show();
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Parameterized <span class="sh_usertype">constructor</span><span class="sh_normal"> </span>working<span class="sh_symbol">....</span></li><li>Before</li><li>Value<span class="sh_symbol">:</span><span class="sh_number">15</span></li><li></li><li>Post incremental function without <span class="sh_usertype">parameter</span><span class="sh_normal"> </span>working<span class="sh_symbol">...</span></li><li></li><li>Parameterized <span class="sh_usertype">constructor</span><span class="sh_normal"> </span>working<span class="sh_symbol">....</span></li><li>After</li><li>Value<span class="sh_symbol">:</span><span class="sh_number">16</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Parameterized constructor working....
+Before
+Value:15
+
+Post incremental function without parameter working...
+
+Parameterized constructor working....
+After
+Value:16</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>

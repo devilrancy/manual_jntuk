@@ -1,0 +1,284 @@
+<ion-view title="Week-10">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Write a JSP which does the following job:</li><li>Insert the details of the 3 or 4 users who register with the web site (week9) by using registration</li><li>form. Authenticate the user when he submits the login form using the user name and password</li><li>from the database ( similar to week8 instead of cookies).</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Write a JSP which does the following job:
+Insert the details of the 3 or 4 users who register with the web site (week9) by using registration
+form. Authenticate the user when he submits the login form using the user name and password
+from the database ( similar to week8 instead of cookies).
+</pre></div></div>
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+      <h5><b>index.jsp</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_keyword">&lt;html&gt;</span></li><li><span class="sh_keyword">&lt;head&gt;</span></li><li><span class="sh_keyword">&lt;title&gt;</span>User Login<span class="sh_keyword">&lt;/title&gt;</span></li><li><span class="sh_keyword">&lt;/head&gt;</span></li><li><span class="sh_keyword">&lt;style&gt;</span></li><li>    body{</li><li>                font-family: Helvetica,Sans-serif;</li><li>                padding-top:150px;</li><li>                padding-left:450px;</li><li>                text-decoration:none;</li><li>                font-size:30px;</li><li>                color:white;</li><li>            }</li><li><span class="sh_keyword">&lt;/style&gt;</span></li><li><span class="sh_keyword">&lt;br&gt;</span></li><li><span class="sh_keyword">&lt;body</span> <span class="sh_type">bgcolor</span><span class="sh_symbol">=</span><span class="sh_string">"#c0392b"</span><span class="sh_keyword">&gt;</span></li><li><span class="sh_keyword">&lt;form</span> <span class="sh_type">method</span><span class="sh_symbol">=</span><span class="sh_string">"POST"</span> <span class="sh_type">action</span><span class="sh_symbol">=</span><span class="sh_string">"login"</span><span class="sh_keyword">&gt;</span></li><li>    <span class="sh_keyword">&lt;legend&gt;&lt;u&gt;&lt;b&gt;</span>Login form:<span class="sh_keyword">&lt;b&gt;&lt;/u&gt;&lt;/legend&gt;</span></li><li>  <span class="sh_keyword">&lt;p&gt;&lt;b&gt;</span>Username:<span class="sh_keyword">&lt;/b&gt;</span> <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"text"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"username"</span> <span class="sh_type">size</span><span class="sh_symbol">=</span><span class="sh_string">"10"</span> <span class="sh_type">style</span><span class="sh_symbol">=</span><span class="sh_string">"height: 30px; width:200px; "</span><span class="sh_keyword">&gt;&lt;/p&gt;</span></li><li>  <span class="sh_keyword">&lt;p&gt;&lt;b&gt;</span>Password:<span class="sh_keyword">&lt;/b&gt;</span> <span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"Password"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"password"</span> <span class="sh_type">size</span><span class="sh_symbol">=</span><span class="sh_string">"10"</span> <span class="sh_type">style</span><span class="sh_symbol">=</span><span class="sh_string">"height: 30px; width:200px; "</span><span class="sh_keyword">&gt;&lt;/p&gt;</span></li><li>  <span class="sh_keyword">&lt;p</span> <span class="sh_keyword">&gt;&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"submit"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">"Submit"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"submit"</span> <span class="sh_type">style</span><span class="sh_symbol">=</span><span class="sh_string">"height: 30px; "</span><span class="sh_keyword">&gt;</span><span class="sh_preproc">&amp;nbsp;</span><span class="sh_keyword">&lt;input</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">"reset"</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">"Reset"</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">"reset"</span> <span class="sh_type">style</span><span class="sh_symbol">=</span><span class="sh_string">"height: 30px; "</span><span class="sh_keyword">&gt;&lt;/p&gt;</span></li><li><span class="sh_keyword">&lt;/form&gt;</span></li><li><span class="sh_keyword">&lt;/body&gt;</span></li><li><span class="sh_keyword">&lt;/html&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Login&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    body{
+                font-family: Helvetica,Sans-serif;
+                padding-top:150px;
+                padding-left:450px;
+                text-decoration:none;
+                font-size:30px;
+                color:white;
+            }
+&lt;/style&gt;
+&lt;br&gt;
+&lt;body bgcolor="#c0392b"&gt;
+&lt;form method="POST" action="login"&gt;
+    &lt;legend&gt;&lt;u&gt;&lt;b&gt;Login form:&lt;b&gt;&lt;/u&gt;&lt;/legend&gt;
+  &lt;p&gt;&lt;b&gt;Username:&lt;/b&gt; &lt;input type="text" name="username" size="10" style="height: 30px; width:200px; "&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;Password:&lt;/b&gt; &lt;input type="Password" name="password" size="10" style="height: 30px; width:200px; "&gt;&lt;/p&gt;
+  &lt;p &gt;&lt;input type="submit" value="Submit" name="submit" style="height: 30px; "&gt;&amp;nbsp;&lt;input type="reset" value="Reset" name="reset" style="height: 30px; "&gt;&lt;/p&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div></div>
+      <h5><b>login.java</b></h5> 
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_comment">/*</span></li><li><span class="sh_comment"> * To change this license header, choose License Headers in Project Properties.</span></li><li><span class="sh_comment"> * To change this template file, choose Tools | Templates</span></li><li><span class="sh_comment"> * and open the template in the editor.</span></li><li><span class="sh_comment"> */</span></li><li></li><li><span class="sh_preproc">package</span> devilrancy<span class="sh_symbol">;</span></li><li></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>io<span class="sh_symbol">.</span>IOException<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>io<span class="sh_symbol">.</span>PrintWriter<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>ServletConfig<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>ServletException<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>http<span class="sh_symbol">.</span>HttpServlet<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>http<span class="sh_symbol">.</span>HttpServletRequest<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> javax<span class="sh_symbol">.</span>servlet<span class="sh_symbol">.</span>http<span class="sh_symbol">.</span>HttpServletResponse<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>sql<span class="sh_symbol">.*;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>util<span class="sh_symbol">.</span>logging<span class="sh_symbol">.</span>Level<span class="sh_symbol">;</span></li><li><span class="sh_preproc">import</span> java<span class="sh_symbol">.</span>util<span class="sh_symbol">.</span>logging<span class="sh_symbol">.</span>Logger<span class="sh_symbol">;</span></li><li></li><li><span class="sh_comment">/**</span></li><li><span class="sh_comment"> *</span></li><li><span class="sh_comment"> * </span><span class="sh_type">@author</span><span class="sh_comment"> naresh.s</span></li><li><span class="sh_comment"> */</span></li><li><span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal"> </span><span class="sh_classname">Login</span> <span class="sh_keyword">extends</span> HttpServlet <span class="sh_cbracket">{</span></li><li></li><li>    <span class="sh_comment">/**</span></li><li><span class="sh_comment">     * Processes requests for both HTTP </span><span class="sh_keyword">&lt;code&gt;</span><span class="sh_comment">GET</span><span class="sh_keyword">&lt;/code&gt;</span><span class="sh_comment"> and </span><span class="sh_keyword">&lt;code&gt;</span><span class="sh_comment">POST</span><span class="sh_keyword">&lt;/code&gt;</span></li><li><span class="sh_comment">     * methods.</span></li><li><span class="sh_comment">     *</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> request servlet request</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> response servlet response</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> ServletException if a servlet-specific error occurs</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> IOException if an I/O error occurs</span></li><li><span class="sh_comment">     */</span></li><li>    <span class="sh_keyword">protected</span> <span class="sh_type">void</span> <span class="sh_function">processRequest</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>            <span class="sh_keyword">throws</span> ServletException<span class="sh_symbol">,</span> IOException <span class="sh_cbracket">{</span></li><li>        response<span class="sh_symbol">.</span><span class="sh_function">setContentType</span><span class="sh_symbol">(</span><span class="sh_string">"text/html;charset=UTF-8"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_keyword">try</span> <span class="sh_symbol">(</span><span class="sh_usertype">PrintWriter</span><span class="sh_normal"> </span>out <span class="sh_symbol">=</span> response<span class="sh_symbol">.</span><span class="sh_function">getWriter</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>            <span class="sh_comment">/* </span><span class="sh_todo">TODO</span><span class="sh_comment"> output your page here. You may use following sample code. */</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;!DOCTYPE html&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;html&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;head&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;title&gt;Servlet Login&lt;/title&gt;"</span><span class="sh_symbol">);</span>            </li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/head&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;body&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;h1&gt;Servlet Login at "</span> <span class="sh_symbol">+</span> request<span class="sh_symbol">.</span><span class="sh_function">getContextPath</span><span class="sh_symbol">()</span> <span class="sh_symbol">+</span> <span class="sh_string">"&lt;/h1&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/body&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/html&gt;"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>    </li><li>    <span class="sh_keyword">public</span> <span class="sh_function">Login</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>        <span class="sh_keyword">super</span><span class="sh_symbol">();</span></li><li>    <span class="sh_cbracket">}</span></li><li>    </li><li>    <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">init</span><span class="sh_symbol">(</span><span class="sh_usertype">ServletConfig</span><span class="sh_normal"> </span>config<span class="sh_symbol">)</span> <span class="sh_keyword">throws</span> ServletException<span class="sh_cbracket">{</span></li><li>    </li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_keyword">protected</span> <span class="sh_type">void</span> <span class="sh_function">service</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>            <span class="sh_keyword">throws</span> ServletException<span class="sh_symbol">,</span> IOException <span class="sh_cbracket">{</span></li><li>        </li><li>        </li><li>        System<span class="sh_symbol">.</span>out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"We are in service method of the servlet"</span><span class="sh_symbol">);</span></li><li>        </li><li>        <span class="sh_comment">/*</span></li><li><span class="sh_comment">        String username="naresh";</span></li><li><span class="sh_comment">        String password="naresh";</span></li><li><span class="sh_comment">        */</span></li><li>        </li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>un<span class="sh_symbol">=</span>request<span class="sh_symbol">.</span><span class="sh_function">getParameter</span><span class="sh_symbol">(</span><span class="sh_string">"username"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>pw<span class="sh_symbol">=</span>request<span class="sh_symbol">.</span><span class="sh_function">getParameter</span><span class="sh_symbol">(</span><span class="sh_string">"password"</span><span class="sh_symbol">);</span></li><li>        </li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>msg<span class="sh_symbol">=</span><span class="sh_string">""</span><span class="sh_symbol">;</span></li><li>        </li><li>        <span class="sh_usertype">Connection</span><span class="sh_normal"> </span>conn<span class="sh_symbol">=</span><span class="sh_keyword">null</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>url<span class="sh_symbol">=</span><span class="sh_string">"jdbc:mysql://localhost:3410/"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>dbName<span class="sh_symbol">=</span><span class="sh_string">"ajwt"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>driver<span class="sh_symbol">=</span><span class="sh_string">"com.mysql.jdbc.Driver"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>userName<span class="sh_symbol">=</span><span class="sh_string">"root"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>password2<span class="sh_symbol">=</span><span class="sh_string">"root"</span><span class="sh_symbol">;</span></li><li>        </li><li>        <span class="sh_keyword">try</span><span class="sh_cbracket">{</span></li><li>        Class<span class="sh_symbol">.</span><span class="sh_function">forName</span><span class="sh_symbol">(</span>driver<span class="sh_symbol">).</span><span class="sh_function">newInstance</span><span class="sh_symbol">();</span></li><li>        conn <span class="sh_symbol">=</span> DriverManager<span class="sh_symbol">.</span><span class="sh_function">getConnection</span><span class="sh_symbol">(</span>url<span class="sh_symbol">+</span>dbName<span class="sh_symbol">,</span>userName<span class="sh_symbol">,</span>password2<span class="sh_symbol">);</span></li><li>        <span class="sh_usertype">String</span><span class="sh_normal"> </span>strQuery <span class="sh_symbol">=</span> <span class="sh_string">"select * from login where username='"</span><span class="sh_symbol">+</span> un <span class="sh_symbol">+</span><span class="sh_string">"' and password= '"</span><span class="sh_symbol">+</span> pw <span class="sh_symbol">+</span><span class="sh_string">"'"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_usertype">Statement</span><span class="sh_normal"> </span>st <span class="sh_symbol">=</span>conn<span class="sh_symbol">.</span><span class="sh_function">createStatement</span><span class="sh_symbol">();</span></li><li>        <span class="sh_usertype">ResultSet</span><span class="sh_normal"> </span>rs <span class="sh_symbol">=</span> st<span class="sh_symbol">.</span><span class="sh_function">executeQuery</span><span class="sh_symbol">(</span>strQuery<span class="sh_symbol">);</span></li><li>        <span class="sh_keyword">if</span><span class="sh_symbol">(</span>rs<span class="sh_symbol">.</span><span class="sh_function">next</span><span class="sh_symbol">())</span></li><li>        <span class="sh_cbracket">{</span></li><li>           msg<span class="sh_symbol">=</span><span class="sh_string">"Hello"</span><span class="sh_symbol">+</span><span class="sh_string">" "</span><span class="sh_symbol">+</span> un <span class="sh_symbol">+</span> <span class="sh_string">"! Your login was successful"</span><span class="sh_symbol">;</span> </li><li>        <span class="sh_cbracket">}</span></li><li>        <span class="sh_keyword">else</span></li><li>        <span class="sh_cbracket">{</span></li><li>            msg<span class="sh_symbol">=</span><span class="sh_string">"Hello"</span><span class="sh_symbol">+</span><span class="sh_string">" "</span><span class="sh_symbol">+</span> un <span class="sh_symbol">+</span> <span class="sh_string">"!Your login was Failure"</span><span class="sh_symbol">;</span></li><li>        <span class="sh_cbracket">}</span></li><li>        rs<span class="sh_symbol">.</span><span class="sh_function">close</span><span class="sh_symbol">();</span></li><li>        st<span class="sh_symbol">.</span><span class="sh_function">close</span><span class="sh_symbol">();</span></li><li>        <span class="sh_cbracket">}</span> <span class="sh_keyword">catch</span> <span class="sh_symbol">(</span><span class="sh_usertype">ClassNotFoundException</span><span class="sh_normal"> </span>ex<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            Logger<span class="sh_symbol">.</span><span class="sh_function">getLogger</span><span class="sh_symbol">(</span>Login<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">.</span><span class="sh_function">getName</span><span class="sh_symbol">()).</span><span class="sh_function">log</span><span class="sh_symbol">(</span>Level<span class="sh_symbol">.</span>SEVERE<span class="sh_symbol">,</span> <span class="sh_keyword">null</span><span class="sh_symbol">,</span> ex<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span> <span class="sh_keyword">catch</span> <span class="sh_symbol">(</span><span class="sh_usertype">InstantiationException</span><span class="sh_normal"> </span>ex<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            Logger<span class="sh_symbol">.</span><span class="sh_function">getLogger</span><span class="sh_symbol">(</span>Login<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">.</span><span class="sh_function">getName</span><span class="sh_symbol">()).</span><span class="sh_function">log</span><span class="sh_symbol">(</span>Level<span class="sh_symbol">.</span>SEVERE<span class="sh_symbol">,</span> <span class="sh_keyword">null</span><span class="sh_symbol">,</span> ex<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span> <span class="sh_keyword">catch</span> <span class="sh_symbol">(</span><span class="sh_usertype">IllegalAccessException</span><span class="sh_normal"> </span>ex<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            Logger<span class="sh_symbol">.</span><span class="sh_function">getLogger</span><span class="sh_symbol">(</span>Login<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">.</span><span class="sh_function">getName</span><span class="sh_symbol">()).</span><span class="sh_function">log</span><span class="sh_symbol">(</span>Level<span class="sh_symbol">.</span>SEVERE<span class="sh_symbol">,</span> <span class="sh_keyword">null</span><span class="sh_symbol">,</span> ex<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span> <span class="sh_keyword">catch</span> <span class="sh_symbol">(</span><span class="sh_usertype">SQLException</span><span class="sh_normal"> </span>ex<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            Logger<span class="sh_symbol">.</span><span class="sh_function">getLogger</span><span class="sh_symbol">(</span>Login<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">.</span><span class="sh_function">getName</span><span class="sh_symbol">()).</span><span class="sh_function">log</span><span class="sh_symbol">(</span>Level<span class="sh_symbol">.</span>SEVERE<span class="sh_symbol">,</span> <span class="sh_keyword">null</span><span class="sh_symbol">,</span> ex<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li>        </li><li>        <span class="sh_comment">/*</span></li><li><span class="sh_comment">        if (un.equals(username) &amp;&amp; pw.equals(password)) {</span></li><li><span class="sh_comment">            msg="Hello"+" "+ un + "! Your login was successful";</span></li><li><span class="sh_comment">        }else{</span></li><li><span class="sh_comment">            msg="Hello"+" "+ un + "!Your login was Failure";</span></li><li><span class="sh_comment">        }</span></li><li><span class="sh_comment">        */</span></li><li>        response<span class="sh_symbol">.</span><span class="sh_function">setContentType</span><span class="sh_symbol">(</span><span class="sh_string">"text/html;charset=UTF-8"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_keyword">try</span> <span class="sh_symbol">(</span><span class="sh_usertype">PrintWriter</span><span class="sh_normal"> </span>out <span class="sh_symbol">=</span> response<span class="sh_symbol">.</span><span class="sh_function">getWriter</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>            <span class="sh_comment">/* </span><span class="sh_todo">TODO</span><span class="sh_comment"> output your page here. You may use following sample code. */</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;!DOCTYPE html&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;html&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;head&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;title&gt;Welcome page&lt;/title&gt;"</span><span class="sh_symbol">);</span>  </li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;style&gt;body{ont-family: Helvetica,Sans-serif;padding-top:250px;padding-left:360px;text-decoration:none;font-size:20px;color:white;}a{font-size:20px;color:white;}&lt;/style&gt;"</span><span class="sh_symbol">);</span></li><li>         </li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/head&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;body bgcolor=</span><span class="sh_specialchar">\"</span><span class="sh_string">#16a085</span><span class="sh_specialchar">\"</span><span class="sh_string">&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;h1&gt;"</span><span class="sh_symbol">+</span><span class="sh_string">" "</span> <span class="sh_symbol">+</span> msg <span class="sh_symbol">+</span> <span class="sh_string">"&lt;/h1&gt;"</span><span class="sh_symbol">+</span><span class="sh_string">"&lt;a href=</span><span class="sh_specialchar">\"</span><span class="sh_string">logout.jsp</span><span class="sh_specialchar">\"</span><span class="sh_string">&gt;Logout!&lt;/a&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/br&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">""</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/body&gt;"</span><span class="sh_symbol">);</span></li><li>            out<span class="sh_symbol">.</span><span class="sh_function">println</span><span class="sh_symbol">(</span><span class="sh_string">"&lt;/html&gt;"</span><span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span></li><li>    </li><li>   </li><li>    <span class="sh_comment">// &lt;editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code."&gt;</span></li><li>    <span class="sh_comment">/**</span></li><li><span class="sh_comment">     * Handles the HTTP </span><span class="sh_keyword">&lt;code&gt;</span><span class="sh_comment">GET</span><span class="sh_keyword">&lt;/code&gt;</span><span class="sh_comment"> method.</span></li><li><span class="sh_comment">     *</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> request servlet request</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> response servlet response</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> ServletException if a servlet-specific error occurs</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> IOException if an I/O error occurs</span></li><li><span class="sh_comment">     */</span></li><li>    @Override</li><li>    <span class="sh_keyword">protected</span> <span class="sh_type">void</span> <span class="sh_function">doGet</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>            <span class="sh_keyword">throws</span> ServletException<span class="sh_symbol">,</span> IOException <span class="sh_cbracket">{</span></li><li>        <span class="sh_function">processRequest</span><span class="sh_symbol">(</span>request<span class="sh_symbol">,</span> response<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_comment">/**</span></li><li><span class="sh_comment">     * Handles the HTTP </span><span class="sh_keyword">&lt;code&gt;</span><span class="sh_comment">POST</span><span class="sh_keyword">&lt;/code&gt;</span><span class="sh_comment"> method.</span></li><li><span class="sh_comment">     *</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> request servlet request</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@param</span><span class="sh_comment"> response servlet response</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> ServletException if a servlet-specific error occurs</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@throws</span><span class="sh_comment"> IOException if an I/O error occurs</span></li><li><span class="sh_comment">     */</span></li><li>    @Override</li><li>    <span class="sh_keyword">protected</span> <span class="sh_type">void</span> <span class="sh_function">doPost</span><span class="sh_symbol">(</span><span class="sh_usertype">HttpServletRequest</span><span class="sh_normal"> </span>request<span class="sh_symbol">,</span> <span class="sh_usertype">HttpServletResponse</span><span class="sh_normal"> </span>response<span class="sh_symbol">)</span></li><li>            <span class="sh_keyword">throws</span> ServletException<span class="sh_symbol">,</span> IOException <span class="sh_cbracket">{</span></li><li>        <span class="sh_function">processRequest</span><span class="sh_symbol">(</span>request<span class="sh_symbol">,</span> response<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_comment">/**</span></li><li><span class="sh_comment">     * Returns a short description of the servlet.</span></li><li><span class="sh_comment">     *</span></li><li><span class="sh_comment">     * </span><span class="sh_type">@return</span><span class="sh_comment"> a String containing servlet description</span></li><li><span class="sh_comment">     */</span></li><li>    @Override</li><li>    <span class="sh_keyword">public</span> <span class="sh_usertype">String</span><span class="sh_normal"> </span><span class="sh_function">getServletInfo</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_keyword">return</span> <span class="sh_string">"Short description"</span><span class="sh_symbol">;</span></li><li>    <span class="sh_cbracket">}</span><span class="sh_comment">// &lt;/editor-fold&gt;</span></li><li></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package devilrancy;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author naresh.s
+ */
+public class Login extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("&lt;!DOCTYPE html&gt;");
+            out.println("&lt;html&gt;");
+            out.println("&lt;head&gt;");
+            out.println("&lt;title&gt;Servlet Login&lt;/title&gt;");            
+            out.println("&lt;/head&gt;");
+            out.println("&lt;body&gt;");
+            out.println("&lt;h1&gt;Servlet Login at " + request.getContextPath() + "&lt;/h1&gt;");
+            out.println("&lt;/body&gt;");
+            out.println("&lt;/html&gt;");
+        }
+    }
+    
+    public Login(){
+        super();
+    }
+    
+    public void init(ServletConfig config) throws ServletException{
+    
+    }
+
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        
+        System.out.println("We are in service method of the servlet");
+        
+        /*
+        String username="naresh";
+        String password="naresh";
+        */
+        
+        String un=request.getParameter("username");
+        String pw=request.getParameter("password");
+        
+        String msg="";
+        
+        Connection conn=null;
+        String url="jdbc:mysql://localhost:3410/";
+        String dbName="ajwt";
+        String driver="com.mysql.jdbc.Driver";
+        String userName="root";
+        String password2="root";
+        
+        try{
+        Class.forName(driver).newInstance();
+        conn = DriverManager.getConnection(url+dbName,userName,password2);
+        String strQuery = "select * from login where username='"+ un +"' and password= '"+ pw +"'";
+        Statement st =conn.createStatement();
+        ResultSet rs = st.executeQuery(strQuery);
+        if(rs.next())
+        {
+           msg="Hello"+" "+ un + "! Your login was successful"; 
+        }
+        else
+        {
+            msg="Hello"+" "+ un + "!Your login was Failure";
+        }
+        rs.close();
+        st.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        /*
+        if (un.equals(username) &amp;&amp; pw.equals(password)) {
+            msg="Hello"+" "+ un + "! Your login was successful";
+        }else{
+            msg="Hello"+" "+ un + "!Your login was Failure";
+        }
+        */
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("&lt;!DOCTYPE html&gt;");
+            out.println("&lt;html&gt;");
+            out.println("&lt;head&gt;");
+            out.println("&lt;title&gt;Welcome page&lt;/title&gt;");  
+            out.println("&lt;style&gt;body{ont-family: Helvetica,Sans-serif;padding-top:250px;padding-left:360px;text-decoration:none;font-size:20px;color:white;}a{font-size:20px;color:white;}&lt;/style&gt;");
+         
+            out.println("&lt;/head&gt;");
+            out.println("&lt;body bgcolor=\"#16a085\"&gt;");
+            out.println("&lt;h1&gt;"+" " + msg + "&lt;/h1&gt;"+"&lt;a href=\"logout.jsp\"&gt;Logout!&lt;/a&gt;");
+            out.println("&lt;/br&gt;");
+            out.println("");
+            out.println("&lt;/body&gt;");
+            out.println("&lt;/html&gt;");
+        }
+    }
+    
+   
+    // &lt;editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code."&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// &lt;/editor-fold&gt;
+
+}
+</pre></div></div>
+<h5><b>logout.jsp</b></h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_symbol">&lt;%</span>@<span class="sh_usertype">page</span><span class="sh_normal"> </span><span class="sh_preproc">import</span><span class="sh_symbol">=</span><span class="sh_string">"java.util.*"</span> <span class="sh_symbol">%&gt;</span></li><li><span class="sh_symbol">&lt;</span>html<span class="sh_symbol">&gt;</span></li><li>    <span class="sh_symbol">&lt;</span>head<span class="sh_symbol">&gt;</span></li><li>       <span class="sh_symbol">&lt;</span>style<span class="sh_symbol">&gt;</span></li><li>        body<span class="sh_cbracket">{</span></li><li>                font<span class="sh_symbol">-</span>family<span class="sh_symbol">:</span> Helvetica<span class="sh_symbol">,</span>Sans<span class="sh_symbol">-</span>serif<span class="sh_symbol">;</span></li><li>                padding<span class="sh_symbol">-</span>top<span class="sh_symbol">:</span>250px<span class="sh_symbol">;</span></li><li>                padding<span class="sh_symbol">-</span>left<span class="sh_symbol">:</span>450px<span class="sh_symbol">;</span></li><li>                text<span class="sh_symbol">-</span>decoration<span class="sh_symbol">:</span>none<span class="sh_symbol">;</span></li><li>                font<span class="sh_symbol">-</span>size<span class="sh_symbol">:</span>30px<span class="sh_symbol">;</span></li><li>                color<span class="sh_symbol">:</span>white<span class="sh_symbol">;</span></li><li>            <span class="sh_cbracket">}</span></li><li>            a<span class="sh_cbracket">{</span></li><li>                color<span class="sh_symbol">:</span>#bdc3c7<span class="sh_symbol">;</span></li><li>            <span class="sh_cbracket">}</span></li><li>        <span class="sh_symbol">&lt;/</span>style<span class="sh_symbol">&gt;</span></li><li>    <span class="sh_symbol">&lt;/</span>head<span class="sh_symbol">&gt;</span></li><li></li><li><span class="sh_symbol">&lt;%</span>session<span class="sh_symbol">.</span><span class="sh_function">invalidate</span><span class="sh_symbol">();%&gt;</span></li><li></li><li><span class="sh_symbol">&lt;</span><span class="sh_usertype">body</span><span class="sh_normal"> </span>bgcolor<span class="sh_symbol">=</span><span class="sh_string">"#2c3e50"</span><span class="sh_symbol">&gt;</span> </li><li>    <span class="sh_symbol">&lt;</span>p<span class="sh_symbol">&gt;</span>You have <span class="sh_usertype">logged</span><span class="sh_normal"> </span>out<span class="sh_symbol">.</span> Plese <span class="sh_symbol">&lt;</span><span class="sh_usertype">a</span><span class="sh_normal"> </span>href<span class="sh_symbol">=</span><span class="sh_string">"index.jsp"</span><span class="sh_symbol">&gt;&lt;</span>b<span class="sh_symbol">&gt;</span>Login<span class="sh_symbol">&lt;/</span>b<span class="sh_symbol">&gt;&lt;/</span>a<span class="sh_symbol">&gt;&lt;/</span>p<span class="sh_symbol">&gt;</span></li><li><span class="sh_symbol">&lt;/</span>body<span class="sh_symbol">&gt;</span></li><li><span class="sh_symbol">&lt;/</span>html<span class="sh_symbol">&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;%@page import="java.util.*" %&gt;
+&lt;html&gt;
+    &lt;head&gt;
+       &lt;style&gt;
+        body{
+                font-family: Helvetica,Sans-serif;
+                padding-top:250px;
+                padding-left:450px;
+                text-decoration:none;
+                font-size:30px;
+                color:white;
+            }
+            a{
+                color:#bdc3c7;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+
+&lt;%session.invalidate();%&gt;
+
+&lt;body bgcolor="#2c3e50"&gt; 
+    &lt;p&gt;You have logged out. Plese &lt;a href="index.jsp"&gt;&lt;b&gt;Login&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre></div></div>
+
+<h5><b>web.xml</b></h5>  
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_xml snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">&lt;?xml</span> <span class="sh_type">version</span><span class="sh_symbol">=</span><span class="sh_string">"1.0"</span> <span class="sh_type">encoding</span><span class="sh_symbol">=</span><span class="sh_string">"UTF-8"</span><span class="sh_preproc">?&gt;</span></li><li><span class="sh_keyword">&lt;web-app</span> <span class="sh_type">version</span><span class="sh_symbol">=</span><span class="sh_string">"3.1"</span> <span class="sh_type">xmlns</span><span class="sh_symbol">=</span><span class="sh_string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="sh_type">xmlns:xsi</span><span class="sh_symbol">=</span><span class="sh_string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="sh_type">xsi:schemaLocation</span><span class="sh_symbol">=</span><span class="sh_string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span><span class="sh_keyword">&gt;</span></li><li>    <span class="sh_keyword">&lt;servlet&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-name&gt;</span>Login<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-class&gt;</span>devilrancy.Login<span class="sh_keyword">&lt;/servlet-class&gt;</span></li><li>    <span class="sh_keyword">&lt;/servlet&gt;</span></li><li>    <span class="sh_keyword">&lt;servlet-mapping&gt;</span></li><li>        <span class="sh_keyword">&lt;servlet-name&gt;</span>Login<span class="sh_keyword">&lt;/servlet-name&gt;</span></li><li>        <span class="sh_keyword">&lt;url-pattern&gt;</span>/login<span class="sh_keyword">&lt;/url-pattern&gt;</span></li><li>    <span class="sh_keyword">&lt;/servlet-mapping&gt;</span></li><li>    <span class="sh_keyword">&lt;session-config&gt;</span></li><li>        <span class="sh_keyword">&lt;session-timeout&gt;</span></li><li>            30</li><li>        <span class="sh_keyword">&lt;/session-timeout&gt;</span></li><li>    <span class="sh_keyword">&lt;/session-config&gt;</span></li><li><span class="sh_keyword">&lt;/web-app&gt;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Login&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;devilrancy.Login&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Login&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/login&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    &lt;session-config&gt;
+        &lt;session-timeout&gt;
+            30
+        &lt;/session-timeout&gt;
+    &lt;/session-config&gt;
+&lt;/web-app&gt;
+</pre></div></div>
+</div>
+
+<div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w10_login.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-image">
+        <img src="img/w10_cnfrm.png">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

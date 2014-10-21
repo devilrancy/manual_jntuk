@@ -1,0 +1,54 @@
+<ion-view title="Program-13">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+Write a C++ Program illustrating Friend function.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span class="sh_preproc">#include</span><span class="sh_string">&lt;iostream.h&gt;</span></li><li><span class="sh_usertype">class</span><span class="sh_normal"> </span>stu<span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;private<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">int</span> roll<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">char</span> name<span class="sh_symbol">[</span><span class="sh_number">20</span><span class="sh_symbol">];</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;public<span class="sh_symbol">:</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_type">void</span> <span class="sh_function">insert</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend <span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">(</span><span class="sh_usertype">stu</span><span class="sh_normal"> </span>s<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span>obj<span class="sh_symbol">;</span></li><li><span class="sh_type">void</span> stu<span class="sh_symbol">::</span><span class="sh_function">insert</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter Roll No:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>roll<span class="sh_symbol">;</span></li><li></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Enter Name:"</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cin<span class="sh_symbol">&gt;&gt;</span>name<span class="sh_symbol">;</span></li><li></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">display</span><span class="sh_symbol">(</span><span class="sh_usertype">stu</span><span class="sh_normal"> </span>s<span class="sh_symbol">)</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Roll:"</span><span class="sh_symbol">&lt;&lt;</span>s<span class="sh_symbol">.</span>roll<span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;cout<span class="sh_symbol">&lt;&lt;</span><span class="sh_string">"</span><span class="sh_specialchar">\n</span><span class="sh_string">Name:"</span><span class="sh_symbol">&lt;&lt;</span>s<span class="sh_symbol">.</span>name<span class="sh_symbol">;</span></li><li></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_type">void</span> <span class="sh_function">main</span><span class="sh_symbol">()</span><span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; obj<span class="sh_symbol">.</span><span class="sh_function">insert</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp; <span class="sh_function">display</span><span class="sh_symbol">(</span>obj<span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">#include&lt;iostream.h&gt;
+class stu{
+  private:
+    int roll;
+    char name[20];
+  public:
+    void insert();
+    friend void display(stu s);
+}obj;
+void stu::insert(){
+  cout&lt;&lt;"\nEnter Roll No:";
+  cin&gt;&gt;roll;
+
+  cout&lt;&lt;"\nEnter Name:";
+  cin&gt;&gt;name;
+
+}
+void display(stu s){
+  cout&lt;&lt;"\nRoll:"&lt;&lt;s.roll;
+  cout&lt;&lt;"\nName:"&lt;&lt;s.name;
+
+}
+void main(){
+   obj.insert();
+   display(obj);
+}
+</pre></div></div> 
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_c snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li>Enter <span class="sh_usertype">Roll</span><span class="sh_normal"> </span>No<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li><span class="sh_usertype">Enter</span><span class="sh_normal"> </span>Name<span class="sh_symbol">:</span>James</li><li></li><li>Roll<span class="sh_symbol">:</span><span class="sh_number">12</span></li><li>Name<span class="sh_symbol">:</span>James</li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Enter Roll No:12
+Enter Name:James
+
+Roll:12
+Name:James</pre></div></div>
+    </div>
+  </ion-content>
+</ion-view>
