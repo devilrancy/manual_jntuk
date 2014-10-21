@@ -1,0 +1,46 @@
+<ion-view title="Exercise-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        Write recursive C program for calculation of GCD (n, m).
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+<span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; <span style="color: #993333;">int</span> n1<span style="color: #339933;">,</span>n2<span style="color: #339933;">,</span>gcd<span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter two numbers: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d %d&quot;</span><span style="color: #339933;">,&amp;</span>n1<span style="color: #339933;">,&amp;</span>n2<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; gcd<span style="color: #339933;">=</span>findgcd<span style="color: #009900;">&#40;</span>n1<span style="color: #339933;">,</span>n2<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>GCD of %d and %d is: %d&quot;</span><span style="color: #339933;">,</span>n1<span style="color: #339933;">,</span>n2<span style="color: #339933;">,</span>gcd<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #993333;">int</span> findgcd<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> x<span style="color: #339933;">,</span><span style="color: #993333;">int</span> y<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp;<span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span>x<span style="color: #339933;">!=</span>y<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>x<span style="color: #339933;">&gt;</span>y<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> findgcd<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">-</span>y<span style="color: #339933;">,</span>y<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> findgcd<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">,</span>y<span style="color: #339933;">-</span>x<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+<span style="color: #b1b100;">return</span> x<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">Enter two numbers<span style="color: #339933;">:</span> <span style="color: #0000dd;">12</span> <span style="color: #0000dd;">18</span><br />
+GCD of <span style="color: #0000dd;">12</span> and <span style="color: #0000dd;">18</span> is<span style="color: #339933;">:</span> <span style="color: #0000dd;">6</span></div>
+    </div>
+  </ion-content>
+</ion-view>

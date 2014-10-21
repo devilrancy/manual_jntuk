@@ -1,0 +1,340 @@
+<ion-view title="Exercise-11">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>
+        b)   Write a C program to insert a note into a BST.
+c)  Write a C program to delete a note from a BST.
+		  </p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	 <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">&nbsp; &nbsp; <span style="color: #339933;">#include &lt;stdio.h&gt;</span><br />
+&nbsp; &nbsp; <span style="color: #339933;">#include &lt;stdlib.h&gt;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">struct</span> btnode<br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> value<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>l<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><span style="color: #339933;">*</span>root <span style="color: #339933;">=</span> NULL<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>temp <span style="color: #339933;">=</span> NULL<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>t2<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>t1<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> delete1<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> delete<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> inorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> search<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> preorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> postorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> search1<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #339933;">,</span><span style="color: #993333;">int</span> data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> smallest<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> largest<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> flag <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> ch<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>OPERATIONS ---&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>1 - Insert an element into tree<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;2 - Delete an element from the tree<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;3 - Inorder Traversal<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;4 - Preorder Traversal<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;5 - Postorder Traversal<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;6 - Exit<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">while</span><span style="color: #009900;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter your choice : &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>ch<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">switch</span> <span style="color: #009900;">&#40;</span>ch<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; delete<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">3</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inorder<span style="color: #009900;">&#40;</span>root<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">4</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; preorder<span style="color: #009900;">&#40;</span>root<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; postorder<span style="color: #009900;">&#40;</span>root<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">case</span> <span style="color: #0000dd;">6</span><span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; exit<span style="color: #009900;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">default</span> <span style="color: #339933;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Wrong choice, Please enter correct choice &nbsp;&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To insert a node in the tree */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> insert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>root <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; root <span style="color: #339933;">=</span> temp<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search<span style="color: #009900;">&#40;</span>root<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To create a node */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> create<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> data<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Enter data of node to be inserted : &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; temp <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span>malloc<span style="color: #009900;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #339933;">*</span><span style="color: #993333;">sizeof</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; temp<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">=</span> data<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; temp<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">=</span> temp<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* Function to search the appropriate position to insert the new node */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> search<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>temp<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">&gt;</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> &nbsp; &nbsp; &nbsp;<span style="color: #808080; font-style: italic;">/* value more than root node value insert at right */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>temp<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">&gt;</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">=</span> temp<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>temp<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">&lt;</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> &nbsp; &nbsp;<span style="color: #808080; font-style: italic;">/* value less than root node value insert at left */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>temp<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">&lt;</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">=</span> temp<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* recursive function to perform inorder traversal of tree */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> inorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>root <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;No elements in a tree to display&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d -&gt; &quot;</span><span style="color: #339933;">,</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To check for the deleted node */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> delete<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> data<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>root <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;No elements in a tree to delete&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;Enter the data to be deleted : &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; scanf<span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; t1 <span style="color: #339933;">=</span> root<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; t2 <span style="color: #339933;">=</span> root<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; search1<span style="color: #009900;">&#40;</span>root<span style="color: #339933;">,</span> data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To find the preorder traversal */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> preorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>root <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;No elements in a tree to display&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d -&gt; &quot;</span><span style="color: #339933;">,</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; preorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; preorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To find the postorder traversal */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> postorder<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>root <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;No elements in a tree to display &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; postorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; postorder<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d -&gt; &quot;</span><span style="color: #339933;">,</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* Search for the appropriate position to insert the new node */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> search1<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #339933;">,</span> <span style="color: #993333;">int</span> data<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>data<span style="color: #339933;">&gt;</span>t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1 <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search1<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #339933;">,</span> data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>data <span style="color: #339933;">&lt;</span> t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1 <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search1<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #339933;">,</span> data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>data<span style="color: #339933;">==</span>t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; delete1<span style="color: #009900;">&#40;</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To delete a node */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">void</span> delete1<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #993333;">int</span> k<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To delete leaf node */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t1<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">==</span> t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; free<span style="color: #009900;">&#40;</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To delete node having one left hand child */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t1 <span style="color: #339933;">==</span> t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; root <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>l<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1 <span style="color: #339933;">=</span> root<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t1<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">==</span> t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>l<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>l<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; free<span style="color: #009900;">&#40;</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To delete node having right hand child */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">==</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t1 <span style="color: #339933;">==</span> t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; root <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1 <span style="color: #339933;">=</span> root<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t1<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">==</span> t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">=</span> t<span style="color: #339933;">-&gt;</span>r<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t <span style="color: #339933;">==</span> NULL<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; free<span style="color: #009900;">&#40;</span>t<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To delete node having two child */</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span> <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t2 <span style="color: #339933;">=</span> root<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; k <span style="color: #339933;">=</span> smallest<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; flag <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; k <span style="color: #339933;">=</span>largest<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; flag <span style="color: #339933;">=</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; search1<span style="color: #009900;">&#40;</span>root<span style="color: #339933;">,</span> k<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t<span style="color: #339933;">-&gt;</span>value <span style="color: #339933;">=</span> k<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To find the smallest element in the right sub tree */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> smallest<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; t2 <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t2 <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #009900;">&#40;</span>smallest<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>l<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;">/* To find the largest element in the left sub tree */</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> largest<span style="color: #009900;">&#40;</span><span style="color: #993333;">struct</span> btnode <span style="color: #339933;">*</span>t<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t2 <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #009900;">&#40;</span>largest<span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>r<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span><span style="color: #009900;">&#40;</span>t<span style="color: #339933;">-&gt;</span>value<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT:INSERTION
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">OPERATIONS <span style="color: #339933;">---</span><br />
+<span style="color: #0000dd;">1</span> <span style="color: #339933;">-</span> Insert an element into tree<br />
+<span style="color: #0000dd;">2</span> <span style="color: #339933;">-</span> Delete an element from the tree<br />
+<span style="color: #0000dd;">3</span> <span style="color: #339933;">-</span> Inorder Traversal<br />
+<span style="color: #0000dd;">4</span> <span style="color: #339933;">-</span> Preorder Traversal<br />
+<span style="color: #0000dd;">5</span> <span style="color: #339933;">-</span> Postorder Traversal<br />
+<span style="color: #0000dd;">6</span> <span style="color: #339933;">-</span> Exit<br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">23</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">34</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">54</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">3</span><br />
+<span style="color: #0000dd;">23</span> <span style="color: #339933;">-&gt;</span> <span style="color: #0000dd;">34</span> <span style="color: #339933;">-&gt;</span> <span style="color: #0000dd;">54</span> <span style="color: #339933;">-&gt;</span><br />
+Enter your &nbsp;choice <span style="color: #339933;">:</span></div>
+    </div>
+
+    <div class="item item-divider item-dark">
+      OUTPUT:DELETION
+    </div>
+    <div class="card">
+      <div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">OPERATIONS <span style="color: #339933;">---</span><br />
+<span style="color: #0000dd;">1</span> <span style="color: #339933;">-</span> Insert an element into tree<br />
+<span style="color: #0000dd;">2</span> <span style="color: #339933;">-</span> Delete an element from the tree<br />
+<span style="color: #0000dd;">3</span> <span style="color: #339933;">-</span> Inorder Traversal<br />
+<span style="color: #0000dd;">4</span> <span style="color: #339933;">-</span> Preorder Traversal<br />
+<span style="color: #0000dd;">5</span> <span style="color: #339933;">-</span> Postorder Traversal<br />
+<span style="color: #0000dd;">6</span> <span style="color: #339933;">-</span> Exit<br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">23</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">34</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">1</span><br />
+Enter data of node to be inserted <span style="color: #339933;">:</span> <span style="color: #0000dd;">54</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">3</span><br />
+<span style="color: #0000dd;">23</span> <span style="color: #339933;">-&gt;</span> <span style="color: #0000dd;">34</span> <span style="color: #339933;">-&gt;</span> <span style="color: #0000dd;">54</span> <span style="color: #339933;">-&gt;</span><br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">2</span><br />
+Enter the data to be deleted <span style="color: #339933;">:</span> <span style="color: #0000dd;">34</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">3</span><br />
+<span style="color: #0000dd;">23</span> <span style="color: #339933;">-&gt;</span> <span style="color: #0000dd;">54</span> <span style="color: #339933;">-&gt;</span><br />
+Enter your choice <span style="color: #339933;">:</span> <span style="color: #0000dd;">2</span><br />
+Enter the data to be deleted <span style="color: #339933;">:</span> <span style="color: #0000dd;">54</span><br />
+<br />
+Enter your choice <span style="color: #339933;">:</span><span style="color: #0000dd;">6</span></div>
+    </div>
+  </ion-content>
+</ion-view>

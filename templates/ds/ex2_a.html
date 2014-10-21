@@ -1,0 +1,36 @@
+<ion-view title="Exercise-2">
+  <ion-content class="has-header">
+  	<div class="item item-divider item-dark">
+      AIM
+    </div>
+    <div class="card ">
+    	<p>Write recursive C program for calculation of Factorial of an integer.
+		</p>
+    </div>
+    <div class="item item-divider item-dark">
+      PROGRAM
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #339933;">#include&lt;stdio.h&gt;</span><br />
+main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span> <span style="color: #993333;">int</span> a<span style="color: #339933;">,</span> fact<span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Enter any number: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> scanf <span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;%d&quot;</span><span style="color: #339933;">,</span> <span style="color: #339933;">&amp;</span>a<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+fact<span style="color: #339933;">=</span>rec <span style="color: #009900;">&#40;</span>a<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>Factorial Value = %d&quot;</span><span style="color: #339933;">,</span> fact<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+rec <span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> x<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span> <span style="color: #993333;">int</span> f<span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>x<span style="color: #339933;">==</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span> <span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #b1b100;">else</span> f<span style="color: #339933;">=</span>x<span style="color: #339933;">*</span>rec<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">-</span><span style="color: #0000dd;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span>f<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span><br />
+&nbsp;</div>
+    </div>
+    <div class="item item-divider item-dark">
+      OUTPUT
+    </div>
+    <div class="card">
+    	<div class="c" style="font-family:monospace;color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;">Enter any number<span style="color: #339933;">:</span> <span style="color: #0000dd;">5</span><br />
+Factorial Value <span style="color: #339933;">=</span> <span style="color: #0000dd;">120</span></div>
+    </div>
+  </ion-content>
+</ion-view>
